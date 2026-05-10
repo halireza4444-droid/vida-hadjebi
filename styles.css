@@ -295,12 +295,19 @@ body.menu-open { overflow: hidden; }
   margin: 0 0 48px;
   text-align: right;
   color: var(--ink);
-  /* Force Arabic/Persian contextual letter joining + ligatures so the
-     IranNastaliq script renders connected on iOS Safari as well. */
   font-feature-settings: "init", "medi", "fina", "isol", "liga", "rlig", "calt";
   font-variant-ligatures: common-ligatures contextual;
   text-rendering: optimizeLegibility;
-  -webkit-font-feature-settings: "init", "medi", "fina", "isol", "liga", "rlig", "calt";
+}
+
+/* Safari-only override: IranNastaliq's OpenType joining tables are not
+   applied correctly by Apple's CoreText engine — letters render isolated.
+   Use `Noto Nastaliq Urdu` instead, which ships natively on iOS 13+ and
+   macOS Catalina+ (no download needed). The .is-safari class is added by
+   script.js based on user-agent. */
+.is-safari .section-title,
+.is-safari .book-title {
+  font-family: 'Noto Nastaliq Urdu', 'IRANYekanWeb', serif;
 }
 
 .section-paragraph {

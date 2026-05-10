@@ -2,6 +2,13 @@
 // Wrapped in IIFE so identifiers are scoped and cannot collide on duplicate loads.
 (() => {
 
+// Detect Safari (desktop + iOS) so we can swap the broken IranNastaliq font
+// for Noto Nastaliq Urdu, which Apple ships natively and renders correctly.
+const ua = navigator.userAgent;
+const isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(ua) ||
+                 /iPad|iPhone|iPod/.test(ua);
+if (isSafari) document.documentElement.classList.add('is-safari');
+
 // Mobile menu (single morphing toggle, full-screen overlay, <600px)
 const navToggle  = document.querySelector('.nav-toggle');
 const mobileMenu = document.querySelector('.mobile-menu');
