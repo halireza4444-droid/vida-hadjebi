@@ -250,18 +250,6 @@ body {
   transform: none;
 }
 
-.mobile-menu-head {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 0 24px;
-}
-.mobile-menu-logo img {
-  width: 112px;
-  height: auto;
-  display: block;
-}
-
 .mobile-menu-items {
   display: flex;
   flex-direction: column;
