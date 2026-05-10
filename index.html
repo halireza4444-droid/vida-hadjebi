@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ویدا حاجبی</title>
+  <meta name="description" content="بیوگرافی، آثار، مصاحبه‌ها و گالری تصاویر ویدا حاجبی" />
+
+  <link rel="preload" href="assets/fonts/IRANYekanWeb-Regular.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="assets/fonts/IRANYekanWeb-Bold.ttf" as="font" type="font/ttf" crossorigin />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="main-nav" aria-label="ناوبری اصلی">
+      <a class="nav-logo" href="#biography" aria-label="ویدا حاجبی — خانه">
+        <img src="assets/images/logo.svg" alt="ویدا حاجبی" />
+      </a>
+      <ul class="nav-items">
+        <li><a href="#biography">بیوگرافی</a></li>
+        <li><a href="#books">کتاب‌ها</a></li>
+        <li><a href="#translations">ترجمه‌ها و مقالات</a></li>
+        <li><a href="#ramin">رامین</a></li>
+        <li><a href="#interviews">مصاحبه‌ها و ویدیوها</a></li>
+        <li><a href="#friends">دیدگاه‌های دوستان</a></li>
+        <li><a href="#gallery">گالری تصاویر</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mobileMenu">
+      <img class="nav-toggle-ico nav-toggle-ico--hamburger" src="assets/images/icon-hamburger.svg" alt="" />
+      <img class="nav-toggle-ico nav-toggle-ico--close"     src="assets/images/icon-close.svg"     alt="" />
+    </button>
+  </header>
+
+  <!-- Mobile menu overlay (visible <600px when toggled) -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-head">
+      <a href="#biography" class="mobile-menu-logo">
+        <img src="assets/images/logo.svg" alt="ویدا حاجبی" />
+      </a>
+    </div>
+    <ul class="mobile-menu-items">
+      <li><a href="#friends">دیدگاه‌های دوستان</a></li>
+      <li><a href="#gallery">گالری تصاویر</a></li>
+      <li><a href="#interviews">مصاحبه‌ها</a></li>
+      <li><a href="#ramin">رامین</a></li>
+      <li><a href="#translations">ترجمه‌ها و مقالات</a></li>
+      <li><a href="#books">کتاب‌ها</a></li>
+      <li><a href="#biography">بیوگرافی</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- Hero / Biography -->
+    <section id="biography" class="hero">
+      <div class="container hero-grid">
+        <figure class="hero-portrait">
+          <img src="assets/images/vida-portrait.jpg" alt="پرتره ویدا حاجبی" />
+        </figure>
+        <div class="hero-text">
+          <p class="hero-bio">
+            ویدا حاجبی (۱۳۱۵–۱۳۸۶) نویسنده و فعال سیاسی ایرانی است که با نگاهی مستقل و انتقادی، تجربه‌های خود از مبارزه و زندان را در آثارش روایت کرده است. او از همان ابتدا روحیه‌ای سرکش و پرسشگر داشت؛ در قالب‌ها نمی‌گنجید و به‌سادگی تن به چارچوب‌های از پیش تعیین‌شده نمی‌داد. به‌عنوان زن، نه در نقشِ ایثارگرِ کلاسیک تعریف شد و نه در چهارچوب‌های از پیش‌ساخته آرام گرفت. در عین حال، در دل این سرکشی به ظرافت‌های زندگی نیز وفادار ماند. این روحیه‌ی نقد و جست‌وجو، و پایبندی‌اش به شناخت تاریخ، در آثارش جلوه‌ای روشن پیدا کرد—به‌ویژه در داد بیداد، که به پلی برای صداهای گوناگونِ زنان از تجربه‌ی زندان بدل شد. او از بازنگری در اندیشه‌های خود هراسی نداشت؛ پیوسته در مسیرِ شناخت، خود را از نو می‌ساخت و جهان را دوباره می‌فهمید. از محمد مصدق تا فیدل کاسترو، از کوچه‌های تهران تا پاریس، پراگ، کوبا و الجزیره، زندگی و نگاه او در پیوندی میان تاریخ و تجربه شکل گرفت. در کتاب یادها ویدا روایت زندگی خویش را باز می‌گوید؛ روایتی که در عین شخصی بودن بخشی از تاریخ یک دوران است. ویدا نه در پی قهرمان‌سازی بود و نه خود را قهرمان می‌خواست؛ سادگی را ارج می‌نهاد.
+          </p>
+          <a href="#bio-full" class="btn btn-pill">
+            <span>بیوگرافی</span>
+            <img src="assets/images/icon-arrow-left.svg" alt="" class="btn-icon" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Books -->
+    <section id="books" class="section">
+      <div class="container">
+        <h2 class="section-title">کتاب‌ها</h2>
+        <div class="books-grid">
+          <article class="book-card">
+            <a href="book.html?id=pari"><img src="assets/images/book-pari.jpg" alt="پری در یاد دوستانش" /></a>
+          </article>
+          <article class="book-card">
+            <a href="book.html?id=dad-1"><img src="assets/images/book-dad-1.jpg" alt="داد بی‌داد جلد ۱" /></a>
+          </article>
+          <article class="book-card">
+            <a href="book.html?id=dad-2"><img src="assets/images/book-dad-2.jpg" alt="داد بی‌داد جلد ۲" /></a>
+          </article>
+          <article class="book-card">
+            <a href="book.html?id=ramin"><img src="assets/images/book-ramin.jpg" alt="قصه‌ی رامین" /></a>
+          </article>
+          <article class="book-card">
+            <a href="book.html?id=yadha"><img src="assets/images/book-yadha.jpg" alt="یادها" /></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Translations & Articles -->
+    <section id="translations" class="section">
+      <div class="container">
+        <h2 class="section-title">ترجمه‌ها و مقالات</h2>
+        <div class="translations-grid">
+          <article class="trans-card">
+            <a href="#"><img src="assets/images/trans-marx.jpg" alt="مارکس — هنگام فروریزی کمونیسم" /></a>
+          </article>
+          <article class="trans-card">
+            <a href="#"><img src="assets/images/trans-imperialism.jpg" alt="گفتمان امپریالیسم و معضل دموکراسی" /></a>
+          </article>
+          <article class="trans-card">
+            <a href="#"><img src="assets/images/trans-maria-delbar.jpg" alt="ماریا دلبر" /></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ramin -->
+    <section id="ramin" class="section">
+      <div class="container">
+        <h2 class="section-title">رامین - بخشی از جانم</h2>
+        <p class="section-paragraph">
+          رامین برای من فقط پسرم نیست؛ بخشی از جان و ادامه‌ راهی‌ست که با تمام سختی‌ها پیموده‌ام. او در میان روزهایی بزرگ شد که زندگی همیشه آسان نبود، اما تلاش کردم یاد بگیرد که حتی در تاریک‌ترین لحظه‌ها هم می‌شود انسان ماند و امیدوار بود. در نگاهش همیشه جست‌وجویی می‌بینم که برایم آشناست؛ همان میل به فهمیدن، به پرسیدن و به تسلیم نشدن. اگر چیزی از من به او رسیده باشد، امیدوارم همین باشد: شجاعت برای زیستن با صداقت و ایمان به اینکه هر انسان می‌تواند جهان خودش را تغییر دهد.
+        </p>
+        <div class="ramin-media">
+          <figure class="ramin-video" data-vimeo-id="194671630">
+            <button type="button" class="video-thumb" aria-label="پخش ویدیو">
+              <span class="play-btn" aria-hidden="true">
+                <svg viewBox="0 0 80 80" width="80" height="80">
+                  <circle cx="40" cy="40" r="40" fill="#128F23"/>
+                  <path d="M32 24l24 16-24 16V24z" fill="#fff"/>
+                </svg>
+              </span>
+            </button>
+          </figure>
+          <figure class="ramin-photo">
+            <img src="assets/images/ramin-vida.jpg" alt="رامین در کنار ویدا" />
+          </figure>
+        </div>
+        <div class="slider-controls" data-target=".ramin-media">
+          <button class="slider-btn" data-dir="prev" aria-label="قبلی">
+            <img src="assets/images/icon-slider-right.svg" alt="" />
+          </button>
+          <button class="slider-btn" data-dir="next" aria-label="بعدی">
+            <img src="assets/images/icon-slider-left.svg" alt="" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interviews & Videos -->
+    <section id="interviews" class="section">
+      <div class="container">
+        <h2 class="section-title">مصاحبه‌ها و ویدیوها</h2>
+        <ul class="interviews-list">
+          <li class="interview">
+            <details>
+              <summary>
+                <span class="iv-meta">
+                  <span class="iv-tag iv-tag--video">
+                    <img src="assets/images/icon-type-video.svg" alt="" />
+                    ویدئو
+                  </span>
+                  <span class="iv-source"><img src="assets/images/publisher-bbc.png" alt="" />بی بی سی فارسی</span>
+                </span>
+                <span class="iv-title">به عبارت دیگر: گفتگو با ویدا حاجبی</span>
+                <span class="iv-toggle" aria-hidden="true">
+                  <img class="iv-toggle-ico iv-toggle-ico--plus"  src="assets/images/icon-plus.svg"  alt="" />
+                  <img class="iv-toggle-ico iv-toggle-ico--minus" src="assets/images/icon-minus.svg" alt="" />
+                </span>
+              </summary>
+              <div class="iv-body">
+                <p>متن یا تعبیه ویدئو در این بخش قرار می‌گیرد.</p>
+              </div>
+            </details>
+          </li>
+          <li class="interview">
+            <details open>
+              <summary>
+                <span class="iv-meta">
+                  <span class="iv-tag iv-tag--text">
+                    <img src="assets/images/icon-type-text.svg" alt="" />
+                    متن
+                  </span>
+                  <span class="iv-source"><img src="assets/images/publisher-placeholder.svg" alt="" />زنان نیروی</span>
+                </span>
+                <span class="iv-title">نقد از تهران تا قاهره در نگاه ویدا حاجبی</span>
+                <span class="iv-toggle" aria-hidden="true">
+                  <img class="iv-toggle-ico iv-toggle-ico--plus"  src="assets/images/icon-plus.svg"  alt="" />
+                  <img class="iv-toggle-ico iv-toggle-ico--minus" src="assets/images/icon-minus.svg" alt="" />
+                </span>
+              </summary>
+              <div class="iv-body">
+                <p>
+                  در اینکه فیلم مستند از تهران تا قاهره مورد استقبال جوانان قرار گرفت، شکی نیست؛ ویدا حاجبی فعال سیاسی-اجتماعی و مهمان آن برنامه پاسخ‌های پر مغزی به سؤالات داد. اما این فیلم تا اینکه این فیلم تا حد مطلوب فاصله داشت. در اینکه از حد قابل قبولی فاصله دارد در پاریس، از این پس از موفقیت‌های دانشجویان پاریسی را به تشریع تاریخ آن دوره می‌پردازد و این بار راوی نیستم زنده. این کتاب اطلاعات و آن کتاب ها وقتی ندارد. این کتاب ها حاوی خاطرات ویدا حاجبی است که شامل دوره‌های مختلف تاریخی است.
+                </p>
+              </div>
+            </details>
+          </li>
+          <li class="interview">
+            <details>
+              <summary>
+                <span class="iv-meta">
+                  <span class="iv-tag iv-tag--text">
+                    <img src="assets/images/icon-type-text.svg" alt="" />
+                    متن
+                  </span>
+                  <span class="iv-source"><img src="assets/images/publisher-placeholder.svg" alt="" />مدرسه فمینیستی</span>
+                </span>
+                <span class="iv-title">ارج‌نامه ویدا حاجبی تبریزی: به احترام شهامت در نقد گذشته خود</span>
+                <span class="iv-toggle" aria-hidden="true">
+                  <img class="iv-toggle-ico iv-toggle-ico--plus"  src="assets/images/icon-plus.svg"  alt="" />
+                  <img class="iv-toggle-ico iv-toggle-ico--minus" src="assets/images/icon-minus.svg" alt="" />
+                </span>
+              </summary>
+              <div class="iv-body"></div>
+            </details>
+          </li>
+          <li class="interview">
+            <details>
+              <summary>
+                <span class="iv-meta">
+                  <span class="iv-tag iv-tag--text">
+                    <img src="assets/images/icon-type-text.svg" alt="" />
+                    متن
+                  </span>
+                  <span class="iv-source"><img src="assets/images/publisher-placeholder.svg" alt="" />مدرسه فمینیستی</span>
+                </span>
+                <span class="iv-title">ویدا حاجبی تبریزی: پشیمان نیستم!</span>
+                <span class="iv-toggle" aria-hidden="true">
+                  <img class="iv-toggle-ico iv-toggle-ico--plus"  src="assets/images/icon-plus.svg"  alt="" />
+                  <img class="iv-toggle-ico iv-toggle-ico--minus" src="assets/images/icon-minus.svg" alt="" />
+                </span>
+              </summary>
+              <div class="iv-body"></div>
+            </details>
+          </li>
+          <li class="interview">
+            <details>
+              <summary>
+                <span class="iv-meta">
+                  <span class="iv-tag iv-tag--text">
+                    <img src="assets/images/icon-type-text.svg" alt="" />
+                    متن
+                  </span>
+                  <span class="iv-source"><img src="assets/images/publisher-placeholder.svg" alt="" />مدرسه فمینیستی</span>
+                </span>
+                <span class="iv-title">بازتاب تاریخ از نگاه فرج دیبا</span>
+                <span class="iv-toggle" aria-hidden="true">
+                  <img class="iv-toggle-ico iv-toggle-ico--plus"  src="assets/images/icon-plus.svg"  alt="" />
+                  <img class="iv-toggle-ico iv-toggle-ico--minus" src="assets/images/icon-minus.svg" alt="" />
+                </span>
+              </summary>
+              <div class="iv-body"></div>
+            </details>
+          </li>
+          <li class="interview">
+            <details>
+              <summary>
+                <span class="iv-meta">
+                  <span class="iv-tag iv-tag--audio">
+                    <img src="assets/images/icon-type-audio.svg" alt="" />
+                    صوت
+                  </span>
+                  <span class="iv-source"><img src="assets/images/publisher-placeholder.svg" alt="" />زنان نیروی</span>
+                </span>
+                <span class="iv-title">ویدا حاجبی تبریزی از فمینیسم و حقوق زنان سخن می‌گوید</span>
+                <span class="iv-toggle" aria-hidden="true">
+                  <img class="iv-toggle-ico iv-toggle-ico--plus"  src="assets/images/icon-plus.svg"  alt="" />
+                  <img class="iv-toggle-ico iv-toggle-ico--minus" src="assets/images/icon-minus.svg" alt="" />
+                </span>
+              </summary>
+              <div class="iv-body"></div>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Vida, Meaning of Life -->
+    <section class="section">
+      <div class="container meaning-grid">
+        <div class="meaning-text">
+          <h2 class="section-title">ویدا - معنای زندگی</h2>
+          <p>
+            در این کتاب، ویدا و جنبه‌های گوناگون زندگی‌اش را از نگاه دوستان و نزدیکانش روایت می‌کنیم. امیدوارم این کتاب بتواند تصویری چندوجهی از ویدا به خواننده بدهد؛ تصویری از زنی که قهرمان‌سازی را زیر سؤال می‌برد. زنی که می‌توانست از بیرون به خود نگاه کند و بی هیچ ملاحظه‌ای گذشته‌اش را نقد کند؛ چراکه در جستجوی شناخت بود: شناختِ خود و شناختِ دیگری.
+          </p>
+          <a href="#" class="btn btn-pill">
+            <span>دانلود کتاب</span>
+            <img src="assets/images/icon-arrow-left.svg" alt="" class="btn-icon" />
+          </a>
+        </div>
+        <figure class="meaning-cover">
+          <img src="assets/images/meaning-of-life-cover.jpg" alt="جلد کتاب ویدا - معنای زندگی" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section id="gallery" class="section section-gallery">
+      <div class="container">
+        <div class="gallery-head">
+          <h2 class="section-title">گالری تصاویر</h2>
+          <a href="#" class="btn btn-pill">
+            <span>عکس‌های بیشتر</span>
+            <img src="assets/images/icon-arrow-left.svg" alt="" class="btn-icon" />
+          </a>
+        </div>
+        <div class="gallery-row">
+          <figure><img src="assets/images/gallery-portrait.jpg" alt="پرتره ویدا حاجبی" /></figure>
+          <figure><img src="assets/images/gallery-art-school.jpg" alt="مدرسه عالی هنرهای زیبا، ۱۹۵۷" /></figure>
+          <figure><img src="assets/images/gallery-hug.jpg" alt="ویدا و دوستش — عکس از مریم اشرفی" /></figure>
+          <figure><img src="assets/images/gallery-mother-baby.jpg" alt="ویدا با کودک" /></figure>
+          <figure><img src="assets/images/gallery-school-class.jpg" alt="اولین کودکستان ایرانی" /></figure>
+          <figure><img src="assets/images/gallery-statue.jpg" alt="ویدا کنار مجسمه" /></figure>
+        </div>
+        <div class="slider-controls" data-target=".gallery-row">
+          <button class="slider-btn" data-dir="prev" aria-label="قبلی">
+            <img src="assets/images/icon-slider-right.svg" alt="" />
+          </button>
+          <button class="slider-btn" data-dir="next" aria-label="بعدی">
+            <img src="assets/images/icon-slider-left.svg" alt="" />
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© ویدا حاجبی · همه حقوق محفوظ است</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,983 @@
+/* ===========================================================
+   Vida Hajebi — Biography site
+   Design tokens taken from the Figma file (Home page, 1440×5539)
+   =========================================================== */
+
+:root {
+  --bg: #FFF9F5;
+  --ink: #000000;
+  --ink-muted: #7F7F7F;
+  --line: #E7E7E7;
+  --accent: #128F23;
+  --accent-ink: #ffffff;
+
+  --container: 1200px;
+  --gutter: 24px;
+
+  /* Type — local IRANYekanWeb (8 weights) for body, IranNastaliq for display. */
+  --font-body: 'IRANYekanWeb', 'Vazirmatn', 'Tahoma', system-ui, sans-serif;
+  --font-display: 'IranNastaliq', 'IRANYekanWeb', 'Vazirmatn', serif;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+  --radius-sm: 6px;
+  --radius: 12px;
+}
+
+/* ---------- IRANYekanWeb (8 weights, local) ---------- */
+@font-face {
+  font-family: 'IRANYekanWeb';
+  src: url('assets/fonts/IRANYekanWeb-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IRANYekanWeb';
+  src: url('assets/fonts/IRANYekanWeb-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IRANYekanWeb';
+  src: url('assets/fonts/IRANYekanWeb-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IRANYekanWeb';
+  src: url('assets/fonts/IRANYekanWeb-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IRANYekanWeb';
+  src: url('assets/fonts/IRANYekanWeb-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IRANYekanWeb';
+  src: url('assets/fonts/IRANYekanWeb-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IRANYekanWeb';
+  src: url('assets/fonts/IRANYekanWeb-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IRANYekanWeb';
+  src: url('assets/fonts/IRANYekanWeb-ExtraBlack.ttf') format('truetype');
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* IranNastaliq (calligraphic display font for Persian headings) */
+@font-face {
+  font-family: 'IranNastaliq';
+  src: url('assets/fonts/IranNastaliq.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq-font@v1.1.1/dist/IranNastaliq.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+ul { list-style: none; padding: 0; margin: 0; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  /* Cream background + tight hexagonal dot pattern.
+     For an equilateral hex grid: cell-height = cell-width × √3.
+     Tile 24 × 42 with the second layer offset by (12, 21) gives a true hex. */
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle, rgba(0, 0, 0, 0.035) 1.5px, transparent 2px),
+    radial-gradient(circle, rgba(0, 0, 0, 0.035) 1.5px, transparent 2px);
+  background-size: 16px 28px, 16px 28px;
+  background-position: 0 0, 8px 14px;
+  line-height: 1.9;
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---------- Header / Nav ----------
+   Floating glass pill, centered, fixed to top.
+   Spec from Figma node 127:32 — 865×43, padding 4px 16px,
+   gap 10px, radius 12px, fill rgba(255,255,255,.30), font IRANYekan 18px/700.
+   Glass: backdrop-filter blur+saturate to mimic Figma's glass effect
+   (refraction 100, depth 40, dispersion 52, frost 20).
+*/
+.site-header {
+  position: fixed;
+  top: 16px;
+  inset-inline: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;             /* let scroll happen behind the pill */
+  padding-inline: 16px;
+}
+.site-header > * { pointer-events: auto; }
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;          /* logo right (RTL start), items left (RTL end) */
+  width: 100%;
+  max-width: 1248px;
+  padding: 16px;
+  padding-inline-start: 32px;              /* 32px on the visual RIGHT in RTL — logo margin */
+  padding-inline-end: 24px;                /* 24px on the visual LEFT in RTL — nav margin */
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.30);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 1px 1px rgba(255, 255, 255, 0.45) inset,
+    0 8px 32px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.nav-logo img {
+  width: 100px;
+  height: auto;
+  display: block;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+.nav-items a {
+  position: relative;
+  display: inline-block;
+  padding: 4px 0;
+  color: var(--ink);
+  transition: color .2s, opacity .2s;
+}
+.nav-items a:hover,
+.nav-items a:focus-visible {
+  opacity: .65;
+  outline: none;
+}
+
+/* Hamburger / close — single button on the visual RIGHT.
+   Lives above the overlay (z-index 200) and is the only toggle. */
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 8px;
+  inset-inline-start: 8px;       /* visual RIGHT in RTL */
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  z-index: 200;
+}
+.nav-toggle:hover { background: rgba(0, 0, 0, 0.04); }
+
+.nav-toggle-ico {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+.nav-toggle-ico--close             { display: none; }
+.nav-toggle.is-open .nav-toggle-ico--hamburger { display: none; }
+.nav-toggle.is-open .nav-toggle-ico--close     { display: block; }
+
+/* ---------- Mobile menu overlay ----------
+   White 30% glass effect (matches Figma node 169-333) layered over the
+   page's cream + dot pattern so the dots blur through softly. */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.30);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  padding: 24px 24px 48px;
+  overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity .25s ease, transform .25s ease, visibility .25s;
+}
+.mobile-menu.is-open {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+.mobile-menu-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 0 24px;
+}
+.mobile-menu-logo img {
+  width: 112px;
+  height: auto;
+  display: block;
+}
+
+.mobile-menu-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 24px 0;
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+.mobile-menu-items a {
+  display: inline-block;
+  padding: 6px 12px;
+  color: var(--ink);
+  transition: opacity .2s;
+}
+.mobile-menu-items a:hover { opacity: .65; }
+
+/* Lock body scroll while the menu is open */
+body.menu-open { overflow: hidden; }
+
+/* ---------- Section primitives ---------- */
+.section { padding: 88px 0; }
+.section + .section { padding-top: 0; }
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0 0 48px;
+  text-align: right;
+  color: var(--ink);
+}
+
+.section-paragraph {
+  max-width: 1100px;
+  margin: 0 0 32px;
+  font-size: 16px;
+  line-height: 2.1;
+  text-align: justify;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color .2s, color .2s, transform .15s;
+}
+.btn:hover { background: var(--ink); color: var(--bg); }
+.btn:hover .btn-icon { filter: invert(1); }
+.btn:active { transform: translateY(1px); }
+.btn-ghost { background: transparent; }
+.btn-small { padding: 6px 14px; font-size: 13px; }
+
+/* Pill button with arrow icon (used in hero biography link).
+   Figma: padding 8/24/8/16, gap 10, bg #FFF9F5, border 1px #000. */
+.btn-pill {
+  padding: 8px 24px 8px 16px;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--bg);
+  border-width: 1px;
+  border-color: var(--ink);
+}
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  transition: filter .2s, transform .25s ease;
+}
+.btn:hover .btn-icon { transform: translateX(-3px); }   /* slides toward text in RTL */
+
+/* Outline pill — used for "دانلود کتاب" and "عکس‌های بیشتر".
+   1px black border, cream fill, IRANYekan 20/700, padding 8px 24px, height 48px. */
+.btn-primary {
+  padding: 8px 24px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  height: 48px;
+  background: var(--bg);                /* #FFF9F5 */
+  border: 1px solid var(--ink);         /* #000 */
+  color: var(--ink);
+}
+.btn-primary:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* ---------- Hero ----------
+   Desktop: flex space-between, portrait on RIGHT (RTL start), text on LEFT.
+   Figma frame 1281×726, padding ~80px vertical.
+*/
+.hero { padding: 120px 0 96px; }       /* extra top padding for fixed header */
+
+.hero-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+}
+
+.hero-portrait {
+  margin: 0;
+  flex: 0 0 auto;
+  width: clamp(280px, 38vw, 520px);
+}
+.hero-portrait img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #D0D0D0;
+  border-radius: 16px;
+}
+
+.hero-text {
+  flex: 1 1 0;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;            /* button on visual LEFT in RTL */
+  gap: 32px;
+}
+.hero-bio {
+  font-size: 16px;
+  line-height: 1.9;          /* ~10% tighter line spacing */
+  text-align: justify;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ---------- Books ----------
+   5 covers in a single row up through 1280px; smaller below 600px. */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+.book-card img {
+  width: 100%;
+  aspect-ratio: 237 / 350;
+  object-fit: cover;
+  border: 1px solid var(--line);     /* #E7E7E7 */
+  border-radius: 12px;
+  background: #fff;
+  transition: transform .3s ease;
+}
+.book-card a:hover img { transform: translateY(-4px); }
+
+/* ---------- Translations ----------
+   Same styling AND cell size as books: 5-column grid (3 items fill the start,
+   leaving the 2 trailing cells empty so each cover matches a book in width). */
+.translations-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+.trans-card img {
+  width: 100%;
+  aspect-ratio: 237 / 350;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  transition: transform .3s ease;
+}
+.trans-card a:hover img { transform: translateY(-4px); }
+
+/* ---------- Ramin ----------
+   Two side-by-side media tiles. Video on the visual RIGHT (RTL start, wider),
+   photo on the visual LEFT. Video uses click-to-play Vimeo embed. */
+.ramin-media {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;          /* wider video first → visual RIGHT in RTL */
+  gap: 16px;
+  align-items: stretch;
+}
+.ramin-photo,
+.ramin-video {
+  margin: 0;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.ramin-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Video tile — black surface with centered green play button.
+   Switches to a Vimeo iframe when clicked (see script.js). */
+.ramin-video {
+  background: #000;
+  position: relative;
+}
+.ramin-video .video-thumb {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color .2s;
+}
+.ramin-video .video-thumb:hover { background: rgba(255, 255, 255, 0.04); }
+.ramin-video .play-btn {
+  display: inline-block;
+  transition: transform .2s ease;
+}
+.ramin-video .video-thumb:hover .play-btn { transform: scale(1.06); }
+
+.ramin-video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.slider-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+.slider-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-muted);
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color .15s, border-color .15s, transform .15s;
+}
+.slider-btn img {
+  width: 16px;
+  height: 16px;
+  display: block;
+  pointer-events: none;     /* clicks register on the button, not the image */
+}
+.slider-btn:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.slider-btn:hover img { filter: brightness(0) invert(1); }
+.slider-btn:active { transform: scale(.95); }
+.slider-btn:disabled {
+  opacity: 0.7;             /* clearly visible but obviously inactive */
+  cursor: default;          /* no "not-allowed" icon */
+  background: transparent;
+  border-color: var(--ink-muted);
+}
+.slider-btn:disabled:hover {
+  background: transparent;  /* don't darken on hover when disabled */
+  border-color: var(--ink-muted);
+}
+.slider-btn:disabled:hover img { filter: none; }
+
+/* ---------- Book detail page (book.html) ---------- */
+.book-page { padding-top: 96px; }              /* clears the fixed header */
+
+.book-hero { padding: 32px 0 48px; }
+.book-hero-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;             /* RTL: col1 (cover) at right, col2 (text) at left */
+  gap: 56px;
+  align-items: start;
+}
+.book-hero-cover { margin: 0; }
+.book-hero-cover img {
+  width: 100%;
+  aspect-ratio: 237 / 350;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.book-hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;        /* children fill the column width */
+  gap: 32px;
+  text-align: right;
+}
+
+.book-title {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+  color: var(--ink);
+  text-align: right;
+}
+
+.book-meta {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.book-meta > div {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  justify-content: flex-start;  /* RTL: start = visual RIGHT */
+}
+.book-meta dt {
+  color: var(--ink-muted);
+  font-weight: 500;
+  margin: 0;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.book-meta dd {
+  color: var(--ink);
+  font-weight: 700;
+  margin: 0;
+}
+
+.book-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-start;  /* RTL: pin to visual RIGHT */
+}
+
+/* Filled green "buy" button — distinct from the outline pill */
+.btn-buy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 8px 24px;
+  border-radius: 999px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+  transition: background-color .2s, transform .15s;
+}
+.btn-buy:hover { background: #0e7a1d; }
+.btn-buy:active { transform: translateY(1px); }
+
+/* Long-form description */
+.book-content { padding-top: 0; padding-bottom: 64px; }
+.book-content-inner { max-width: 980px; margin-inline: auto; }
+.book-h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 32px 0 12px;
+  text-align: right;
+}
+.book-content p {
+  font-size: 16px;
+  line-height: 2.0;
+  margin: 0 0 16px;
+  color: var(--ink);
+  text-align: justify;
+}
+
+.book-excerpt {
+  margin: 12px 0 0;
+  padding: 24px 28px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.book-excerpt p {
+  font-size: 16px;
+  line-height: 2.0;
+  margin: 0 0 12px;
+  text-align: justify;
+}
+.book-excerpt p:last-child { margin-bottom: 0; }
+
+/* "Other books" reuses .books-grid from the home page (5 columns) */
+.other-books .books-grid { grid-template-columns: repeat(4, 1fr); }
+
+/* ---------- Interviews / Videos ----------
+   Each row: tags (RTL start / right) · title · +/- toggle (RTL end / left).
+   Rows separated by 1px line. Expanded body sits below the summary.
+*/
+.interviews-list { display: flex; flex-direction: column; }
+.interview {
+  border-bottom: 1px solid var(--line);
+  align-self: stretch;
+}
+.interview:first-child { border-top: 1px solid var(--line); }
+
+/* Two-row layout per Figma:
+   ROW 1: type chip · dot · publisher (right side, RTL start) — toggle (left)
+   ROW 2: title (right) — toggle button spans both rows visually
+*/
+.interview summary {
+  display: grid;
+  grid-template-columns: 1fr 36px;
+  grid-template-rows: auto auto;
+  column-gap: 24px;
+  row-gap: 8px;
+  padding: 16px 4px;
+  cursor: pointer;
+  list-style: none;
+  text-align: right;
+  align-items: center;
+}
+.interview summary::-webkit-details-marker { display: none; }
+
+/* Toggle spans both rows on the visual LEFT — 36px circle, 1px #7F7F7F, 20px icon */
+.iv-toggle {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  border: 1px solid #7F7F7F;
+  border-radius: 50%;
+  background: transparent;
+  box-sizing: border-box;
+}
+.iv-toggle-ico { width: 20px; height: 20px; display: block; }
+.iv-toggle-ico--minus { display: none; }
+.interview details[open] .iv-toggle-ico--plus  { display: none; }
+.interview details[open] .iv-toggle-ico--minus { display: block; }
+
+/* Meta row: type — dot — publisher  */
+.iv-meta {
+  grid-column: 1;
+  grid-row: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;        /* RTL: items align to visual RIGHT */
+  gap: 16px;
+  white-space: nowrap;
+  font-size: 16px;
+}
+
+/* Type chip: colored 24px icon + matching colored 16px label */
+.iv-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+}
+.iv-tag img { width: 24px; height: 24px; display: block; }
+.iv-tag--video { color: #128F23; }
+.iv-tag--text  { color: #D78B21; }
+.iv-tag--audio { color: #1FC7D7; }
+
+/* Separator dot between type and publisher (4px, #6E6E6E) */
+.iv-meta::before { content: none; }                  /* fallback off */
+.iv-meta .iv-dot,
+.iv-meta::after { display: none; }                   /* placeholder */
+.iv-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #595959;
+}
+.iv-source::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #6E6E6E;
+  margin-inline-end: 8px;             /* dot sits between source and the type chip on its right (RTL) */
+}
+.iv-source img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #E7E7E7;                /* fallback circle */
+  display: block;
+}
+
+/* Title row */
+.iv-title {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: right;
+  line-height: 1.4;
+}
+
+.iv-body {
+  padding: 0 0 16px 4px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 2.0;
+  color: #696969;
+  text-align: justify;
+}
+
+/* ---------- Vida — Meaning of Life ---------- */
+.meaning-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.meaning-text { padding-block: 16px; }
+.meaning-text p {
+  margin: 0 0 28px;
+  text-align: justify;
+}
+.meaning-cover img {
+  width: 100%;
+  max-width: 360px;
+  margin-inline: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------- Gallery ---------- */
+.section-gallery { padding-bottom: 96px; }
+.gallery-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.gallery-head .section-title { margin: 0; }
+
+/* Gallery row — preserve each image's natural aspect ratio, cap height at 275px,
+   horizontal scroll if the natural widths exceed the container. */
+.gallery-row {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+.gallery-row figure {
+  margin: 0;
+  flex: 0 0 auto;
+}
+.gallery-row img {
+  height: 275px;
+  width: auto;
+  max-height: 275px;
+  display: block;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: transform .25s ease;
+}
+.gallery-row figure:hover img {
+  transform: scale(1.02);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 32px 0;
+  margin-top: 40px;
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 13px;
+}
+
+/* ---------- Responsive ----------
+   Header rules (≥900 → 600 → <600):
+     ≥900px : 18px/700, gap 10px (Figma desktop+tablet)
+     899→600: 16px → 14px, gap shrinks gradually
+     <600px : pill collapses to hamburger + drawer
+*/
+
+/* Tablet: 900–1200 → font 16px, gap 18px (logo stays 100px) */
+@media (max-width: 1200px) {
+  .main-nav  { padding: 14px; padding-inline-start: 28px; padding-inline-end: 20px; }
+  .nav-items { gap: 18px; font-size: 16px; }
+}
+
+/* Small tablet: 600–900 → font 14px, gap 14px, logo shrinks slightly */
+@media (max-width: 900px) {
+  .main-nav     { padding: 12px; padding-inline-start: 22px; padding-inline-end: 16px; }
+  .nav-items    { gap: 14px; font-size: 14px; }
+  .nav-logo img { width: 84px; }
+
+  .display { font-size: 64px; }
+  .section-title { font-size: 44px; margin-bottom: 32px; }
+  .section { padding: 64px 0; }
+  .hero { padding-top: 100px; padding-bottom: 56px; }
+
+  .hero-grid { flex-direction: column; gap: 28px; align-items: stretch; }
+  .hero-portrait { width: 100%; max-width: 360px; margin-inline: auto; order: 0; }
+  .hero-text { max-width: none; align-items: stretch; gap: 24px; }
+  .hero-text .btn { align-self: flex-start; }    /* button on visual LEFT in RTL */
+
+  .books-grid { grid-template-columns: repeat(5, 1fr); gap: 16px; }
+
+  /* Book detail page: cover above text on tablets */
+  .book-hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .book-hero-cover { max-width: 240px; margin-inline: auto; }
+  .book-title { font-size: 44px; }
+  .book-h2 { font-size: 18px; }
+  .other-books .books-grid { grid-template-columns: repeat(4, 1fr); }
+  .translations-grid { grid-template-columns: 1fr; }
+  .ramin-media { grid-template-columns: 1fr; }
+  .meaning-grid { grid-template-columns: 1fr; gap: 32px; }
+  .meaning-cover img { max-width: 260px; }
+  .gallery-row { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Below 600 → glass strip at the top covering status bar + hamburger area
+   (matches Frame 67 in the Figma mobile design) */
+@media (max-width: 600px) {
+  .site-header {
+    top: 0;                                 /* glue to the very top */
+    inset-inline: 0;
+    padding: 8px 16px;
+    pointer-events: auto;
+    z-index: 200;                           /* above the menu overlay */
+    min-height: 56px;
+    justify-content: flex-start;            /* RTL: items align to the visual RIGHT */
+    background: rgba(255, 255, 255, 0.30);  /* white 30% — matches Frame 67 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    /* extend through the iOS notch / status bar */
+    padding-top: max(8px, env(safe-area-inset-top));
+  }
+
+  /* Reset the fixed-toggle: let it flow inside the glass strip on the right */
+  .nav-toggle {
+    position: static;
+    display: flex;
+  }
+
+  .main-nav { display: none; }
+
+  /* Push the menu content below the new glass strip + safe-area */
+  .mobile-menu { padding-top: calc(64px + env(safe-area-inset-top, 0px)); }
+
+  /* Hero content also clears the strip */
+  .hero { padding-top: calc(80px + env(safe-area-inset-top, 0px)); }
+
+  /* Hero bio drops 2px on mobile */
+  .hero-bio { font-size: 14px; }
+
+  /* Books: keep all 5 in a row but tighten the gap further */
+  .books-grid { gap: 8px; }
+  .book-card img { border-radius: 4px; }
+
+  /* Translations match the books on mobile too */
+  .translations-grid { gap: 8px; }
+  .trans-card img    { border-radius: 4px; }
+
+  .display { font-size: 48px; }
+  .section-title { font-size: 36px; }
+  .gallery-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .gallery-row { grid-template-columns: repeat(2, 1fr); }
+
+  /* Mobile interview row: same two-row layout as desktop, smaller. */
+  .interview summary {
+    grid-template-columns: 1fr 28px;
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    row-gap: 4px;
+    padding: 12px 0;
+  }
+  .iv-meta { font-size: 11px; gap: 8px; }
+  .iv-tag { gap: 4px; font-size: 11px; }
+  .iv-tag img { width: 14px; height: 14px; }
+  .iv-source { font-size: 11px; gap: 4px; }
+  .iv-source img { width: 14px; height: 14px; }
+  .iv-source::before { width: 3px; height: 3px; margin-inline-end: 4px; }
+  .iv-title { font-size: 14px; }
+  .iv-toggle {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: 28px;
+    height: 28px;
+    padding: 6px;
+  }
+  .iv-toggle-ico { width: 16px; height: 16px; }
+  .iv-body { padding: 4px 0 14px; font-size: 13px; line-height: 1.9; }
+}
+
+/* Hide the mobile menu structure entirely above 600px */
+@media (min-width: 601px) {
+  .mobile-menu, .nav-toggle { display: none !important; }
+}

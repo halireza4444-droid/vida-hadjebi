@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Local server logs
+*.log
+node_modules/
+
+# Cloudflare / Netlify build artifacts (none expected for static)
+.cache/
+.netlify/
+.wrangler/
