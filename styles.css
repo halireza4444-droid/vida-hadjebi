@@ -913,21 +913,36 @@ body.menu-open { overflow: hidden; }
     z-index: 200;                           /* above the menu overlay */
     min-height: 56px;
     justify-content: flex-start;            /* RTL: items align to the visual RIGHT */
+    gap: 16px;                              /* spacing between logo and hamburger */
     background: rgba(255, 255, 255, 0.30);  /* white 30% — matches Frame 67 */
     border-bottom: 1px solid rgba(255, 255, 255, 0.45);
     backdrop-filter: blur(20px) saturate(140%);
     -webkit-backdrop-filter: blur(20px) saturate(140%);
-    /* extend through the iOS notch / status bar */
     padding-top: max(8px, env(safe-area-inset-top));
   }
 
-  /* Reset the fixed-toggle: let it flow inside the glass strip on the right */
+  /* Hamburger: flow inline, sit at the visual RIGHT (RTL start) */
   .nav-toggle {
     position: static;
     display: flex;
+    order: -1;                              /* place first → visual RIGHT in RTL */
   }
 
-  .main-nav { display: none; }
+  /* Mobile: keep only the logo from main-nav; strip the pill chrome. */
+  .main-nav {
+    display: flex;
+    align-items: center;
+    width: auto;
+    max-width: none;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .nav-items { display: none; }
+  .nav-logo img { width: 80px; }
 
   /* Push the menu content below the new glass strip + safe-area */
   .mobile-menu { padding-top: calc(64px + env(safe-area-inset-top, 0px)); }
