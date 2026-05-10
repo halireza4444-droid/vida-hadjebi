@@ -81,10 +81,14 @@
   font-display: swap;
 }
 
-/* IranNastaliq (calligraphic display font for Persian headings) */
+/* IranNastaliq (calligraphic display font for Persian headings).
+   Include TTF first so iOS Safari uses the full OpenType tables —
+   the woff2 conversion sometimes drops the contextual joining tables
+   (init/medi/fina/liga), which causes letters to render isolated. */
 @font-face {
   font-family: 'IranNastaliq';
-  src: url('assets/fonts/IranNastaliq.woff2') format('woff2'),
+  src: url('assets/fonts/IranNastaliq.ttf') format('truetype'),
+       url('assets/fonts/IranNastaliq.woff2') format('woff2'),
        url('assets/fonts/IranNastaliq.woff') format('woff');
   font-weight: 400;
   font-style: normal;
@@ -291,6 +295,12 @@ body.menu-open { overflow: hidden; }
   margin: 0 0 48px;
   text-align: right;
   color: var(--ink);
+  /* Force Arabic/Persian contextual letter joining + ligatures so the
+     IranNastaliq script renders connected on iOS Safari as well. */
+  font-feature-settings: "init", "medi", "fina", "isol", "liga", "rlig", "calt";
+  font-variant-ligatures: common-ligatures contextual;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "init", "medi", "fina", "isol", "liga", "rlig", "calt";
 }
 
 .section-paragraph {
