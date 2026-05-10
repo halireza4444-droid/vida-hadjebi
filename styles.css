@@ -288,16 +288,13 @@ body.menu-open { overflow: hidden; }
 }
 
 .section-title {
-  font-family: var(--font-display);
-  font-size: 60px;
-  font-weight: 400;
-  line-height: 1;
+  font-family: var(--font-body);          /* IRANYekanWeb — clean, renders everywhere */
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
   margin: 0 0 48px;
   text-align: right;
   color: var(--ink);
-  font-feature-settings: "init", "medi", "fina", "isol", "liga", "rlig", "calt";
-  font-variant-ligatures: common-ligatures contextual;
-  text-rendering: optimizeLegibility;
 }
 
 
@@ -571,10 +568,10 @@ body.menu-open { overflow: hidden; }
 }
 
 .book-title {
-  font-family: var(--font-display);
-  font-size: 64px;
-  font-weight: 400;
-  line-height: 1;
+  font-family: var(--font-body);          /* IRANYekanWeb — same as section titles */
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
   margin: 0;
   color: var(--ink);
   text-align: right;
@@ -880,9 +877,7 @@ body.menu-open { overflow: hidden; }
   .nav-logo img { width: 84px; }
 
   .display { font-size: 64px; }
-  /* Smaller than desktop but still big — keeps IranNastaliq legible AND
-     fits the longest title on a single line so letters stay connected. */
-  .section-title { font-size: 48px; margin-bottom: 32px; white-space: nowrap; }
+  .section-title { font-size: 36px; margin-bottom: 32px; }
   .section { padding: 64px 0; }
   .hero { padding-top: 100px; padding-bottom: 56px; }
 
@@ -971,7 +966,7 @@ body.menu-open { overflow: hidden; }
   .trans-card img    { border-radius: 8px; }
 
   .display { font-size: 48px; }
-  .section-title { font-size: 40px; }
+  .section-title { font-size: 28px; }
   .gallery-head { flex-direction: column; align-items: flex-start; gap: 12px; }
   .gallery-row { grid-template-columns: repeat(2, 1fr); }
 
