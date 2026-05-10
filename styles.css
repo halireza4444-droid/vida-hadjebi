@@ -277,6 +277,12 @@ body.menu-open { overflow: hidden; }
 .section { padding: 88px 0; }
 .section + .section { padding-top: 0; }
 
+/* When the user clicks a menu anchor, anchor target lands below the
+   fixed header instead of being hidden under it. */
+:where(section[id], [id]) {
+  scroll-margin-top: 100px;
+}
+
 .section-title {
   font-family: var(--font-display);
   font-size: 60px;
@@ -940,6 +946,11 @@ body.menu-open { overflow: hidden; }
 
   /* Hero bio drops 2px on mobile */
   .hero-bio { font-size: 14px; }
+
+  /* Anchored sections clear the mobile glass strip + iOS safe-area */
+  :where(section[id], [id]) {
+    scroll-margin-top: calc(80px + env(safe-area-inset-top, 0px));
+  }
 
   /* Books: 2 columns on mobile (Figma Group 4 layout) */
   .books-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
