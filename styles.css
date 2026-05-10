@@ -16,7 +16,7 @@
 
   /* Type — local IRANYekanWeb (8 weights) for body, IranNastaliq for display. */
   --font-body: 'IRANYekanWeb', 'Vazirmatn', 'Tahoma', system-ui, sans-serif;
-  --font-display: 'IranNastaliq', 'IRANYekanWeb', 'Vazirmatn', serif;
+  --font-display: 'Noto Nastaliq Urdu', 'IranNastaliq', 'IRANYekanWeb', 'Vazirmatn', serif;
 
   --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
   --radius-sm: 6px;
