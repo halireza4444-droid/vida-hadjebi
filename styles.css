@@ -941,13 +941,13 @@ body.menu-open { overflow: hidden; }
   /* Hero bio drops 2px on mobile */
   .hero-bio { font-size: 14px; }
 
-  /* Books: keep all 5 in a row but tighten the gap further */
-  .books-grid { gap: 8px; }
-  .book-card img { border-radius: 4px; }
+  /* Books: 2 columns on mobile (Figma Group 4 layout) */
+  .books-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .book-card img { border-radius: 8px; }
 
-  /* Translations match the books on mobile too */
-  .translations-grid { gap: 8px; }
-  .trans-card img    { border-radius: 4px; }
+  /* Translations: also 2 columns on mobile */
+  .translations-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .trans-card img    { border-radius: 8px; }
 
   .display { font-size: 48px; }
   .section-title { font-size: 36px; }
