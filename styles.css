@@ -872,8 +872,9 @@ body.menu-open { overflow: hidden; }
   .nav-logo img { width: 84px; }
 
   .display { font-size: 64px; }
-  /* Title font-size unchanged so IranNastaliq letters stay connected */
-  .section-title { margin-bottom: 32px; }
+  /* Smaller than desktop but still big — keeps IranNastaliq legible AND
+     fits the longest title on a single line so letters stay connected. */
+  .section-title { font-size: 48px; margin-bottom: 32px; white-space: nowrap; }
   .section { padding: 64px 0; }
   .hero { padding-top: 100px; padding-bottom: 56px; }
 
@@ -962,7 +963,7 @@ body.menu-open { overflow: hidden; }
   .trans-card img    { border-radius: 8px; }
 
   .display { font-size: 48px; }
-  /* Keep .section-title at the desktop size so calligraphy stays legible */
+  .section-title { font-size: 40px; }
   .gallery-head { flex-direction: column; align-items: flex-start; gap: 12px; }
   .gallery-row { grid-template-columns: repeat(2, 1fr); }
 
