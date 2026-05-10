@@ -300,15 +300,6 @@ body.menu-open { overflow: hidden; }
   text-rendering: optimizeLegibility;
 }
 
-/* Safari-only override: IranNastaliq's OpenType joining tables are not
-   applied correctly by Apple's CoreText engine — letters render isolated.
-   Use `Noto Nastaliq Urdu` instead, which ships natively on iOS 13+ and
-   macOS Catalina+ (no download needed). The .is-safari class is added by
-   script.js based on user-agent. */
-.is-safari .section-title,
-.is-safari .book-title {
-  font-family: 'Noto Nastaliq Urdu', 'IRANYekanWeb', serif;
-}
 
 .section-paragraph {
   max-width: 1100px;
