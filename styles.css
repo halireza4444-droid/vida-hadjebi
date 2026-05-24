@@ -821,6 +821,38 @@ body.menu-open { overflow: hidden; }
 /* PhotoSwipe: solid 50% black backdrop; default close icon stays top-right. */
 .pswp { --pswp-bg: #000000; }
 
+/* Caption shown under each opened image */
+.pswp__custom-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  margin: 0 auto;
+  max-width: min(820px, 92%);
+  padding: 10px 18px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  pointer-events: none;
+  z-index: 1600;
+}
+
+@media (max-width: 600px) {
+  .pswp__custom-caption {
+    font-size: 13px;
+    padding: 8px 14px;
+    bottom: 12px;
+    max-width: 94%;
+  }
+}
+
 /* Gallery row — preserve each image's natural aspect ratio, cap height at 275px,
    horizontal scroll if the natural widths exceed the container. */
 /* 3 equal-width columns on desktop. Images keep their original aspect
