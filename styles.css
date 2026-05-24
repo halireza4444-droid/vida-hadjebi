@@ -823,22 +823,23 @@ body.menu-open { overflow: hidden; }
 
 /* Gallery row — preserve each image's natural aspect ratio, cap height at 275px,
    horizontal scroll if the natural widths exceed the container. */
-/* 3 equal columns on desktop. All thumbnails share the same 4/3 aspect
-   ratio (object-fit: cover crops varying source ratios uniformly). */
+/* 3 equal-width columns on desktop. Images keep their original aspect
+   ratio — width matches the column, height follows the image's natural
+   proportions. Implemented with CSS multi-column (masonry-like packing)
+   so shorter portraits don't leave empty rows below them. */
 .gallery-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  columns: 3;
+  column-gap: 16px;
   margin-top: 40px;
 }
 .gallery-row a {
   display: block;
+  break-inside: avoid;
+  margin-bottom: 16px;
 }
 .gallery-row img {
   width: 100%;
-  height: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: auto;
   display: block;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -966,7 +967,8 @@ body.menu-open { overflow: hidden; }
 
   .display { font-size: 48px; }
   .section-title { font-size: 28px; }
-  .gallery-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .gallery-row { columns: 2; column-gap: 8px; }
+  .gallery-row a { margin-bottom: 8px; }
   .gallery-row img { border-radius: 6px; }
 
   /* Mobile interview row: same two-row layout as desktop, smaller. */
