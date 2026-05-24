@@ -823,22 +823,23 @@ body.menu-open { overflow: hidden; }
 
 /* Gallery row — preserve each image's natural aspect ratio, cap height at 275px,
    horizontal scroll if the natural widths exceed the container. */
-/* Wrapping layout — images flow naturally to the next row when one fills,
-   constrained to the page container width. Variable image aspect ratios
-   are preserved (fixed height, auto width). */
+/* 3 equal columns on desktop. All thumbnails share the same 4/3 aspect
+   ratio (object-fit: cover crops varying source ratios uniformly). */
 .gallery-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   margin-top: 40px;
 }
-.gallery-row img {
-  height: 220px;
-  width: auto;
-  max-width: 100%;
+.gallery-row a {
   display: block;
-  object-fit: contain;
+}
+.gallery-row img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
   border: 1px solid var(--line);
   border-radius: 8px;
   transition: transform .25s ease;
@@ -965,8 +966,8 @@ body.menu-open { overflow: hidden; }
 
   .display { font-size: 48px; }
   .section-title { font-size: 28px; }
-  .gallery-row { gap: 8px; }
-  .gallery-row img { height: 140px; border-radius: 6px; }
+  .gallery-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .gallery-row img { border-radius: 6px; }
 
   /* Mobile interview row: same two-row layout as desktop, smaller. */
   .interview summary {
