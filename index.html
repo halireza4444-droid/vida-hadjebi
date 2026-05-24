@@ -11,6 +11,9 @@
   <link rel="preload" href="assets/fonts/IranNastaliq.ttf" as="font" type="font/ttf" crossorigin />
 
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- PhotoSwipe lightbox -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css" />
 </head>
 <body>
 <script>
@@ -298,31 +301,24 @@
       </div>
     </section>
 
-    <!-- Photo Gallery -->
+    <!-- Photo Gallery (PhotoSwipe lightbox) -->
     <section id="gallery" class="section section-gallery">
       <div class="container">
-        <div class="gallery-head">
-          <h2 class="section-title">گالری تصاویر</h2>
-          <a href="#" class="btn btn-pill">
-            <span>عکس‌های بیشتر</span>
-            <img src="assets/images/icon-arrow-left.svg" alt="" class="btn-icon" />
-          </a>
-        </div>
-        <div class="gallery-row">
-          <figure><img src="assets/images/gallery-portrait.jpg" alt="پرتره ویدا حاجبی" /></figure>
-          <figure><img src="assets/images/gallery-art-school.jpg" alt="مدرسه عالی هنرهای زیبا، ۱۹۵۷" /></figure>
-          <figure><img src="assets/images/gallery-hug.jpg" alt="ویدا و دوستش — عکس از مریم اشرفی" /></figure>
-          <figure><img src="assets/images/gallery-mother-baby.jpg" alt="ویدا با کودک" /></figure>
-          <figure><img src="assets/images/gallery-school-class.jpg" alt="اولین کودکستان ایرانی" /></figure>
-          <figure><img src="assets/images/gallery-statue.jpg" alt="ویدا کنار مجسمه" /></figure>
-        </div>
-        <div class="slider-controls" data-target=".gallery-row">
-          <button class="slider-btn" data-dir="prev" aria-label="قبلی">
-            <img src="assets/images/icon-slider-right.svg" alt="" />
-          </button>
-          <button class="slider-btn" data-dir="next" aria-label="بعدی">
-            <img src="assets/images/icon-slider-left.svg" alt="" />
-          </button>
+        <h2 class="section-title">گالری تصاویر</h2>
+        <div class="gallery-row" id="photo-gallery">
+          <a href="assets/images/gallery/1.jpeg"  data-pswp-width="827"  data-pswp-height="1136"><img src="assets/images/gallery/1.jpeg"  alt="" /></a>
+          <a href="assets/images/gallery/2.jpeg"  data-pswp-width="740"  data-pswp-height="1136"><img src="assets/images/gallery/2.jpeg"  alt="" /></a>
+          <a href="assets/images/gallery/3.jpeg"  data-pswp-width="551"  data-pswp-height="714"><img  src="assets/images/gallery/3.jpeg"  alt="" /></a>
+          <a href="assets/images/gallery/4.jpeg"  data-pswp-width="991"  data-pswp-height="696"><img  src="assets/images/gallery/4.jpeg"  alt="" /></a>
+          <a href="assets/images/gallery/5.jpeg"  data-pswp-width="1372" data-pswp-height="2048"><img src="assets/images/gallery/5.jpeg"  alt="" /></a>
+          <a href="assets/images/gallery/6.jpeg"  data-pswp-width="790"  data-pswp-height="1136"><img src="assets/images/gallery/6.jpeg"  alt="" /></a>
+          <a href="assets/images/gallery/7.jpeg"  data-pswp-width="598"  data-pswp-height="933"><img  src="assets/images/gallery/7.jpeg"  alt="" /></a>
+          <a href="assets/images/gallery/8.jpeg"  data-pswp-width="798"  data-pswp-height="1136"><img src="assets/images/gallery/8.jpeg"  alt="" /></a>
+          <a href="assets/images/gallery/9.jpeg"  data-pswp-width="1179" data-pswp-height="823"><img  src="assets/images/gallery/9.jpeg"  alt="" /></a>
+          <a href="assets/images/gallery/10.jpeg" data-pswp-width="1918" data-pswp-height="1577"><img src="assets/images/gallery/10.jpeg" alt="" /></a>
+          <a href="assets/images/gallery/11.jpeg" data-pswp-width="1600" data-pswp-height="1064"><img src="assets/images/gallery/11.jpeg" alt="" /></a>
+          <a href="assets/images/gallery/12.jpeg" data-pswp-width="2000" data-pswp-height="1333"><img src="assets/images/gallery/12.jpeg" alt="" /></a>
+          <a href="assets/images/gallery/13.jpeg" data-pswp-width="1360" data-pswp-height="2048"><img src="assets/images/gallery/13.jpeg" alt="" /></a>
         </div>
       </div>
     </section>
@@ -335,5 +331,19 @@
   </footer>
 
   <script src="script.js" defer></script>
+
+  <!-- PhotoSwipe initialization -->
+  <script type="module">
+    import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#photo-gallery',
+      children: 'a',
+      bgOpacity: 0.5,                  /* 50% black background */
+      showHideAnimationType: 'fade',
+      padding: { top: 40, bottom: 40, left: 20, right: 20 },
+      pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js'),
+    });
+    lightbox.init();
+  </script>
 </body>
 </html>

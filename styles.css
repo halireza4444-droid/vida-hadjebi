@@ -808,15 +808,18 @@ body.menu-open { overflow: hidden; }
   box-shadow: var(--shadow-sm);
 }
 
-/* ---------- Gallery ---------- */
+/* ---------- Gallery (PhotoSwipe) ---------- */
 .section-gallery { padding-bottom: 96px; }
-.gallery-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 40px;
+
+/* Each thumbnail is an <a> wrapping an <img>, so reset link styles. */
+.gallery-row a {
+  display: block;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
 }
-.gallery-head .section-title { margin: 0; }
+
+/* PhotoSwipe: solid 50% black backdrop; default close icon stays top-right. */
+.pswp { --pswp-bg: #000000; }
 
 /* Gallery row — preserve each image's natural aspect ratio, cap height at 275px,
    horizontal scroll if the natural widths exceed the container. */
@@ -828,10 +831,7 @@ body.menu-open { overflow: hidden; }
   padding-bottom: 4px;
   scroll-behavior: smooth;
   scrollbar-width: thin;
-}
-.gallery-row figure {
-  margin: 0;
-  flex: 0 0 auto;
+  margin-top: 40px;
 }
 .gallery-row img {
   height: 275px;
@@ -842,10 +842,9 @@ body.menu-open { overflow: hidden; }
   border: 1px solid var(--line);
   border-radius: 8px;
   transition: transform .25s ease;
+  cursor: zoom-in;
 }
-.gallery-row figure:hover img {
-  transform: scale(1.02);
-}
+.gallery-row a:hover img { transform: scale(1.02); }
 
 /* ---------- Footer ---------- */
 .site-footer {
@@ -898,7 +897,6 @@ body.menu-open { overflow: hidden; }
   .ramin-media { grid-template-columns: 1fr; }
   .meaning-grid { grid-template-columns: 1fr; gap: 32px; }
   .meaning-cover img { max-width: 260px; }
-  .gallery-row { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* Below 600 → glass strip at the top covering status bar + hamburger area
@@ -967,8 +965,6 @@ body.menu-open { overflow: hidden; }
 
   .display { font-size: 48px; }
   .section-title { font-size: 28px; }
-  .gallery-head { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .gallery-row { grid-template-columns: repeat(2, 1fr); }
 
   /* Mobile interview row: same two-row layout as desktop, smaller. */
   .interview summary {
