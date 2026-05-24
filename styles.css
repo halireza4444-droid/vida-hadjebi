@@ -829,13 +829,13 @@ body.menu-open { overflow: hidden; }
    so shorter portraits don't leave empty rows below them. */
 .gallery-row {
   columns: 3;
-  column-gap: 16px;
+  column-gap: 8px;
   margin-top: 40px;
 }
 .gallery-row a {
   display: block;
   break-inside: avoid;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 .gallery-row img {
   width: 100%;
