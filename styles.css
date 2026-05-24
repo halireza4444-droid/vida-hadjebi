@@ -823,20 +823,20 @@ body.menu-open { overflow: hidden; }
 
 /* Gallery row — preserve each image's natural aspect ratio, cap height at 275px,
    horizontal scroll if the natural widths exceed the container. */
+/* Wrapping layout — images flow naturally to the next row when one fills,
+   constrained to the page container width. Variable image aspect ratios
+   are preserved (fixed height, auto width). */
 .gallery-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
-  align-items: stretch;
-  overflow-x: auto;
-  padding-bottom: 4px;
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
+  align-items: flex-start;
   margin-top: 40px;
 }
 .gallery-row img {
-  height: 275px;
+  height: 220px;
   width: auto;
-  max-height: 275px;
+  max-width: 100%;
   display: block;
   object-fit: contain;
   border: 1px solid var(--line);
@@ -965,6 +965,8 @@ body.menu-open { overflow: hidden; }
 
   .display { font-size: 48px; }
   .section-title { font-size: 28px; }
+  .gallery-row { gap: 8px; }
+  .gallery-row img { height: 140px; border-radius: 6px; }
 
   /* Mobile interview row: same two-row layout as desktop, smaller. */
   .interview summary {
