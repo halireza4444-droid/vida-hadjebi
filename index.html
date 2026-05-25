@@ -14,7 +14,7 @@
   <link rel="preload" href="assets/fonts/IRANYekanWeb-Bold.ttf" as="font" type="font/ttf" crossorigin />
   <link rel="preload" href="assets/fonts/IranNastaliq.ttf" as="font" type="font/ttf" crossorigin />
 
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 
   <!-- PhotoSwipe lightbox -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css" />
@@ -348,6 +348,8 @@
     // to user's "next", and its built-in animation (content slides right,
     // new image enters from the left) matches RTL expectations.
     const galleryEl = document.querySelector('#photo-gallery');
+    // Capture the anchors in their original numerical DOM order (1..16),
+    // before any column-redistribution moves them around.
     const anchors = Array.from(galleryEl.querySelectorAll('a'));
 
     const dataSource = anchors.slice().reverse().map((a) => {
@@ -363,6 +365,29 @@
 
     // Map original DOM index → index inside the reversed dataSource
     const reverseIndex = (domIdx) => anchors.length - 1 - domIdx;
+
+    // Row-first masonry: distribute anchors round-robin into N column-flex
+    // containers. Items in each column stack with an 8px vertical gap and
+    // keep their natural aspect ratio, so there's no row-alignment.
+    function layoutColumns() {
+      const colCount = window.innerWidth < 600 ? 2 : 3;
+      galleryEl.replaceChildren(); // clear existing column wrappers (or initial anchors)
+      const cols = Array.from({ length: colCount }, () => {
+        const div = document.createElement('div');
+        div.className = 'gallery-col';
+        galleryEl.appendChild(div);
+        return div;
+      });
+      anchors.forEach((a, idx) => cols[idx % colCount].appendChild(a));
+    }
+
+    layoutColumns();
+
+    let _resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(_resizeTimer);
+      _resizeTimer = setTimeout(layoutColumns, 200);
+    });
 
     const lightbox = new PhotoSwipeLightbox({
       dataSource: dataSource,

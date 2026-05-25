@@ -863,33 +863,37 @@ body.menu-open { overflow: hidden; }
   }
 }
 
-/* Gallery — 3-column row-flowing grid. In RTL, items fill right→left,
-   so #1 is top-right, #2 top-center, #3 top-left; #4 sits directly
-   under #1, #5 under #2, etc. Thumbnails share a square aspect ratio
-   and center-crop so the 8px gap is uniform between every neighbour —
-   horizontally and vertically. (Lightbox shows the uncropped photo.) */
+/* Gallery — 3 equal-width columns (2 on mobile). Items keep their
+   natural aspect ratio; each column stacks its items with an 8px
+   vertical gap, independently of the other columns (no row-alignment).
+   In RTL, the first grid column is on the visual right. */
 .gallery-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   margin-top: 40px;
+  align-items: start;
 }
-.gallery-row a {
+.gallery-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.gallery-col a {
   display: block;
-  aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 8px;
   border: 1px solid var(--line);
 }
-.gallery-row img {
+.gallery-col img {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
-  object-fit: cover;
   transition: transform .25s ease;
   cursor: zoom-in;
 }
-.gallery-row a:hover img { transform: scale(1.02); }
+.gallery-col a:hover img { transform: scale(1.02); }
 
 /* ---------- Footer ---------- */
 .site-footer {
@@ -1011,7 +1015,7 @@ body.menu-open { overflow: hidden; }
   .display { font-size: 48px; }
   .section-title { font-size: 28px; }
   .gallery-row { grid-template-columns: repeat(2, 1fr); }
-  .gallery-row img { border-radius: 6px; }
+  .gallery-col img { border-radius: 6px; }
 
   /* Mobile interview row: same two-row layout as desktop, smaller. */
   .interview summary {
