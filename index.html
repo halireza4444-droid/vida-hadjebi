@@ -14,7 +14,7 @@
   <link rel="preload" href="assets/fonts/IRANYekanWeb-Bold.ttf" as="font" type="font/ttf" crossorigin />
   <link rel="preload" href="assets/fonts/IranNastaliq.ttf" as="font" type="font/ttf" crossorigin />
 
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 
   <!-- PhotoSwipe lightbox -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css" />
@@ -383,6 +383,18 @@
           update();
         },
       });
+    });
+
+    // RTL keyboard navigation: swap ArrowLeft / ArrowRight so they match
+    // the visual flip — Right key goes to the previous image, Left key to next.
+    lightbox.on('bindEvents', () => {
+      const pswp = lightbox.pswp;
+      if (!pswp) return;
+      window.addEventListener('keydown', (e) => {
+        if (!pswp.isOpen) return;
+        if (e.key === 'ArrowRight') { e.stopImmediatePropagation(); pswp.prev(); }
+        else if (e.key === 'ArrowLeft') { e.stopImmediatePropagation(); pswp.next(); }
+      }, true); // capture phase so we run before PhotoSwipe's own handler
     });
 
     lightbox.init();
