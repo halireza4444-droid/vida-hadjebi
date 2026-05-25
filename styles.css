@@ -817,14 +817,10 @@ body.menu-open { overflow: hidden; }
 /* PhotoSwipe: solid 50% black backdrop; default close icon stays top-right. */
 .pswp { --pswp-bg: #000000; }
 
-/* RTL navigation: "next" slide enters from the left, current exits right.
-   PhotoSwipe v5 has no native RTL flag — we mirror the sliding strip and
-   un-mirror each slide so images aren't reversed. Pointer-drag direction
-   then feels natural for RTL users. */
-.pswp__container { transform: scaleX(-1); }
-.pswp__item      { transform: scaleX(-1); }
-
-/* Move arrow buttons to match: prev on right, next on left, icons flipped. */
+/* RTL navigation: the actual direction flip is done in JS by reversing the
+   dataSource and swapping pswp.next/pswp.prev. Here we only swap the visual
+   positions of the arrow buttons and flip their icons so they point the
+   right way for RTL ("next" button on the left, pointing left). */
 .pswp__button--arrow--prev { left: auto !important; right: 0 !important; }
 .pswp__button--arrow--next { left: 0 !important;    right: auto !important; }
 .pswp__button--arrow svg   { transform: scaleX(-1); }

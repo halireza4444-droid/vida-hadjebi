@@ -14,7 +14,7 @@
   <link rel="preload" href="assets/fonts/IRANYekanWeb-Bold.ttf" as="font" type="font/ttf" crossorigin />
   <link rel="preload" href="assets/fonts/IranNastaliq.ttf" as="font" type="font/ttf" crossorigin />
 
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 
   <!-- PhotoSwipe lightbox -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css" />
@@ -339,16 +339,58 @@
 
   <script src="script.js" defer></script>
 
-  <!-- PhotoSwipe initialization -->
+  <!-- PhotoSwipe initialization (RTL navigation) -->
   <script type="module">
     import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';
+
+    // Build a reversed dataSource. PhotoSwipe v5 has no RTL flag, so we feed
+    // it images in reverse order; then "previous" in PhotoSwipe corresponds
+    // to user's "next", and its built-in animation (content slides right,
+    // new image enters from the left) matches RTL expectations.
+    const galleryEl = document.querySelector('#photo-gallery');
+    const anchors = Array.from(galleryEl.querySelectorAll('a'));
+
+    const dataSource = anchors.slice().reverse().map((a) => {
+      const img = a.querySelector('img');
+      return {
+        src: a.getAttribute('href'),
+        width:  parseInt(a.dataset.pswpWidth,  10),
+        height: parseInt(a.dataset.pswpHeight, 10),
+        alt:    img ? (img.getAttribute('alt') || '') : '',
+        element: a,                           // anchor → used for open animation + caption
+      };
+    });
+
+    // Map original DOM index → index inside the reversed dataSource
+    const reverseIndex = (domIdx) => anchors.length - 1 - domIdx;
+
     const lightbox = new PhotoSwipeLightbox({
-      gallery: '#photo-gallery',
-      children: 'a',
-      bgOpacity: 0.7,                  /* 70% black background */
+      dataSource: dataSource,
+      bgOpacity: 0.7,
       showHideAnimationType: 'fade',
       padding: { top: 40, bottom: 80, left: 20, right: 20 },
       pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js'),
+    });
+
+    // Open the lightbox at the right reversed index when a thumbnail is clicked
+    anchors.forEach((a, domIdx) => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        lightbox.loadAndOpen(reverseIndex(domIdx));
+      });
+    });
+
+    // Swap pswp.next ↔ pswp.prev so all "next" inputs (arrow button, swipe,
+    // keyboard) actually move to the previous slide in the reversed array —
+    // which is the next image in the user's mental order, and animates with
+    // PhotoSwipe's prev-direction (current slides right, new comes from left).
+    lightbox.on('afterInit', () => {
+      const pswp = lightbox.pswp;
+      if (!pswp) return;
+      const _next = pswp.next.bind(pswp);
+      const _prev = pswp.prev.bind(pswp);
+      pswp.next = _prev;
+      pswp.prev = _next;
     });
 
     // Render a caption under each open image, sourced from <a data-caption="...">
@@ -383,18 +425,6 @@
           update();
         },
       });
-    });
-
-    // RTL keyboard navigation: swap ArrowLeft / ArrowRight so they match
-    // the visual flip — Right key goes to the previous image, Left key to next.
-    lightbox.on('bindEvents', () => {
-      const pswp = lightbox.pswp;
-      if (!pswp) return;
-      window.addEventListener('keydown', (e) => {
-        if (!pswp.isOpen) return;
-        if (e.key === 'ArrowRight') { e.stopImmediatePropagation(); pswp.prev(); }
-        else if (e.key === 'ArrowLeft') { e.stopImmediatePropagation(); pswp.next(); }
-      }, true); // capture phase so we run before PhotoSwipe's own handler
     });
 
     lightbox.init();
