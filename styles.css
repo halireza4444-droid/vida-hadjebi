@@ -819,11 +819,14 @@ body.menu-open { overflow: hidden; }
 
 /* RTL navigation: the actual direction flip is done in JS by reversing the
    dataSource and swapping pswp.next/pswp.prev. Here we only swap the visual
-   positions of the arrow buttons and flip their icons so they point the
-   right way for RTL ("next" button on the left, pointing left). */
+   positions of the arrow buttons and re-orient their icons. PhotoSwipe ships
+   a single arrow SVG that points left and flips it for "next"; for RTL we
+   need the opposite: the (visually-left) next button points left, and the
+   (visually-right) prev button points right. */
 .pswp__button--arrow--prev { left: auto !important; right: 0 !important; }
 .pswp__button--arrow--next { left: 0 !important;    right: auto !important; }
-.pswp__button--arrow svg   { transform: scaleX(-1); }
+.pswp__button--arrow--next .pswp__icn { transform: none !important; }
+.pswp__button--arrow--prev .pswp__icn { transform: scale(-1, 1); }
 
 /* Caption shown under each opened image */
 .pswp__custom-caption {
