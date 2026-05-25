@@ -811,12 +811,8 @@ body.menu-open { overflow: hidden; }
 /* ---------- Gallery (PhotoSwipe) ---------- */
 .section-gallery { padding-bottom: 96px; }
 
-/* Each thumbnail is an <a> wrapping an <img>, so reset link styles. */
-.gallery-row a {
-  display: block;
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-}
+/* Each thumbnail is an <a> wrapping an <img>. */
+.gallery-row a { display: block; }
 
 /* PhotoSwipe: solid 50% black backdrop; default close icon stays top-right. */
 .pswp { --pswp-bg: #000000; }
@@ -853,21 +849,21 @@ body.menu-open { overflow: hidden; }
   }
 }
 
-/* Gallery row — preserve each image's natural aspect ratio, cap height at 275px,
-   horizontal scroll if the natural widths exceed the container. */
-/* 3 equal-width columns on desktop. Images keep their original aspect
-   ratio — width matches the column, height follows the image's natural
-   proportions. Implemented with CSS multi-column (masonry-like packing)
-   so shorter portraits don't leave empty rows below them. */
+/* Gallery — 3-column row-flowing grid. In RTL, items fill right→left,
+   so #1 is top-right, #2 top-center, #3 top-left; #4 sits directly
+   under #1, #5 under #2, etc. Images keep their natural aspect ratio
+   and align to the top of their cell. */
 .gallery-row {
-  columns: 3;
-  column-gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
   margin-top: 40px;
+  align-items: start;
 }
 .gallery-row a {
   display: block;
-  break-inside: avoid;
-  margin-bottom: 8px;
+  overflow: hidden;
+  border-radius: 8px;
 }
 .gallery-row img {
   width: 100%;
@@ -999,8 +995,7 @@ body.menu-open { overflow: hidden; }
 
   .display { font-size: 48px; }
   .section-title { font-size: 28px; }
-  .gallery-row { columns: 2; column-gap: 8px; }
-  .gallery-row a { margin-bottom: 8px; }
+  .gallery-row { grid-template-columns: repeat(2, 1fr); }
   .gallery-row img { border-radius: 6px; }
 
   /* Mobile interview row: same two-row layout as desktop, smaller. */
