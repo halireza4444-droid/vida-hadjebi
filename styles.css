@@ -828,6 +828,9 @@ body.menu-open { overflow: hidden; }
 .pswp__button--arrow--next .pswp__icn { transform: none !important; }
 .pswp__button--arrow--prev .pswp__icn { transform: scale(-1, 1); }
 
+/* Hide the slide counter ("1 / 16") in the top corner of the lightbox */
+.pswp__counter { display: none !important; }
+
 /* Caption shown under each opened image */
 .pswp__custom-caption {
   position: absolute;
@@ -862,26 +865,27 @@ body.menu-open { overflow: hidden; }
 
 /* Gallery — 3-column row-flowing grid. In RTL, items fill right→left,
    so #1 is top-right, #2 top-center, #3 top-left; #4 sits directly
-   under #1, #5 under #2, etc. Images keep their natural aspect ratio
-   and align to the top of their cell. */
+   under #1, #5 under #2, etc. Thumbnails share a square aspect ratio
+   and center-crop so the 8px gap is uniform between every neighbour —
+   horizontally and vertically. (Lightbox shows the uncropped photo.) */
 .gallery-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   margin-top: 40px;
-  align-items: start;
 }
 .gallery-row a {
   display: block;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 8px;
+  border: 1px solid var(--line);
 }
 .gallery-row img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  object-fit: cover;
   transition: transform .25s ease;
   cursor: zoom-in;
 }
