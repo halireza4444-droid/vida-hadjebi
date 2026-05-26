@@ -633,6 +633,16 @@ body.menu-open { overflow: hidden; }
 /* Long-form description */
 .book-content { padding-top: 0; padding-bottom: 64px; }
 .book-content-inner { max-width: 980px; margin-inline: auto; }
+.book-inline-figure {
+  margin: 32px auto;
+  max-width: 420px;
+  text-align: center;
+}
+.book-inline-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
 .book-h2 {
   font-size: 22px;
   font-weight: 700;
