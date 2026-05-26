@@ -85,6 +85,7 @@
           { label: 'صحافی و چاپ',      value: 'باقر مرتضوی' },
           { label: 'چاپ اول',           value: 'اردیبهشت ۱۳۸۳ / مه ۲۰۰۲' }
         ],
+        pdf: 'assets/book-pari.pdf',
         content: '<h2 class="book-h2">دربارهٔ پری</h2>' +
           '<p>پری حاجبی (۱۳۱۰–۱۳۷۸) نقاش و هنرمند ایرانی بود. این کتاب گردآوری خاطرات و یادمان‌های دوستان و نزدیکان اوست که ویدا حاجبی آن را تنظیم و منتشر کرده است.</p>' +
           '<figure class="book-inline-figure"><img src="assets/images/book-pari-painting.jpg" alt="نقاشی پری حاجبی" /></figure>' +
@@ -142,6 +143,7 @@
           { label: 'چاپ و صحافی',             value: 'خاوران' },
           { label: 'چاپ دوم',                 value: 'مهر ۱۳۹۵' }
         ],
+        pdf: 'assets/book-ramin.pdf',
         content: '<h2 id="book-excerpt" class="book-h2">از مقدمه</h2>' +
           '<blockquote class="book-excerpt">' +
           '<p>«سرانجام تحت تأثیر نگاه با فاصله و شکیبایی او به فکر روندهای سیاسی گذشته افتادم. تدوین کتاب داد بی‌داد / نخستین زندان سیاسی زنان را به هوشدارهای پسرم رامین مدیونم. اکنون یاری باصفا و آموزگاری بی‌ادعا و بی‌همتایی را از دست داده‌ام که برغم همهٔ جابه‌جایی‌ها و ماجراهای سختی که بر او تحمیل کردم و تحمیل شد، وجودش تحقق این آرزوی حکیمانه بود: از توان پر صفایی برخوردار بود تا آنچه نمی‌شود تغییر داد بپذیرد، و از شجاعتی تا آنچه می‌شود تغییر داد، تغییر دهد و به خِردی دست‌یافته بود تا این دو را از هم تشخیص دهد.»</p>' +
@@ -161,6 +163,7 @@
           { label: 'صحافی و چاپ', value: 'باقر مرتضوی' },
           { label: 'پخش',          value: 'Forough Book' }
         ],
+        pdf: 'assets/book-yadha.pdf',
         content: '<h2 id="book-excerpt" class="book-h2">بخشی از کتاب</h2>' +
           '<blockquote class="book-excerpt">' +
           '<p>«در آن لحظهٔ هولناک چهار–پنج ساله بودم. هنگامی که در کوچهٔ تنگ و خاکی محل زندگیمان، دروازه شمیران، آران محله چادر دایهٔ دوست‌داشتنی و مهربانم، فاطمه سلطان، را از سرش کشید و بی‌اعتنا به التماس‌ها و گریه‌زاری‌اش چادرش را پاره کرد و ریخت توی جوی آب پر از آشغال کنار کوچه. وحشت‌زده و گریان که به خانه رسیدم، پدرم در آغوشم گرفت و گفت: «آران خیلی کار بدی کرده اما همیشه یادت باشه که چادر چیز خوبی نیست و زن‌هارو بی‌دست‌وپا و ضعیف می‌کنه!»</p>' +
@@ -213,6 +216,7 @@
               '<h1 class="book-title">' + book.title + '</h1>' +
               '<dl class="book-meta">' + buildMeta(book.meta) + '</dl>' +
               '<div class="book-actions">' +
+                (book.pdf ? '<a href="' + book.pdf + '" target="_blank" rel="noopener" class="btn btn-pill"><span>دانلود کتاب</span><img src="assets/images/icon-arrow-left.svg" alt="" class="btn-icon" /></a>' : '') +
                 '<a href="#book-excerpt" class="btn btn-pill">' +
                   '<span>بخشی از کتاب</span>' +
                   '<img src="assets/images/icon-arrow-left.svg" alt="" class="btn-icon" />' +
