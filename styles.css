@@ -1191,24 +1191,28 @@ body.menu-open { overflow: hidden; }
     width: 100%;
   }
 
-  /* Title overlays upper-right area of the image */
+  /* Title centered over the image */
   .bio-title-block {
     position: absolute;
-    inset-inline-start: 0;   /* RTL: physical right */
+    inset-inline-start: unset;
+    inset-inline-end: unset;
+    inset-block: unset;
+    left: 0;
+    right: 0;
     top: 20px;
-    inset-block-end: unset;
-    width: auto;
-    padding: 0 20px 0 0;
+    width: 100%;
+    max-width: none;
+    padding: 0;
     background: none;
-    align-items: flex-end;
+    align-items: center;
     justify-content: flex-start;
   }
 
-  /* Show mobile SVG, hide desktop */
+  /* Show mobile SVG, hide desktop — 30% smaller than before */
   .bio-title-svg--desktop { display: none; }
   .bio-title-svg--mobile  {
     display: block;
-    width: clamp(160px, 52vw, 220px);
+    width: clamp(112px, 36vw, 154px);
     height: auto;
   }
 
