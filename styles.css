@@ -1067,8 +1067,11 @@ body.menu-open { overflow: hidden; }
   flex-direction: row;
   align-items: stretch;
   overflow: hidden;
-  /* Fixed height on desktop; on mobile this collapses to auto via media query */
-  height: clamp(560px, 50vw, 740px);
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  min-height: 500px;
   background: var(--bg);
 }
 
@@ -1171,9 +1174,8 @@ body.menu-open { overflow: hidden; }
   }
 }
 
-/* Below 900px: reduce desktop height, shrink title */
+/* Below 900px: shrink title */
 @media (max-width: 900px) {
-  .bio-hero { height: clamp(480px, 56vw, 620px); }
   .bio-title-block {
     flex: 0 0 50%;
     max-width: 50%;
@@ -1187,8 +1189,9 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 768px) {
   .bio-hero {
     flex-direction: column;
+    aspect-ratio: unset;
+    min-height: 0;
     height: auto;
-    /* Remove the fixed height — portrait natural aspect ratio takes over */
   }
 
   .bio-title-block {
