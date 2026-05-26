@@ -1179,22 +1179,26 @@ body.menu-open { overflow: hidden; }
   .bio-title-svg--desktop { width: clamp(180px, 24vw, 240px); }
 }
 
-/* Mobile: title overlays portrait (matches Figma) */
+/* Mobile: full-ratio portrait, starts below header, title overlays */
 @media (max-width: 768px) {
   .bio-hero {
     display: block;
-    aspect-ratio: unset;
-    height: min(120vw, 540px);
+    /* Push below the fixed glass header */
+    margin-top: calc(56px + env(safe-area-inset-top, 0px));
+    /* Exact mobile image ratio: 880 × 1566 */
+    aspect-ratio: 880 / 1566;
+    height: auto;
+    width: 100%;
   }
 
-  /* Title floats over the upper-right of the image */
+  /* Title overlays upper-right area of the image */
   .bio-title-block {
     position: absolute;
     inset-inline-start: 0;   /* RTL: physical right */
-    top: calc(56px + env(safe-area-inset-top, 0px));
+    top: 20px;
     inset-block-end: unset;
     width: auto;
-    padding: 16px 20px 0 0;
+    padding: 0 20px 0 0;
     background: none;
     align-items: flex-end;
     justify-content: flex-start;
@@ -1216,7 +1220,8 @@ body.menu-open { overflow: hidden; }
     overflow: hidden;
   }
   .bio-portrait-hero img {
-    object-position: center 30%;
+    object-fit: cover;
+    object-position: center center;
   }
 
   .bio-body { padding: 56px 0 80px; }
