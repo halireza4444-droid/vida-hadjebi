@@ -1063,36 +1063,30 @@ body.menu-open { overflow: hidden; }
 
 /* ---------- Hero shell ---------- */
 .bio-hero {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  position: relative;
   overflow: hidden;
   max-width: 1440px;
   margin: 0 auto;
   width: 100%;
-  aspect-ratio: 2 / 1;
-  min-height: 500px;
+  aspect-ratio: 16 / 9;
   background: var(--bg);
 }
 
-/* ---------- Title block (visual RIGHT in RTL) ---------- */
+/* ---------- Title block — absolutely over the RIGHT (RTL start) ---------- */
 .bio-title-block {
-  flex: 0 0 46%;
-  max-width: 46%;
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;   /* RTL: physical right */
+  width: 46%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* Inline-start = right in RTL (logo / title edge) */
   padding: 0 80px 0 0;
-  position: relative;
   z-index: 2;
-  /* Pull left into the portrait by 100px to create the Figma overlap */
-  margin-inline-end: -100px;
-  /* Fade: solid cream on the right edge, transparent on the left (portrait) side */
   background: linear-gradient(to left, var(--bg) 52%, transparent 100%);
 }
 
-/* Desktop SVG title (287 × 263 viewBox) */
+/* Desktop SVG title */
 .bio-title-svg--desktop {
   display: block;
   width: clamp(220px, 22vw, 300px);
@@ -1100,21 +1094,21 @@ body.menu-open { overflow: hidden; }
 }
 .bio-title-svg--mobile { display: none; }
 
-/* ---------- Portrait (visual LEFT in RTL) ---------- */
+/* ---------- Portrait — fills entire hero ---------- */
 .bio-portrait-hero {
-  flex: 1 1 auto;
-  min-width: 0;
-  overflow: hidden;
+  position: absolute;
+  inset: 0;
   margin: 0;
-  position: relative;
 }
-.bio-portrait-hero img {
+.bio-portrait-hero img,
+.bio-portrait-hero picture {
+  display: block;
   width: 100%;
   height: 100%;
+}
+.bio-portrait-hero img {
   object-fit: cover;
-  /* keep head visible when cropped */
-  object-position: center 8%;
-  display: block;
+  object-position: center center;
 }
 
 /* ---------- Biography body text ---------- */
@@ -1188,21 +1182,21 @@ body.menu-open { overflow: hidden; }
 /* Mobile: stack vertically */
 @media (max-width: 768px) {
   .bio-hero {
+    display: flex;
     flex-direction: column;
+    position: relative;
     aspect-ratio: unset;
-    min-height: 0;
     height: auto;
   }
 
   .bio-title-block {
-    flex: none;
-    max-width: none;
+    position: relative;
+    inset-block: unset;
+    inset-inline-start: unset;
     width: 100%;
-    margin-inline-end: 0;
-    /* Top padding clears the glass header, extra bottom for breathing room */
     padding: calc(72px + env(safe-area-inset-top, 0px)) 24px 36px;
     background: none;
-    align-items: flex-end;            /* right-align in RTL */
+    align-items: flex-end;
     justify-content: flex-end;
   }
 
@@ -1215,16 +1209,14 @@ body.menu-open { overflow: hidden; }
   }
 
   .bio-portrait-hero {
+    position: relative;
+    inset: unset;
     width: 100%;
-    /* Portrait crop: roughly upper-body / head-and-shoulders */
-    height: min(90vw, 440px);
+    height: min(90vw, 480px);
     overflow: hidden;
   }
   .bio-portrait-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 5%;
+    object-position: center 20%;
   }
 
   .bio-body { padding: 56px 0 80px; }
