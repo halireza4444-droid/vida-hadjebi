@@ -1137,9 +1137,9 @@ body.menu-open { overflow: hidden; }
   border-radius: 0 6px 6px 0;
 }
 .bio-quote p {
-  font-family: var(--font-display);   /* IranNastaliq for the quote text */
-  font-size: 20px !important;
-  line-height: 1.9 !important;
+  font-family: var(--font-body);
+  font-size: 17px !important;
+  line-height: 2.1 !important;
   margin: 0 0 12px !important;
 }
 .bio-quote cite {
