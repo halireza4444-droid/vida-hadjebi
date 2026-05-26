@@ -1047,3 +1047,185 @@ body.menu-open { overflow: hidden; }
 @media (min-width: 601px) {
   .mobile-menu, .nav-toggle { display: none !important; }
 }
+
+/* =============================================================
+   Biography page  (biography.html)
+   =============================================================
+
+   Hero layout (RTL flex-row):
+     DOM order: [.bio-title-block] [.bio-portrait-hero]
+     RTL rendering: title → visual RIGHT (start), portrait → visual LEFT (end)
+     They overlap: title extends ~100px into portrait via margin-inline-end.
+
+   Mobile (<769px):
+     flex-direction: column → title stacks on TOP, portrait below.
+*/
+
+/* ---------- Hero shell ---------- */
+.bio-hero {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: hidden;
+  /* Fixed height on desktop; on mobile this collapses to auto via media query */
+  height: clamp(560px, 50vw, 740px);
+  background: var(--bg);
+}
+
+/* ---------- Title block (visual RIGHT in RTL) ---------- */
+.bio-title-block {
+  flex: 0 0 46%;
+  max-width: 46%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Inline-start = right in RTL (logo / title edge) */
+  padding: 0 80px 0 0;
+  position: relative;
+  z-index: 2;
+  /* Pull left into the portrait by 100px to create the Figma overlap */
+  margin-inline-end: -100px;
+  /* Fade: solid cream on the right edge, transparent on the left (portrait) side */
+  background: linear-gradient(to left, var(--bg) 52%, transparent 100%);
+}
+
+/* Desktop SVG title (287 × 263 viewBox) */
+.bio-title-svg--desktop {
+  display: block;
+  width: clamp(220px, 22vw, 300px);
+  height: auto;
+}
+.bio-title-svg--mobile { display: none; }
+
+/* ---------- Portrait (visual LEFT in RTL) ---------- */
+.bio-portrait-hero {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  margin: 0;
+  position: relative;
+}
+.bio-portrait-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* keep head visible when cropped */
+  object-position: center 8%;
+  display: block;
+}
+
+/* ---------- Biography body text ---------- */
+.bio-body {
+  padding: 88px 0 120px;
+}
+.bio-body-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.bio-body-inner p {
+  font-size: 17px;
+  line-height: 2.1;
+  text-align: justify;
+  margin: 0 0 32px;
+  color: var(--ink);
+}
+
+/* ---------- Pull-quote ---------- */
+.bio-quote {
+  margin: 48px 0;
+  padding: 28px 36px;
+  border-inline-end: 3px solid var(--ink);   /* right border in RTL = start side */
+  background: rgba(0, 0, 0, 0.028);
+  border-radius: 0 6px 6px 0;
+}
+.bio-quote p {
+  font-family: var(--font-display);   /* IranNastaliq for the quote text */
+  font-size: 20px !important;
+  line-height: 1.9 !important;
+  margin: 0 0 12px !important;
+}
+.bio-quote cite {
+  display: block;
+  font-size: 13px;
+  font-style: normal;
+  color: var(--ink-muted);
+  text-align: left;           /* RTL: left = end = away from border */
+}
+
+/* ---------- Closing line ---------- */
+.bio-closing {
+  margin-top: 48px !important;
+  font-style: italic;
+  color: var(--ink-muted);
+  text-align: center !important;
+}
+
+/* ---------- Biography responsive ---------- */
+
+/* Tablet: tighten padding a bit */
+@media (max-width: 1100px) {
+  .bio-title-block {
+    padding-inline-start: 48px;
+    padding-inline-end: 0;
+  }
+}
+
+/* Below 900px: reduce desktop height, shrink title */
+@media (max-width: 900px) {
+  .bio-hero { height: clamp(480px, 56vw, 620px); }
+  .bio-title-block {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-inline-start: 32px;
+    margin-inline-end: -60px;
+  }
+  .bio-title-svg--desktop { width: clamp(180px, 24vw, 240px); }
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
+  .bio-hero {
+    flex-direction: column;
+    height: auto;
+    /* Remove the fixed height — portrait natural aspect ratio takes over */
+  }
+
+  .bio-title-block {
+    flex: none;
+    max-width: none;
+    width: 100%;
+    margin-inline-end: 0;
+    /* Top padding clears the glass header, extra bottom for breathing room */
+    padding: calc(72px + env(safe-area-inset-top, 0px)) 24px 36px;
+    background: none;
+    align-items: flex-end;            /* right-align in RTL */
+    justify-content: flex-end;
+  }
+
+  /* Show mobile SVG, hide desktop */
+  .bio-title-svg--desktop { display: none; }
+  .bio-title-svg--mobile  {
+    display: block;
+    width: clamp(150px, 46vw, 200px);
+    height: auto;
+  }
+
+  .bio-portrait-hero {
+    width: 100%;
+    /* Portrait crop: roughly upper-body / head-and-shoulders */
+    height: min(90vw, 440px);
+    overflow: hidden;
+  }
+  .bio-portrait-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 5%;
+  }
+
+  .bio-body { padding: 56px 0 80px; }
+  .bio-body-inner p { font-size: 15px; line-height: 2; }
+  .bio-quote { padding: 20px 24px; }
+  .bio-quote p { font-size: 17px !important; }
+}
