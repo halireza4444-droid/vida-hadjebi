@@ -1179,44 +1179,44 @@ body.menu-open { overflow: hidden; }
   .bio-title-svg--desktop { width: clamp(180px, 24vw, 240px); }
 }
 
-/* Mobile: stack vertically */
+/* Mobile: title overlays portrait (matches Figma) */
 @media (max-width: 768px) {
   .bio-hero {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+    display: block;
     aspect-ratio: unset;
-    height: auto;
+    height: min(120vw, 540px);
   }
 
+  /* Title floats over the upper-right of the image */
   .bio-title-block {
-    position: relative;
-    inset-block: unset;
-    inset-inline-start: unset;
-    width: 100%;
-    padding: calc(72px + env(safe-area-inset-top, 0px)) 24px 36px;
+    position: absolute;
+    inset-inline-start: 0;   /* RTL: physical right */
+    top: calc(56px + env(safe-area-inset-top, 0px));
+    inset-block-end: unset;
+    width: auto;
+    padding: 16px 20px 0 0;
     background: none;
     align-items: flex-end;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 
   /* Show mobile SVG, hide desktop */
   .bio-title-svg--desktop { display: none; }
   .bio-title-svg--mobile  {
     display: block;
-    width: clamp(150px, 46vw, 200px);
+    width: clamp(160px, 52vw, 220px);
     height: auto;
   }
 
   .bio-portrait-hero {
-    position: relative;
-    inset: unset;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: min(90vw, 480px);
+    height: 100%;
     overflow: hidden;
   }
   .bio-portrait-hero img {
-    object-position: center 38%;
+    object-position: center 30%;
   }
 
   .bio-body { padding: 56px 0 80px; }
