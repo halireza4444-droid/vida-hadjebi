@@ -1089,6 +1089,7 @@ body.menu-open { overflow: hidden; }
   flex-direction: column;
   justify-content: center;
   padding: 0 72px 0 0;
+  transform: translateY(-20px);
 }
 
 /* Desktop SVG title */
@@ -1192,6 +1193,7 @@ body.menu-open { overflow: hidden; }
     padding: 52px 0 56px;
     align-items: center;
     justify-content: flex-start;
+    transform: none;
   }
 
   .bio-title-svg--desktop { display: none; }
