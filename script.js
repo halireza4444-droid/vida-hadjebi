@@ -102,4 +102,17 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
   });
 });
 
+// Biography hero — keep portrait top = headerBottom + 68px
+const bioPortrait = document.querySelector('.bio-portrait-hero');
+if (bioPortrait) {
+  const updatePortraitTop = () => {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+    const bottom = header.getBoundingClientRect().bottom;
+    bioPortrait.style.top = (bottom + 68) + 'px';
+  };
+  updatePortraitTop();
+  window.addEventListener('resize', updatePortraitTop);
+}
+
 })();
