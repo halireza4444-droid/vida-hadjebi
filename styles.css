@@ -544,7 +544,7 @@ body.menu-open { overflow: hidden; }
 /* ---------- Book detail page (book.html) ---------- */
 .book-page { padding-top: 96px; }              /* clears the fixed header */
 
-.book-hero { padding: 32px 0 48px; }
+.book-hero { padding: 128px 0 48px; }
 .book-hero-grid {
   display: grid;
   grid-template-columns: 320px 1fr;             /* RTL: col1 (cover) at right, col2 (text) at left */
@@ -948,6 +948,7 @@ body.menu-open { overflow: hidden; }
   .books-grid { grid-template-columns: repeat(5, 1fr); gap: 16px; }
 
   /* Book detail page: cover above text on tablets */
+  .book-hero { padding-top: 32px; }
   .book-hero-grid { grid-template-columns: 1fr; gap: 28px; }
   .book-hero-cover { max-width: 240px; margin-inline: auto; }
   .book-title { font-size: 44px; }
