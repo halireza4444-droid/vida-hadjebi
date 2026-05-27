@@ -1204,7 +1204,7 @@ body.menu-open { overflow: hidden; }
   .bio-title-svg--desktop { display: none; }
   .bio-title-svg--mobile  {
     display: block;
-    width: clamp(112px, 36vw, 154px);
+    width: clamp(90px, 29vw, 123px);
     height: auto;
   }
 
