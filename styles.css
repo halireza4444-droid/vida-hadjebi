@@ -816,7 +816,7 @@ body.menu-open { overflow: hidden; }
   width: 100%;
   max-width: 360px;
   margin-inline: auto;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
 }
 
