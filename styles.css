@@ -1106,8 +1106,7 @@ body.menu-open { overflow: hidden; }
 .bio-portrait-hero {
   flex: 0 0 56%;
   aspect-ratio: 1 / 1;
-  /* margin-top set by JS: headerBottom + 68px */
-  margin-bottom: 40px;
+  margin: 0 0 40px 0; /* reset UA figure margins; margin-top overridden by JS */
   border-radius: 16px;
   overflow: hidden;
 }
