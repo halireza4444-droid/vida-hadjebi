@@ -1082,18 +1082,18 @@ body.menu-open { overflow: hidden; }
   background: var(--bg);
 }
 
-/* ---------- Title block — absolutely over the RIGHT (RTL start) ---------- */
+/* ---------- Title block — RIGHT column (RTL start), solid background ---------- */
 .bio-title-block {
   position: absolute;
   inset-block: 0;
   inset-inline-start: 0;   /* RTL: physical right */
-  width: 46%;
+  width: 44%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 80px 0 0;
+  padding: 0 72px 60px 0;
   z-index: 2;
-  background: linear-gradient(to left, var(--bg) 52%, transparent 100%);
+  background: var(--bg);
 }
 
 /* Desktop SVG title */
@@ -1104,10 +1104,14 @@ body.menu-open { overflow: hidden; }
 }
 .bio-title-svg--mobile { display: none; }
 
-/* ---------- Portrait — fills entire hero ---------- */
+/* ---------- Portrait — left 56% of hero ---------- */
 .bio-portrait-hero {
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: auto;
+  width: 56%;
   margin: 0;
 }
 .bio-portrait-hero img,
@@ -1170,38 +1174,28 @@ body.menu-open { overflow: hidden; }
 
 /* ---------- Biography responsive ---------- */
 
-/* Tablet: tighten padding a bit */
+/* Tablet: tighten padding */
 @media (max-width: 1100px) {
-  .bio-title-block {
-    padding-inline-start: 48px;
-    padding-inline-end: 0;
-  }
+  .bio-title-block { padding: 0 48px 60px 0; }
 }
 
 /* Below 900px: shrink title */
 @media (max-width: 900px) {
-  .bio-title-block {
-    flex: 0 0 50%;
-    max-width: 50%;
-    padding-inline-start: 32px;
-    margin-inline-end: -60px;
-  }
+  .bio-title-block { padding: 0 32px 48px 0; }
   .bio-title-svg--desktop { width: clamp(180px, 24vw, 240px); }
 }
 
-/* Mobile: full-ratio portrait, starts below header, title overlays */
+/* Mobile: square portrait below header, title overlays top */
 @media (max-width: 768px) {
   .bio-hero {
     display: block;
-    /* Push below the fixed glass header */
     margin-top: calc(56px + env(safe-area-inset-top, 0px));
-    /* Exact mobile image ratio: 880 × 1566 */
-    aspect-ratio: 880 / 1566;
+    aspect-ratio: 1 / 1;
     height: auto;
     width: 100%;
   }
 
-  /* Title centered over the image */
+  /* Title overlaid in upper area of portrait */
   .bio-title-block {
     position: absolute;
     inset-inline-start: unset;
@@ -1209,7 +1203,7 @@ body.menu-open { overflow: hidden; }
     inset-block: unset;
     left: 0;
     right: 0;
-    top: 44px;
+    top: 36px;
     width: 100%;
     max-width: none;
     padding: 0;
@@ -1218,7 +1212,6 @@ body.menu-open { overflow: hidden; }
     justify-content: flex-start;
   }
 
-  /* Show mobile SVG, hide desktop — 30% smaller than before */
   .bio-title-svg--desktop { display: none; }
   .bio-title-svg--mobile  {
     display: block;
@@ -1228,14 +1221,17 @@ body.menu-open { overflow: hidden; }
 
   .bio-portrait-hero {
     position: absolute;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
   }
   .bio-portrait-hero img {
     object-fit: cover;
-    object-position: center center;
+    object-position: center top;
   }
 
   .bio-body { padding: 56px 0 80px; }
