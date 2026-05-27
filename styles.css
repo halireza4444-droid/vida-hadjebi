@@ -1192,7 +1192,7 @@ body.menu-open { overflow: hidden; }
     flex: 0 0 auto;
     align-self: auto;
     width: 100%;
-    padding: 52px 0 20px;
+    padding: 52px 0 56px;
     align-items: center;
     justify-content: flex-start;
   }
