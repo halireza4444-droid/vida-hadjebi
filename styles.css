@@ -1080,7 +1080,6 @@ body.menu-open { overflow: hidden; }
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
-  background: var(--bg);
 }
 
 /* ---------- Title block — RTL flex: appears on RIGHT ---------- */
@@ -1091,7 +1090,6 @@ body.menu-open { overflow: hidden; }
   flex-direction: column;
   justify-content: center;
   padding: 0 72px 60px 0;
-  background: var(--bg);
 }
 
 /* Desktop SVG title */
