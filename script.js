@@ -119,4 +119,14 @@ if (bioHero) {
   window.addEventListener('resize', updateHeroPadding);
 }
 
+// Interviews accordion — only one <details> open at a time
+const allDetails = document.querySelectorAll('.interviews-list details');
+allDetails.forEach((det) => {
+  det.addEventListener('toggle', () => {
+    if (det.open) {
+      allDetails.forEach((other) => { if (other !== det) other.removeAttribute('open'); });
+    }
+  });
+});
+
 })();
