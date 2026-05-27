@@ -119,12 +119,35 @@ if (bioHero) {
   window.addEventListener('resize', updateHeroPadding);
 }
 
-// Interviews accordion — only one <details> open at a time
+// Interviews accordion — smooth animated open/close, one open at a time
 const allDetails = document.querySelectorAll('.interviews-list details');
+
+const closeDetail = (det) => {
+  const body = det.querySelector('.iv-body');
+  body.style.height = body.scrollHeight + 'px';
+  requestAnimationFrame(() => requestAnimationFrame(() => { body.style.height = '0px'; }));
+  body.addEventListener('transitionend', () => {
+    det.removeAttribute('open');
+    body.style.height = '';
+  }, { once: true });
+};
+
+const openDetail = (det) => {
+  det.setAttribute('open', '');
+  const body = det.querySelector('.iv-body');
+  body.style.height = '0px';
+  requestAnimationFrame(() => requestAnimationFrame(() => { body.style.height = body.scrollHeight + 'px'; }));
+  body.addEventListener('transitionend', () => { body.style.height = ''; }, { once: true });
+};
+
 allDetails.forEach((det) => {
-  det.addEventListener('toggle', () => {
+  det.querySelector('summary').addEventListener('click', (e) => {
+    e.preventDefault();
     if (det.open) {
-      allDetails.forEach((other) => { if (other !== det) other.removeAttribute('open'); });
+      closeDetail(det);
+    } else {
+      allDetails.forEach((other) => { if (other !== det && other.open) closeDetail(other); });
+      openDetail(det);
     }
   });
 });
