@@ -110,15 +110,12 @@ if (bioPortrait) {
     if (!header) return;
     if (window.innerWidth > 768) {
       bioPortrait.style.marginTop = (header.getBoundingClientRect().bottom + 68) + 'px';
-      bioPortrait.style.marginLeft = '0';
-      bioPortrait.style.marginRight = 'auto';
     } else {
       bioPortrait.style.marginTop = '';
-      bioPortrait.style.marginLeft = '';
-      bioPortrait.style.marginRight = '';
     }
   };
   updatePortraitTop();
+  window.addEventListener('load', updatePortraitTop);
   window.addEventListener('resize', updatePortraitTop);
 }
 

@@ -1071,28 +1071,26 @@ body.menu-open { overflow: hidden; }
      flex-direction: column → title stacks on TOP, portrait below.
 */
 
-/* ---------- Hero shell — height set by in-flow portrait ---------- */
+/* ---------- Hero shell — flex row, aligned to header container ---------- */
 .bio-hero {
-  position: relative;
-  overflow: hidden;
-  max-width: 1440px;
+  display: flex;
+  align-items: flex-start;
+  max-width: 1280px;
+  padding: 0 16px;
   margin: 0 auto;
   width: 100%;
+  box-sizing: border-box;
   background: var(--bg);
 }
 
-/* ---------- Title block — right 44%, full hero height ---------- */
+/* ---------- Title block — RTL flex: appears on RIGHT ---------- */
 .bio-title-block {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 44%;
+  flex: 0 0 44%;
+  align-self: stretch;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 72px 60px 0;
-  z-index: 2;
   background: var(--bg);
 }
 
@@ -1104,12 +1102,12 @@ body.menu-open { overflow: hidden; }
 }
 .bio-title-svg--mobile { display: none; }
 
-/* ---------- Portrait — in-flow, left 56%, 1:1 square ---------- */
+/* ---------- Portrait — RTL flex: appears on LEFT, 1:1 square ---------- */
 .bio-portrait-hero {
-  position: relative;
-  width: 56%;
+  flex: 0 0 56%;
   aspect-ratio: 1 / 1;
-  margin: 172px auto 40px 0; /* top: fallback (JS overrides); right: auto pushes left in RTL; left: 0 */
+  /* margin-top set by JS: headerBottom + 68px */
+  margin-bottom: 40px;
   border-radius: 16px;
   overflow: hidden;
 }
@@ -1173,10 +1171,9 @@ body.menu-open { overflow: hidden; }
 
 /* ---------- Biography responsive ---------- */
 
-/* Tablet: tighten padding, add left margin so portrait clears the wall */
+/* Tablet: tighten title padding */
 @media (max-width: 1100px) {
   .bio-title-block { padding: 0 48px 60px 0; }
-  .bio-portrait-hero { margin-left: 16px; margin-right: 0; width: calc(56% - 16px); }
 }
 
 /* Below 900px: shrink title SVG */
@@ -1185,24 +1182,18 @@ body.menu-open { overflow: hidden; }
   .bio-title-svg--desktop { width: clamp(180px, 24vw, 240px); }
 }
 
-/* Mobile: portrait in-flow with side margins, title overlays */
+/* Mobile: column — title on top, portrait below */
 @media (max-width: 768px) {
   .bio-hero {
+    flex-direction: column;
     margin-top: calc(56px + env(safe-area-inset-top, 0px));
-    overflow: hidden;
   }
 
-  /* Title overlaid in upper area of portrait */
   .bio-title-block {
-    position: absolute;
-    top: 52px; /* 16px portrait margin + 36px breathing room */
-    left: 0;
-    right: 0;
-    bottom: auto;
+    flex: 0 0 auto;
+    align-self: auto;
     width: 100%;
-    max-width: none;
-    padding: 0;
-    background: none;
+    padding: 52px 0 20px;
     align-items: center;
     justify-content: flex-start;
   }
@@ -1214,11 +1205,10 @@ body.menu-open { overflow: hidden; }
     height: auto;
   }
 
-  /* Portrait: in-flow, 16px from each wall, square */
   .bio-portrait-hero {
-    position: relative;
-    width: calc(100% - 32px);
-    margin: 16px auto;
+    flex: 0 0 auto;
+    width: 100%;
+    margin: 0 0 24px 0;
     aspect-ratio: 1 / 1;
     border-radius: 16px;
     overflow: hidden;
