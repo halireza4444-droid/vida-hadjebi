@@ -799,7 +799,7 @@ body.menu-open { overflow: hidden; }
   color: #696969;
   text-align: justify;
   overflow: hidden;
-  transition: height 0.35s ease;
+  transition: height 0.35s ease, padding-top 0.35s ease, padding-bottom 0.35s ease;
 }
 
 /* ---------- Vida — Meaning of Life ---------- */

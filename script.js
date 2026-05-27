@@ -122,22 +122,57 @@ if (bioHero) {
 // Interviews accordion — smooth animated open/close, one open at a time
 const allDetails = document.querySelectorAll('.interviews-list details');
 
+const collapseBody = (body) => {
+  const cs = getComputedStyle(body);
+  body.style.height = body.scrollHeight + 'px';
+  body.style.paddingTop = cs.paddingTop;
+  body.style.paddingBottom = cs.paddingBottom;
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    body.style.height = '0px';
+    body.style.paddingTop = '0px';
+    body.style.paddingBottom = '0px';
+  }));
+};
+
+const clearBodyStyles = (body) => {
+  body.style.height = '';
+  body.style.paddingTop = '';
+  body.style.paddingBottom = '';
+};
+
 const closeDetail = (det) => {
   const body = det.querySelector('.iv-body');
-  body.style.height = body.scrollHeight + 'px';
-  requestAnimationFrame(() => requestAnimationFrame(() => { body.style.height = '0px'; }));
-  body.addEventListener('transitionend', () => {
+  collapseBody(body);
+  const onEnd = (e) => {
+    if (e.propertyName !== 'height') return;
+    body.removeEventListener('transitionend', onEnd);
     det.removeAttribute('open');
-    body.style.height = '';
-  }, { once: true });
+    clearBodyStyles(body);
+  };
+  body.addEventListener('transitionend', onEnd);
 };
 
 const openDetail = (det) => {
   det.setAttribute('open', '');
   const body = det.querySelector('.iv-body');
+  const cs = getComputedStyle(body);
+  const targetH = body.scrollHeight + 'px';
+  const targetPT = cs.paddingTop;
+  const targetPB = cs.paddingBottom;
   body.style.height = '0px';
-  requestAnimationFrame(() => requestAnimationFrame(() => { body.style.height = body.scrollHeight + 'px'; }));
-  body.addEventListener('transitionend', () => { body.style.height = ''; }, { once: true });
+  body.style.paddingTop = '0px';
+  body.style.paddingBottom = '0px';
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    body.style.height = targetH;
+    body.style.paddingTop = targetPT;
+    body.style.paddingBottom = targetPB;
+  }));
+  const onEnd = (e) => {
+    if (e.propertyName !== 'height') return;
+    body.removeEventListener('transitionend', onEnd);
+    clearBodyStyles(body);
+  };
+  body.addEventListener('transitionend', onEnd);
 };
 
 allDetails.forEach((det) => {
