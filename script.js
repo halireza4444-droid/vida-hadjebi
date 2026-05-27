@@ -102,14 +102,21 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
   });
 });
 
-// Biography hero — keep portrait top = headerBottom + 68px
+// Biography hero — portrait margin-top = headerBottom + 68px (desktop only)
 const bioPortrait = document.querySelector('.bio-portrait-hero');
 if (bioPortrait) {
+  const header = document.querySelector('.site-header');
   const updatePortraitTop = () => {
-    const header = document.querySelector('.site-header');
     if (!header) return;
-    const bottom = header.getBoundingClientRect().bottom;
-    bioPortrait.style.top = (bottom + 68) + 'px';
+    if (window.innerWidth > 768) {
+      bioPortrait.style.marginTop = (header.getBoundingClientRect().bottom + 68) + 'px';
+      bioPortrait.style.marginLeft = '0';
+      bioPortrait.style.marginRight = 'auto';
+    } else {
+      bioPortrait.style.marginTop = '';
+      bioPortrait.style.marginLeft = '';
+      bioPortrait.style.marginRight = '';
+    }
   };
   updatePortraitTop();
   window.addEventListener('resize', updatePortraitTop);

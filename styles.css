@@ -1071,22 +1071,22 @@ body.menu-open { overflow: hidden; }
      flex-direction: column → title stacks on TOP, portrait below.
 */
 
-/* ---------- Hero shell ---------- */
+/* ---------- Hero shell — height set by in-flow portrait ---------- */
 .bio-hero {
   position: relative;
   overflow: hidden;
   max-width: 1440px;
   margin: 0 auto;
   width: 100%;
-  aspect-ratio: 16 / 9;
   background: var(--bg);
 }
 
-/* ---------- Title block — RIGHT column (RTL start), solid background ---------- */
+/* ---------- Title block — right 44%, full hero height ---------- */
 .bio-title-block {
   position: absolute;
-  inset-block: 0;
-  inset-inline-start: 0;   /* RTL: physical right */
+  top: 0;
+  bottom: 0;
+  right: 0;
   width: 44%;
   display: flex;
   flex-direction: column;
@@ -1104,15 +1104,12 @@ body.menu-open { overflow: hidden; }
 }
 .bio-title-svg--mobile { display: none; }
 
-/* ---------- Portrait — left 56% of hero ---------- */
+/* ---------- Portrait — in-flow, left 56%, 1:1 square ---------- */
 .bio-portrait-hero {
-  position: absolute;
-  top: 172px; /* fallback; overridden by JS to headerBottom + 68px */
-  bottom: 0;
-  left: 0;
-  right: auto;
+  position: relative;
   width: 56%;
-  margin: 0;
+  aspect-ratio: 1 / 1;
+  margin: 172px auto 40px 0; /* top: fallback (JS overrides); right: auto pushes left in RTL; left: 0 */
   border-radius: 16px;
   overflow: hidden;
 }
@@ -1176,36 +1173,32 @@ body.menu-open { overflow: hidden; }
 
 /* ---------- Biography responsive ---------- */
 
-/* Tablet: tighten padding */
+/* Tablet: tighten padding, add left margin so portrait clears the wall */
 @media (max-width: 1100px) {
   .bio-title-block { padding: 0 48px 60px 0; }
+  .bio-portrait-hero { margin-left: 16px; margin-right: 0; width: calc(56% - 16px); }
 }
 
-/* Below 900px: shrink title */
+/* Below 900px: shrink title SVG */
 @media (max-width: 900px) {
   .bio-title-block { padding: 0 32px 48px 0; }
   .bio-title-svg--desktop { width: clamp(180px, 24vw, 240px); }
 }
 
-/* Mobile: square portrait below header, title overlays top */
+/* Mobile: portrait in-flow with side margins, title overlays */
 @media (max-width: 768px) {
   .bio-hero {
-    display: block;
     margin-top: calc(56px + env(safe-area-inset-top, 0px));
-    aspect-ratio: 1 / 1;
-    height: auto;
-    width: 100%;
+    overflow: hidden;
   }
 
   /* Title overlaid in upper area of portrait */
   .bio-title-block {
     position: absolute;
-    inset-inline-start: unset;
-    inset-inline-end: unset;
-    inset-block: unset;
+    top: 52px; /* 16px portrait margin + 36px breathing room */
     left: 0;
     right: 0;
-    top: 36px;
+    bottom: auto;
     width: 100%;
     max-width: none;
     padding: 0;
@@ -1221,14 +1214,13 @@ body.menu-open { overflow: hidden; }
     height: auto;
   }
 
+  /* Portrait: in-flow, 16px from each wall, square */
   .bio-portrait-hero {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    width: calc(100% - 32px);
+    margin: 16px auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
     overflow: hidden;
   }
   .bio-portrait-hero img {
