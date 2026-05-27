@@ -122,8 +122,20 @@ if (bioHero) {
 // Interviews accordion — smooth animated open/close, one open at a time
 const allDetails = document.querySelectorAll('.interviews-list details');
 
-const collapseBody = (body) => {
+const EASE_OPEN  = 'height 0.32s cubic-bezier(0.0,0.0,0.2,1), padding-top 0.32s cubic-bezier(0.0,0.0,0.2,1), padding-bottom 0.32s cubic-bezier(0.0,0.0,0.2,1)';
+const EASE_CLOSE = 'height 0.25s cubic-bezier(0.4,0.0,1,1), padding-top 0.25s cubic-bezier(0.4,0.0,1,1), padding-bottom 0.25s cubic-bezier(0.4,0.0,1,1)';
+
+const clearBodyStyles = (body) => {
+  body.style.height = '';
+  body.style.paddingTop = '';
+  body.style.paddingBottom = '';
+  body.style.transition = '';
+};
+
+const closeDetail = (det) => {
+  const body = det.querySelector('.iv-body');
   const cs = getComputedStyle(body);
+  body.style.transition = EASE_CLOSE;
   body.style.height = body.scrollHeight + 'px';
   body.style.paddingTop = cs.paddingTop;
   body.style.paddingBottom = cs.paddingBottom;
@@ -132,17 +144,6 @@ const collapseBody = (body) => {
     body.style.paddingTop = '0px';
     body.style.paddingBottom = '0px';
   }));
-};
-
-const clearBodyStyles = (body) => {
-  body.style.height = '';
-  body.style.paddingTop = '';
-  body.style.paddingBottom = '';
-};
-
-const closeDetail = (det) => {
-  const body = det.querySelector('.iv-body');
-  collapseBody(body);
   const onEnd = (e) => {
     if (e.propertyName !== 'height') return;
     body.removeEventListener('transitionend', onEnd);
@@ -159,6 +160,7 @@ const openDetail = (det) => {
   const targetH = body.scrollHeight + 'px';
   const targetPT = cs.paddingTop;
   const targetPB = cs.paddingBottom;
+  body.style.transition = EASE_OPEN;
   body.style.height = '0px';
   body.style.paddingTop = '0px';
   body.style.paddingBottom = '0px';
