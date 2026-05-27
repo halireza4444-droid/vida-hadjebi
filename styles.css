@@ -280,7 +280,6 @@ body.menu-open { overflow: hidden; }
 /* ---------- Section primitives ---------- */
 .section { padding: 128px 0; }
 .section + .section { padding-top: 40px; }
-#books { margin-top: 68px; }
 
 /* When the user clicks a menu anchor, anchor target lands below the
    fixed header instead of being hidden under it. */
@@ -369,7 +368,7 @@ body.menu-open { overflow: hidden; }
    Desktop: flex space-between, portrait on RIGHT (RTL start), text on LEFT.
    Figma frame 1281×726, padding ~80px vertical.
 */
-.hero { padding: 120px 0 96px; }       /* extra top padding for fixed header */
+.hero { padding: 120px 0 96px; margin-top: 68px; }       /* extra top padding for fixed header */
 
 .hero-grid {
   display: flex;
