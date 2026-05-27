@@ -1107,12 +1107,14 @@ body.menu-open { overflow: hidden; }
 /* ---------- Portrait — left 56% of hero ---------- */
 .bio-portrait-hero {
   position: absolute;
-  top: 0;
+  top: 68px;
   bottom: 0;
   left: 0;
   right: auto;
   width: 56%;
   margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
 }
 .bio-portrait-hero img,
 .bio-portrait-hero picture {
