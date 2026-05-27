@@ -278,8 +278,8 @@ body {
 body.menu-open { overflow: hidden; }
 
 /* ---------- Section primitives ---------- */
-.section { padding: 88px 0; }
-.section + .section { padding-top: 0; }
+.section { padding: 128px 0; }
+.section + .section { padding-top: 40px; }
 
 /* When the user clicks a menu anchor, anchor target lands below the
    fixed header instead of being hidden under it. */
@@ -936,7 +936,7 @@ body.menu-open { overflow: hidden; }
 
   .display { font-size: 64px; }
   .section-title { font-size: 36px; margin-bottom: 32px; }
-  .section { padding: 64px 0; }
+  .section { padding: 88px 0; }
   .hero { padding-top: 100px; padding-bottom: 56px; }
 
   .hero-grid { flex-direction: column; gap: 28px; align-items: stretch; }
