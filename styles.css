@@ -1074,9 +1074,9 @@ body.menu-open { overflow: hidden; }
 /* ---------- Hero shell — flex row, aligned to header container ---------- */
 .bio-hero {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   max-width: 1280px;
-  padding: 0 40px;
+  padding: 0 40px 40px;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
@@ -1085,11 +1085,10 @@ body.menu-open { overflow: hidden; }
 /* ---------- Title block — RTL flex: appears on RIGHT ---------- */
 .bio-title-block {
   flex: 0 0 44%;
-  align-self: stretch;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 72px 60px 0;
+  padding: 0 72px 0 0;
 }
 
 /* Desktop SVG title */
@@ -1104,7 +1103,7 @@ body.menu-open { overflow: hidden; }
 .bio-portrait-hero {
   flex: 0 0 56%;
   aspect-ratio: 1 / 1;
-  margin: 0 0 40px 0; /* reset UA figure margins; margin-top overridden by JS */
+  margin: 0; /* reset UA figure margins; hero paddingTop set by JS */
   border-radius: 16px;
   overflow: hidden;
 }
@@ -1205,7 +1204,7 @@ body.menu-open { overflow: hidden; }
   .bio-portrait-hero {
     flex: 0 0 auto;
     width: 100%;
-    margin: 0 0 24px 0;
+    margin: 0;
     aspect-ratio: 1 / 1;
     border-radius: 16px;
     overflow: hidden;

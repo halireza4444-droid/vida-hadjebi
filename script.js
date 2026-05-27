@@ -102,21 +102,21 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
   });
 });
 
-// Biography hero — portrait margin-top = headerBottom + 68px (desktop only)
-const bioPortrait = document.querySelector('.bio-portrait-hero');
-if (bioPortrait) {
+// Biography hero — push hero below header via paddingTop (desktop only)
+const bioHero = document.querySelector('.bio-hero');
+if (bioHero) {
   const header = document.querySelector('.site-header');
-  const updatePortraitTop = () => {
+  const updateHeroPadding = () => {
     if (!header) return;
     if (window.innerWidth > 768) {
-      bioPortrait.style.marginTop = (header.getBoundingClientRect().bottom + 68) + 'px';
+      bioHero.style.paddingTop = (header.getBoundingClientRect().bottom + 68) + 'px';
     } else {
-      bioPortrait.style.marginTop = '';
+      bioHero.style.paddingTop = '';
     }
   };
-  updatePortraitTop();
-  window.addEventListener('load', updatePortraitTop);
-  window.addEventListener('resize', updatePortraitTop);
+  updateHeroPadding();
+  window.addEventListener('load', updateHeroPadding);
+  window.addEventListener('resize', updateHeroPadding);
 }
 
 })();
