@@ -802,6 +802,8 @@ body.menu-open { overflow: hidden; }
   transition: height 0.35s ease, padding-top 0.35s ease, padding-bottom 0.35s ease;
 }
 
+.iv-actions { margin-top: 12px; }
+
 /* ---------- Vida — Meaning of Life ---------- */
 .meaning-grid {
   display: grid;
