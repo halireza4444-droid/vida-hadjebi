@@ -75,9 +75,15 @@ document.querySelectorAll('.slider-controls[data-target]').forEach((controls) =>
 });
 
 // Click-to-play Vimeo embeds
+// If data-vimeo-external is set the video opens in a new tab (privacy-restricted videos).
 document.querySelectorAll('[data-vimeo-id]').forEach((tile) => {
   const button = tile.querySelector('.video-thumb');
   button?.addEventListener('click', () => {
+    const externalUrl = tile.dataset.vimeoExternal;
+    if (externalUrl) {
+      window.open(externalUrl, '_blank', 'noopener');
+      return;
+    }
     const id = tile.dataset.vimeoId;
     const iframe = document.createElement('iframe');
     iframe.src = `https://player.vimeo.com/video/${id}?autoplay=1&byline=0&portrait=0&title=0`;
