@@ -1228,3 +1228,66 @@ body.menu-open { overflow: hidden; }
   .bio-quote { padding: 20px 24px; }
   .bio-quote p { font-size: 17px !important; }
 }
+
+/* =========================================================
+   Video Modal
+   ========================================================= */
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.video-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.video-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+}
+.video-modal-box {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 960px);
+  background: #000;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+}
+.video-modal-box video {
+  width: 100%;
+  display: block;
+  max-height: 80vh;
+}
+.video-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.55);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.15s;
+}
+.video-modal-close:hover { background: rgba(0, 0, 0, 0.8); }
+.video-modal-close img {
+  width: 16px;
+  height: 16px;
+  filter: invert(1);
+}

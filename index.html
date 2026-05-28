@@ -14,7 +14,7 @@
   <link rel="preload" href="assets/fonts/IRANYekanWeb-Bold.ttf" as="font" type="font/ttf" crossorigin />
   <link rel="preload" href="assets/fonts/IranNastaliq.ttf" as="font" type="font/ttf" crossorigin />
 
-  <link rel="stylesheet" href="styles.css?v=24" />
+  <link rel="stylesheet" href="styles.css?v=25" />
 
   <!-- PhotoSwipe lightbox -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css" />
@@ -182,25 +182,22 @@
             <details>
               <summary>
                 <span class="iv-meta">
-                  <span class="iv-tag iv-tag--text">
-                    <img src="assets/images/icon-type-text.svg" alt="" />
-                    متن
+                  <span class="iv-tag iv-tag--video">
+                    <img src="assets/images/icon-type-video.svg" alt="" />
+                    ویدئو
                   </span>
-                  <span class="iv-source"><img src="assets/images/publisher-placeholder.svg" alt="" />زنان نیروی</span>
                 </span>
-                <span class="iv-title">نقد از تهران تا قاهره در نگاه ویدا حاجبی</span>
+                <span class="iv-title">مصاحبه اشکان نوروز خانی</span>
                 <span class="iv-toggle" aria-hidden="true">
                   <img class="iv-toggle-ico iv-toggle-ico--plus"  src="assets/images/icon-plus.svg"  alt="" />
                   <img class="iv-toggle-ico iv-toggle-ico--minus" src="assets/images/icon-minus.svg" alt="" />
                 </span>
               </summary>
               <div class="iv-body">
-                <p>
-                  در اینکه فیلم مستند از تهران تا قاهره مورد استقبال جوانان قرار گرفت، شکی نیست؛ ویدا حاجبی فعال سیاسی-اجتماعی و مهمان آن برنامه پاسخ‌های پر مغزی به سؤالات داد. اما این فیلم تا اینکه این فیلم تا حد مطلوب فاصله داشت. در اینکه از حد قابل قبولی فاصله دارد در پاریس، از این پس از موفقیت‌های دانشجویان پاریسی را به تشریع تاریخ آن دوره می‌پردازد و این بار راوی نیستم زنده. این کتاب اطلاعات و آن کتاب ها وقتی ندارد. این کتاب ها حاوی خاطرات ویدا حاجبی است که شامل دوره‌های مختلف تاریخی است.
-                </p>
+                <p>ویدیو از اشکان نوروزخانی، برای پروژه کتاب: «سبز آبی، سپس خاکستری» (سال ۱۳۹۵)</p>
                 <div class="iv-actions">
-                  <a href="#" target="_blank" rel="noopener" class="btn btn-pill">
-                    <span>مطالعه متن</span>
+                  <a href="#" data-video-src="assets/videos/ashkan-noroozkhani.mp4" class="btn btn-pill">
+                    <span>دیدن ویدیو</span>
                     <img src="assets/images/icon-arrow-left.svg" alt="" class="btn-icon" />
                   </a>
                 </div>
@@ -368,7 +365,18 @@
     </div>
   </footer>
 
-  <script src="script.js?v=17" defer></script>
+  <!-- Video Modal -->
+  <div id="videoModal" class="video-modal" aria-hidden="true" role="dialog" aria-label="پخش ویدیو">
+    <div class="video-modal-overlay"></div>
+    <div class="video-modal-box">
+      <button class="video-modal-close" aria-label="بستن">
+        <img src="assets/images/icon-close.svg" alt="" />
+      </button>
+      <video id="videoModalPlayer" controls playsinline></video>
+    </div>
+  </div>
+
+  <script src="script.js?v=18" defer></script>
 
   <!-- PhotoSwipe initialization (RTL navigation) -->
   <script type="module">
