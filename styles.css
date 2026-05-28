@@ -1042,13 +1042,13 @@ body.menu-open { overflow: hidden; }
     row-gap: 4px;
     padding: 12px 0;
   }
-  .iv-meta { font-size: 11px; gap: 8px; }
-  .iv-tag { gap: 4px; font-size: 11px; }
-  .iv-tag img { width: 14px; height: 14px; }
-  .iv-source { font-size: 11px; gap: 4px; }
-  .iv-source img { width: 14px; height: 14px; }
-  .iv-source::before { width: 3px; height: 3px; margin-inline-end: 4px; }
-  .iv-title { font-size: 14px; }
+  .iv-meta { font-size: 13px; gap: 10px; }
+  .iv-tag { gap: 5px; font-size: 13px; }
+  .iv-tag img { width: 17px; height: 17px; }
+  .iv-source { font-size: 13px; gap: 5px; }
+  .iv-source img { width: 17px; height: 17px; }
+  .iv-source::before { width: 4px; height: 4px; margin-inline-end: 4px; }
+  .iv-title { font-size: 17px; }
   .iv-toggle {
     grid-column: 2;
     grid-row: 1 / span 2;
@@ -1057,7 +1057,9 @@ body.menu-open { overflow: hidden; }
     padding: 6px;
   }
   .iv-toggle-ico { width: 16px; height: 16px; }
-  .iv-body { padding: 4px 0 14px; font-size: 13px; line-height: 1.9; }
+  .iv-body { padding: 4px 0 14px; font-size: 16px; line-height: 1.9; }
+  .interviews-list .btn-pill { font-size: 13px; padding: 6px 19px 6px 13px; gap: 8px; }
+  .interviews-list .btn-icon { width: 16px; height: 16px; }
 }
 
 /* Hide the mobile menu structure entirely above 600px */
