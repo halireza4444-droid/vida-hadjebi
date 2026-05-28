@@ -771,7 +771,7 @@ body.menu-open { overflow: hidden; }
 .iv-tag img { width: 24px; height: 24px; display: block; }
 .iv-tag--video { color: #128F23; }
 .iv-tag--text  { color: #CE0BE0; }
-.iv-tag--audio { color: #1FC7D7; }
+.iv-tag--audio { color: #0E9EAD; }
 
 /* Separator dot between type and publisher (4px, #6E6E6E) */
 .iv-meta::before { content: none; }                  /* fallback off */
