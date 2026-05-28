@@ -338,7 +338,7 @@ body.menu-open { overflow: hidden; }
 }
 .btn-disabled .btn-icon { opacity: 0.35; }
 .btn-pill.btn-disabled,
-.btn-pill.btn-disabled:hover { border-color: #EBEBEB; }
+.btn-pill.btn-disabled:hover { border-color: #C8C8C8; }
 
 /* Pill button with arrow icon (used in hero biography link).
    Figma: padding 8/24/8/16, gap 10, bg #FFF9F5, border 1px #000. */
