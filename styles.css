@@ -157,7 +157,7 @@ body {
   max-width: 1248px;
   padding: 16px;
   padding-inline-start: 32px;              /* 32px on the visual RIGHT in RTL — logo margin */
-  padding-inline-end: 24px;                /* 24px on the visual LEFT in RTL — nav margin */
+  padding-inline-end: 40px;                /* 40px on the visual LEFT in RTL — nav margin */
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.30);
   border: 1px solid rgba(255, 255, 255, 0.45);
@@ -182,9 +182,9 @@ body {
 .nav-items {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 32px;
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--ink);
   line-height: 1;
