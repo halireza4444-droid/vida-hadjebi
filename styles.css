@@ -982,7 +982,7 @@ body.menu-open { overflow: hidden; }
   .book-h2 { font-size: 18px; }
   .other-books .books-grid { grid-template-columns: repeat(4, 1fr); }
   .translations-grid { grid-template-columns: 1fr; }
-  .ramin-media { grid-template-columns: 1fr; }
+  .ramin-media { grid-template-columns: 1fr; align-items: start; }
   .meaning-grid { grid-template-columns: 1fr; gap: 32px; }
   .meaning-cover img { max-width: 260px; }
 }
