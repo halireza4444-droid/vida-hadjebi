@@ -328,6 +328,15 @@ body.menu-open { overflow: hidden; }
 .btn:active { transform: translateY(1px); }
 .btn-ghost { background: transparent; }
 .btn-small { padding: 6px 14px; font-size: 13px; }
+.btn-disabled,
+.btn-disabled:hover {
+  background: #EBEBEB;
+  border-color: #EBEBEB;
+  color: #ABABAB;
+  cursor: default;
+  pointer-events: none;
+}
+.btn-disabled .btn-icon { opacity: 0.35; }
 
 /* Pill button with arrow icon (used in hero biography link).
    Figma: padding 8/24/8/16, gap 10, bg #FFF9F5, border 1px #000. */
