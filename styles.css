@@ -943,7 +943,7 @@ body.menu-open { overflow: hidden; }
   .display { font-size: 64px; }
   .section-title { font-size: 36px; margin-bottom: 32px; }
   .section { padding: 88px 0; }
-  .hero { padding-top: 100px; padding-bottom: 56px; }
+  .hero { padding-top: 76px; padding-bottom: 56px; }
 
   .hero-grid { flex-direction: column; gap: 28px; align-items: stretch; }
   .hero-portrait { width: 100%; max-width: 360px; margin-inline: auto; order: 0; }
@@ -1011,7 +1011,7 @@ body.menu-open { overflow: hidden; }
   .mobile-menu { padding-top: calc(64px + env(safe-area-inset-top, 0px)); }
 
   /* Hero content also clears the strip */
-  .hero { padding-top: calc(80px + env(safe-area-inset-top, 0px)); }
+  .hero { padding-top: calc(56px + env(safe-area-inset-top, 0px)); }
 
   /* Hero bio drops 2px on mobile */
   .hero-bio { font-size: 14px; }
