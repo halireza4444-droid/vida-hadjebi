@@ -34,7 +34,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- JSON-LD: Person + Books -->
+  <!-- JSON-LD: Person -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,62 +49,76 @@
     "url": "https://vidahadjebi.com",
     "sameAs": ["https://vidahadjebi.com"],
     "knowsLanguage": ["fa", "fr"],
-    "image": "https://vidahadjebi.com/assets/images/bio-hero-desktop.jpg",
-    "author": [
-      {
-        "@type": "Book",
-        "name": "دادِ بی‌داد — جلد اول",
-        "alternateName": "Dad Bi-Dad Vol. 1",
-        "inLanguage": "fa",
-        "datePublished": "2004",
-        "publisher": { "@type": "Organization", "name": "بازتاب نگار" },
-        "url": "https://vidahadjebi.com/book-dad-1.html",
-        "image": "https://vidahadjebi.com/assets/images/book-dad-1.jpg",
-        "description": "روایت زنان زندانی سیاسی در ایران — از مهم‌ترین آثار حافظه سیاسی معاصر ایران"
-      },
-      {
-        "@type": "Book",
-        "name": "دادِ بی‌داد — جلد دوم",
-        "alternateName": "Dad Bi-Dad Vol. 2",
-        "inLanguage": "fa",
-        "publisher": { "@type": "Organization", "name": "Forough Book" },
-        "url": "https://vidahadjebi.com/book-dad-2.html",
-        "image": "https://vidahadjebi.com/assets/images/book-dad-2.jpg",
-        "description": "روایت زنان زندانی سیاسی در ایران، سال‌های ۱۳۵۰ تا ۱۳۸۷"
-      },
-      {
-        "@type": "Book",
-        "name": "یادها — جلد اول",
-        "alternateName": "Yadha Vol. 1",
-        "inLanguage": "fa",
-        "publisher": { "@type": "Organization", "name": "Forough Book" },
-        "url": "https://vidahadjebi.com/book-yadha.html",
-        "image": "https://vidahadjebi.com/assets/images/book-yadha.jpg",
-        "description": "روایت زندگی، مسیر فکری و تجربه‌های سیاسی ویدا حاجبی تبریزی"
-      },
-      {
-        "@type": "Book",
-        "name": "قصه‌ی رامین",
-        "alternateName": "Ghesseye Ramin",
-        "inLanguage": "fa",
-        "datePublished": "2016",
-        "publisher": { "@type": "Organization", "name": "خاوران" },
-        "url": "https://vidahadjebi.com/book-ramin.html",
-        "image": "https://vidahadjebi.com/assets/images/book-ramin.jpg",
-        "description": "گردآوری، ترجمه و تنظیم ویدا حاجبی تبریزی — روایتی از زندگی رامین حاجبی"
-      },
-      {
-        "@type": "Book",
-        "name": "پری در خاطره دوستانش",
-        "alternateName": "Pari dar Khatereye Doostanash",
-        "inLanguage": "fa",
-        "datePublished": "2002",
-        "url": "https://vidahadjebi.com/book-pari.html",
-        "image": "https://vidahadjebi.com/assets/images/book-pari.jpg",
-        "description": "گردآوری خاطرات و یادمان‌های دوستان و نزدیکان پری حاجبی"
-      }
-    ]
+    "image": "https://vidahadjebi.com/assets/images/bio-hero-desktop.jpg"
   }
+  </script>
+
+  <!-- JSON-LD: Books -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "دادِ بی‌داد — جلد اول",
+      "alternateName": "Dad Bi-Dad Vol. 1",
+      "inLanguage": "fa",
+      "datePublished": "2004",
+      "author": { "@type": "Person", "name": "ویدا حاجبی تبریزی" },
+      "publisher": { "@type": "Organization", "name": "بازتاب نگار" },
+      "url": "https://vidahadjebi.com/book-dad-1.html",
+      "image": "https://vidahadjebi.com/assets/images/book-dad-1.jpg",
+      "description": "روایت زنان زندانی سیاسی در ایران — از مهم‌ترین آثار حافظه سیاسی معاصر ایران"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "دادِ بی‌داد — جلد دوم",
+      "alternateName": "Dad Bi-Dad Vol. 2",
+      "inLanguage": "fa",
+      "author": { "@type": "Person", "name": "ویدا حاجبی تبریزی" },
+      "publisher": { "@type": "Organization", "name": "Forough Book" },
+      "url": "https://vidahadjebi.com/book-dad-2.html",
+      "image": "https://vidahadjebi.com/assets/images/book-dad-2.jpg",
+      "description": "روایت زنان زندانی سیاسی در ایران، سال‌های ۱۳۵۰ تا ۱۳۸۷"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "یادها — جلد اول",
+      "alternateName": "Yadha Vol. 1",
+      "inLanguage": "fa",
+      "author": { "@type": "Person", "name": "ویدا حاجبی تبریزی" },
+      "publisher": { "@type": "Organization", "name": "Forough Book" },
+      "url": "https://vidahadjebi.com/book-yadha.html",
+      "image": "https://vidahadjebi.com/assets/images/book-yadha.jpg",
+      "description": "روایت زندگی، مسیر فکری و تجربه‌های سیاسی ویدا حاجبی تبریزی"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "قصه‌ی رامین",
+      "alternateName": "Ghesseye Ramin",
+      "inLanguage": "fa",
+      "datePublished": "2016",
+      "author": { "@type": "Person", "name": "ویدا حاجبی تبریزی" },
+      "publisher": { "@type": "Organization", "name": "خاوران" },
+      "url": "https://vidahadjebi.com/book-ramin.html",
+      "image": "https://vidahadjebi.com/assets/images/book-ramin.jpg",
+      "description": "گردآوری، ترجمه و تنظیم ویدا حاجبی تبریزی — روایتی از زندگی رامین حاجبی"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "پری در خاطره دوستانش",
+      "alternateName": "Pari dar Khatereye Doostanash",
+      "inLanguage": "fa",
+      "datePublished": "2002",
+      "author": { "@type": "Person", "name": "ویدا حاجبی تبریزی" },
+      "url": "https://vidahadjebi.com/book-pari.html",
+      "image": "https://vidahadjebi.com/assets/images/book-pari.jpg",
+      "description": "گردآوری خاطرات و یادمان‌های دوستان و نزدیکان پری حاجبی"
+    }
+  ]
   </script>
 
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg?v=4" />
