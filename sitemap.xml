@@ -11,8 +11,28 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vidahadjebi.com/book</loc>
+    <loc>https://vidahadjebi.com/book-pari.html</loc>
     <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vidahadjebi.com/book-dad-1.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vidahadjebi.com/book-dad-2.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vidahadjebi.com/book-ramin.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vidahadjebi.com/book-yadha.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

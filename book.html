@@ -46,6 +46,13 @@
   <link rel="stylesheet" href="styles.css?v=9" />
 </head>
 <body>
+<script>
+(function(){
+  var map = {'pari':'book-pari.html','dad-1':'book-dad-1.html','dad-2':'book-dad-2.html','ramin':'book-ramin.html','yadha':'book-yadha.html'};
+  var id = new URLSearchParams(window.location.search).get('id');
+  if (id && map[id]) { window.location.replace(map[id]); }
+})();
+</script>
 
   <header class="site-header">
     <nav class="main-nav" aria-label="ناوبری اصلی">
