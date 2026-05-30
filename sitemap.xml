@@ -1,38 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
   <url>
     <loc>https://vidahadjebi.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/vida-illustration.jpg</image:loc><image:title>ویدا حاجبی تبریزی — تصویرسازی</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/1.jpeg</image:loc><image:title>ویدا با خواهر کوچکش واله، باغ ازگل، سال ۱۳۲۹</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/2.jpeg</image:loc><image:title>در نوجوانی بین سال‌های ۱۳۲۸ و ۱۳۲۹</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/3.jpeg</image:loc><image:title>دوره دبیرستان، تهران، بین سال‌های ۱۳۳۰ و ۱۳۳۱</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/4.jpeg</image:loc><image:title>مدرسه عالی هنرهای زیبا، پاریس، ۱۳۳۶</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/5.jpeg</image:loc><image:title>همراه پدر و مادر، خواهرها و برادرهایش، دهه ۱۳۳۰</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/6.jpeg</image:loc><image:title>شهر والوریس، کارگاه سرامیک‌سازی پیکاسو، ۱۳۳۶</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/7.jpeg</image:loc><image:title>ویدا و خواهرش پری، ۱۳۳۵</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/19.jpeg</image:loc><image:title>به همراه برادرش، قهرمان، تهران دهه ۱۳۴۰</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/8.jpeg</image:loc><image:title>کارت خوابگاه دانشجویی، پاریس، ۱۳۳۵–۱۳۳۶</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/9.jpeg</image:loc><image:title>به همراه خواهرش پری و فرح دیبا، پاریس، ۱۳۳۵</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/10.jpeg</image:loc><image:title>با پسرش رامین، ونزوئلا، ۱۳۳۹</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/11.jpeg</image:loc><image:title>باغ ازگل، ۱۳۴۲</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/12.jpeg</image:loc><image:title>همراه پسرش رامین در دیداری کوتاه با برادرش کامران، هلند، ۱۳۶۷</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/13.jpeg</image:loc><image:title>به همراه نوه‌اش افشین، پاریس، ۱۳۸۱</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/14.jpeg</image:loc><image:title>با پسرش رامین، پاریس، ۱۳۸۰</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/15.jpeg</image:loc><image:title>دیدار با اسوالدو بارتو پس از بیست سال، درويل‌نوف، ۱۳۸۷</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/16.jpeg</image:loc><image:title>به همراه دوستش هوشنگ کشاورز، عکس از مریم اشرافی، ۱۳۸۹</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/17.jpeg</image:loc><image:title>در آپارتمانش، عکس از آزاده نیلچیانی، پاریس، ۱۳۹۲</image:title></image:image>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/gallery/18.jpeg</image:loc><image:title>عکس از باربد گلشیری، گورستان پرلاشز، ۱۳۹۵</image:title></image:image>
   </url>
+
   <url>
     <loc>https://vidahadjebi.com/biography</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/bio-hero-desktop.jpg</image:loc><image:title>ویدا حاجبی تبریزی — زندگینامه</image:title></image:image>
   </url>
-  <url>
-    <loc>https://vidahadjebi.com/book-pari.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
   <url>
     <loc>https://vidahadjebi.com/book-dad-1.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/book-dad-1.jpg</image:loc><image:title>دادِ بی‌داد جلد اول — ویدا حاجبی تبریزی</image:title></image:image>
   </url>
+
   <url>
     <loc>https://vidahadjebi.com/book-dad-2.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/book-dad-2.jpg</image:loc><image:title>دادِ بی‌داد جلد دوم — ویدا حاجبی تبریزی</image:title></image:image>
   </url>
-  <url>
-    <loc>https://vidahadjebi.com/book-ramin.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
   <url>
     <loc>https://vidahadjebi.com/book-yadha.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/book-yadha.jpg</image:loc><image:title>یادها — ویدا حاجبی تبریزی</image:title></image:image>
   </url>
+
+  <url>
+    <loc>https://vidahadjebi.com/book-ramin.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/book-ramin.jpg</image:loc><image:title>قصه‌ی رامین — ویدا حاجبی تبریزی</image:title></image:image>
+  </url>
+
+  <url>
+    <loc>https://vidahadjebi.com/book-pari.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <image:image><image:loc>https://vidahadjebi.com/assets/images/book-pari.jpg</image:loc><image:title>پری در خاطره دوستانش — ویدا حاجبی تبریزی</image:title></image:image>
+  </url>
+
 </urlset>
