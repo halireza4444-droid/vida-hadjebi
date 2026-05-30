@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://vidahajebi.com/</loc>
+    <loc>https://vidahadjebi.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://vidahajebi.com/biography</loc>
+    <loc>https://vidahadjebi.com/biography</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vidahajebi.com/book</loc>
+    <loc>https://vidahadjebi.com/book</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
