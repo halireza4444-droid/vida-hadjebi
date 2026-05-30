@@ -229,4 +229,58 @@ if (videoModal && videoPlayer) {
   });
 }
 
+// ── Google Analytics event tracking ──────────────────────────────────────────
+
+const gaEvent = (name, params) => {
+  if (typeof gtag === 'function') gtag('event', name, params);
+};
+
+// PDF downloads
+document.querySelectorAll('a[href$=".pdf"]').forEach((a) => {
+  a.addEventListener('click', () => {
+    const file = a.getAttribute('href').split('/').pop();
+    gaEvent('file_download', { file_name: file, file_extension: 'pdf', link_url: a.href });
+  });
+});
+
+// SoundCloud clicks
+document.querySelectorAll('a[href*="soundcloud.com"]').forEach((a) => {
+  a.addEventListener('click', () => {
+    gaEvent('audio_play', { content_type: 'soundcloud', link_url: a.href });
+  });
+});
+
+// Video modal plays (Ashkan Noroozkhani)
+document.querySelectorAll('[data-video-src]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const src = btn.dataset.videoSrc.split('/').pop();
+    gaEvent('video_play', { content_type: 'modal', video_title: src });
+  });
+});
+
+// Ramin Vimeo click
+document.querySelectorAll('[data-vimeo-id]').forEach((tile) => {
+  tile.querySelector('.video-thumb')?.addEventListener('click', () => {
+    const id = tile.dataset.vimeoId;
+    const external = !!tile.dataset.vimeoExternal;
+    gaEvent('video_play', { content_type: external ? 'vimeo_external' : 'vimeo_embed', video_id: id });
+  });
+});
+
+// Interview external links (مطالعه متن / شنیدن صوت / دیدن ویدیو)
+document.querySelectorAll('.iv-actions a[href]').forEach((a) => {
+  a.addEventListener('click', () => {
+    const title = a.closest('details')?.querySelector('.iv-title')?.textContent?.trim();
+    gaEvent('interview_click', { link_url: a.href, interview_title: title });
+  });
+});
+
+// Book page opens
+document.querySelectorAll('.book-card a[href]').forEach((a) => {
+  a.addEventListener('click', () => {
+    const book = a.getAttribute('href').replace('.html', '');
+    gaEvent('book_open', { book_id: book });
+  });
+});
+
 })();
