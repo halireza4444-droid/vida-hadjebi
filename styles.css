@@ -1315,3 +1315,38 @@ body.menu-open { overflow: hidden; }
   height: 16px;
   filter: invert(1);
 }
+
+/* ── Language toggle ─────────────────────────────────────── */
+.lang-fr { display: none; }
+[data-lang="fr"] .lang-fa { display: none; }
+[data-lang="fr"] .lang-fr { display: block; }
+
+.btn-lang {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border-radius: 24px;
+  border: 1.5px solid rgba(0,0,0,0.13);
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  color: var(--ink);
+  box-shadow: 0 2px 14px rgba(0,0,0,0.10);
+  transition: background .15s, transform .1s, box-shadow .15s;
+}
+.btn-lang:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.13);
+}
+.btn-lang .btn-lang-flag { font-size: 17px; line-height: 1; }

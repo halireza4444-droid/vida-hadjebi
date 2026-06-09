@@ -229,6 +229,37 @@ if (videoModal && videoPlayer) {
   });
 }
 
+// ── Language switching ────────────────────────────────────────────────────────
+
+const applyLang = (lang) => {
+  document.documentElement.setAttribute('data-lang', lang);
+  localStorage.setItem('vida-lang', lang);
+};
+
+const initLang = async () => {
+  // 1. Check saved user preference
+  const saved = localStorage.getItem('vida-lang');
+  if (saved) { applyLang(saved); return; }
+
+  // 2. Try IP geolocation
+  try {
+    const res = await fetch('https://ipapi.co/country/', { signal: AbortSignal.timeout(3000) });
+    const country = (await res.text()).trim();
+    if (country === 'FR') { applyLang('fr'); return; }
+  } catch (_) {}
+
+  // 3. Fall back to browser language
+  if (navigator.language?.startsWith('fr')) { applyLang('fr'); }
+};
+
+initLang();
+
+// Toggle button
+document.getElementById('langToggle')?.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-lang') || 'fa';
+  applyLang(current === 'fa' ? 'fr' : 'fa');
+});
+
 // ── Google Analytics event tracking ──────────────────────────────────────────
 
 const gaEvent = (name, params) => {
