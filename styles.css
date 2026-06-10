@@ -1322,6 +1322,20 @@ body.menu-open { overflow: hidden; }
 [data-lang="fr"] .lang-fa { display: none; }
 [data-lang="fr"] .lang-fr { display: block; }
 
+/* ── LTR (French) overrides ──────────────────────────────── */
+/* Flip arrow icons to point right in LTR */
+[dir="ltr"] .btn-icon { transform: scaleX(-1); }
+
+/* Ensure hero text aligns left in LTR */
+[dir="ltr"] .hero-text { align-items: flex-start; text-align: left; }
+[dir="ltr"] .hero-bio { text-align: left; }
+
+/* Ensure section titles align left in LTR */
+[dir="ltr"] .section-title { text-align: left; }
+[dir="ltr"] .section-paragraph { text-align: left; }
+[dir="ltr"] .bio-body { text-align: left; }
+[dir="ltr"] .bio-quote { border-inline-start: 4px solid var(--accent); border-inline-end: none; }
+
 .btn-lang {
   position: fixed;
   bottom: 28px;
