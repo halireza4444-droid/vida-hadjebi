@@ -254,6 +254,9 @@ const initLang = async () => {
     return;
   }
 
+  // 0. Explicit ?fr in the URL → show French directly (preview links)
+  if (new URLSearchParams(location.search).has('fr')) { applyLang('fr'); return; }
+
   // 1. Check saved user preference
   const saved = localStorage.getItem('vida-lang');
   if (saved) { applyLang(saved); return; }

@@ -1380,6 +1380,26 @@ body.menu-open { overflow: hidden; }
 [dir="ltr"] .interview summary { text-align: left; }
 [dir="ltr"] .iv-title { text-align: left; }
 [dir="ltr"] .iv-body { text-align: left; }
+
+/* Book pages (French): cover left / text right (grid flips with dir), left-align + Inter */
+[dir="ltr"] .book-hero-text { text-align: left; }
+[dir="ltr"] .book-title {
+  text-align: left;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+[dir="ltr"] .book-meta,
+[dir="ltr"] .book-content-inner,
+[dir="ltr"] .book-h2,
+[dir="ltr"] .book-excerpt {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+[dir="ltr"] .book-content-inner,
+[dir="ltr"] .book-h2,
+[dir="ltr"] .book-excerpt p { text-align: left; }
+[dir="ltr"] .book-excerpt {
+  border-inline-start: 4px solid var(--accent);
+  border-inline-end: none;
+}
 [dir="ltr"] .bio-body,
 [dir="ltr"] .bio-body-inner p {
   text-align: left;

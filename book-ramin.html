@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" data-lang="fa">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GSFEDZK5NL"></script>
@@ -40,7 +40,12 @@
   <link rel="preload" href="assets/fonts/IRANYekanWeb-Bold.ttf" as="font" type="font/ttf" crossorigin />
   <link rel="preload" href="assets/fonts/IranNastaliq.ttf" as="font" type="font/ttf" crossorigin />
 
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <!-- Inter font for French (LTR) version -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+
+  <link rel="stylesheet" href="styles.css?v=47" />
 </head>
 <body>
 
@@ -50,12 +55,12 @@
         <img src="assets/images/logo.svg" alt="ویدا حاجبی" />
       </a>
       <ul class="nav-items">
-        <li><a href="/#books">کتاب‌ها</a></li>
-        <li><a href="/#translations">ترجمه‌ها و مقالات</a></li>
-        <li><a href="/#ramin">رامین</a></li>
-        <li><a href="/#interviews">مصاحبه‌ها و ویدیوها</a></li>
-        <li><a href="/#meaning">ویدا، معنای زندگی</a></li>
-        <li><a href="/#gallery">گالری تصاویر</a></li>
+        <li><a href="/#books"><span class="lang-fa">کتاب‌ها</span><span class="lang-fr">Livres</span></a></li>
+        <li><a href="/#translations"><span class="lang-fa">ترجمه‌ها و مقالات</span><span class="lang-fr">Traductions</span></a></li>
+        <li><a href="/#ramin"><span class="lang-fa">رامین</span><span class="lang-fr">Ramin</span></a></li>
+        <li><a href="/#interviews"><span class="lang-fa">مصاحبه‌ها و ویدیوها</span><span class="lang-fr">Entretiens</span></a></li>
+        <li><a href="/#meaning"><span class="lang-fa">ویدا، معنای زندگی</span><span class="lang-fr">Vida, le sens de la vie</span></a></li>
+        <li><a href="/#gallery"><span class="lang-fa">گالری تصاویر</span><span class="lang-fr">Galerie</span></a></li>
       </ul>
     </nav>
     <button class="nav-toggle" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mobileMenu">
@@ -66,12 +71,12 @@
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <ul class="mobile-menu-items">
-      <li><a href="/#books">کتاب‌ها</a></li>
-      <li><a href="/#translations">ترجمه‌ها و مقالات</a></li>
-      <li><a href="/#ramin">رامین</a></li>
-      <li><a href="/#interviews">مصاحبه‌ها</a></li>
-      <li><a href="/#gallery">گالری تصاویر</a></li>
-      <li><a href="/#meaning">ویدا، معنای زندگی</a></li>
+      <li><a href="/#books"><span class="lang-fa">کتاب‌ها</span><span class="lang-fr">Livres</span></a></li>
+      <li><a href="/#translations"><span class="lang-fa">ترجمه‌ها و مقالات</span><span class="lang-fr">Traductions</span></a></li>
+      <li><a href="/#ramin"><span class="lang-fa">رامین</span><span class="lang-fr">Ramin</span></a></li>
+      <li><a href="/#interviews"><span class="lang-fa">مصاحبه‌ها</span><span class="lang-fr">Entretiens</span></a></li>
+      <li><a href="/#gallery"><span class="lang-fa">گالری تصاویر</span><span class="lang-fr">Galerie</span></a></li>
+      <li><a href="/#meaning"><span class="lang-fa">ویدا، معنای زندگی</span><span class="lang-fr">Vida, le sens de la vie</span></a></li>
     </ul>
   </div>
 
@@ -91,118 +96,80 @@
   (function () {
 
     var BOOKS = {
-
-      'pari': {
-        title: 'پری در خاطره دوستانش',
-        cover: 'assets/images/book-pari.jpg',
-        coverAlt: 'جلد کتاب پری در خاطره دوستانش',
-        meta: [
-          { label: 'گردآوری و تنظیم', value: 'ویدا حاجبی' },
-          { label: 'طرح روی جلد',      value: 'نقاشی پری، خط منوچهر مقتدر' },
-          { label: 'صحافی و چاپ',      value: 'باقر مرتضوی' },
-          { label: 'چاپ اول',           value: 'اردیبهشت ۱۳۸۳ / مه ۲۰۰۲' }
-        ],
-        pdf: 'assets/book-pari.pdf',
-        content: '<h2 class="book-h2">دربارهٔ پری</h2>' +
-          '<p>پری حاجبی (۱۳۱۰–۱۳۷۸) نقاش و هنرمند ایرانی بود. این کتاب گردآوری خاطرات و یادمان‌های دوستان و نزدیکان اوست که ویدا حاجبی آن را تنظیم و منتشر کرده است.</p>' +
-          '<figure class="book-inline-figure"><img src="assets/images/book-pari-painting.jpg" alt="نقاشی پری حاجبی" /></figure>' +
-          '<h2 id="book-excerpt" class="book-h2">بخشی از کتاب</h2>' +
-          '<blockquote class="book-excerpt"><p>«دم در سالن ایستاده بودم و به رنگارنگی فضا خیره مانده بودم، شگفت‌زده و سوگوار آنچه از دست داده بودم. انگار فقط پری قادر بود با مرگ خودش این ترکیب رنگارنگ و ناهمگون از یاران دیرینش را در فضایی از صمیمیت، بازآفریند. محفلی بود پر از صفا، همراه با باده و موسیقی و آواز، با خاطره‌های بی غل و غش و شادی‌آفرین. همان فضایی که پری همواره خواهان و جویایش بود؛ به روزگاری محافلی از این دست را، پیش از گرفتار شدن در ناملایمات بیماری دراز مدت، برای دوستانش آراسته.»</p></blockquote>',
-        others: ['dad-1', 'dad-2', 'ramin', 'yadha']
+      "pari": {
+        title: "پری در خاطره دوستانش",
+        titleFr: "Pari dans la mémoire de ses amis",
+        cover: "assets/images/book-pari.jpg",
+        coverAlt: "جلد کتاب پری در خاطره دوستانش",
+        coverAltFr: "Couverture du livre Pari dans la mémoire de ses amis",
+        meta: [{ label: "گردآوری و تنظیم", value: "ویدا حاجبی" }, { label: "طرح روی جلد", value: "نقاشی پری، خط منوچهر مقتدر" }, { label: "صحافی و چاپ", value: "باقر مرتضوی" }, { label: "چاپ اول", value: "اردیبهشت ۱۳۸۳ / مه ۲۰۰۲" }],
+        metaFr: [{ label: "Recueil et édition", value: "Vida Hajebi" }, { label: "Couverture", value: "Peinture de Pari, calligraphie de Manouchehr Moghtader" }, { label: "Reliure et impression", value: "Bagher Mortazavi" }, { label: "Première édition", value: "Mai 2002" }],
+        pdf: "assets/book-pari.pdf",
+        content: "<h2 class=\"book-h2\">دربارهٔ پری</h2><p>پری حاجبی (۱۳۱۰–۱۳۷۸) نقاش و هنرمند ایرانی بود. این کتاب گردآوری خاطرات و یادمان‌های دوستان و نزدیکان اوست که ویدا حاجبی آن را تنظیم و منتشر کرده است.</p><figure class=\"book-inline-figure\"><img src=\"assets/images/book-pari-painting.jpg\" alt=\"نقاشی پری حاجبی\" /></figure><h2 id=\"book-excerpt\" class=\"book-h2\">بخشی از کتاب</h2><blockquote class=\"book-excerpt\"><p>«دم در سالن ایستاده بودم و به رنگارنگی فضا خیره مانده بودم، شگفت‌زده و سوگوار آنچه از دست داده بودم. انگار فقط پری قادر بود با مرگ خودش این ترکیب رنگارنگ و ناهمگون از یاران دیرینش را در فضایی از صمیمیت، بازآفریند. محفلی بود پر از صفا، همراه با باده و موسیقی و آواز، با خاطره‌های بی غل و غش و شادی‌آفرین. همان فضایی که پری همواره خواهان و جویایش بود؛ به روزگاری محافلی از این دست را، پیش از گرفتار شدن در ناملایمات بیماری دراز مدت، برای دوستانش آراسته.»</p></blockquote>",
+        contentFr: "<h2 class=\"book-h2\">À propos de Pari</h2><p>Pari Hajebi (1931-1999) était une peintre et artiste iranienne. Ce livre rassemble les souvenirs et témoignages de ses amis et de ses proches, réunis et publiés par Vida Hajebi.</p><figure class=\"book-inline-figure\"><img src=\"assets/images/book-pari-painting.jpg\" alt=\"Peinture de Pari Hajebi\" /></figure><h2 id=\"book-excerpt\" class=\"book-h2\">Extrait du livre</h2><blockquote class=\"book-excerpt\"><p>« Je me tenais à l'entrée de la salle, le regard perdu dans la profusion des couleurs, stupéfaite et endeuillée par ce que j'avais perdu. Comme si Pari seule, par sa propre mort, pouvait recréer cet assemblage bigarré et disparate de ses vieux amis dans une atmosphère d'intimité. Un cercle empli de douceur, avec du vin, de la musique et des chants, et des souvenirs sans détour, porteurs de joie. Cette atmosphère même que Pari désirait et recherchait toujours ; jadis, avant d'être happée par les épreuves d'une longue maladie, elle composait pour ses amis des cercles de cette sorte. »</p></blockquote>",
+        others: ["dad-1", "dad-2", "ramin", "yadha"]
       },
-
-      'dad-1': {
-        title: 'دادِ بی‌داد، جلد اول',
-        cover: 'assets/images/book-dad-1.jpg',
-        coverAlt: 'جلد کتاب داد بی‌داد جلد ۱',
-        meta: [
-          { label: 'نویسنده',    value: 'ویدا حاجبی تبریزی' },
-          { label: 'انتشارات',   value: 'بازتاب نگار' },
-          { label: 'دسته‌بندی',  value: 'تاریخ معاصر ایران، خاطرات، مجموعه داد بی‌داد' },
-          { label: 'سال انتشار', value: '۱۳۸۳ هجری شمسی، ۲۰۰۴ میلادی' }
-        ],
-        pdf: 'assets/book-dad-1.pdf',
-        content: '<h2 id="book-excerpt" class="book-h2">از مقدمه نویسنده</h2>' +
-          '<blockquote class="book-excerpt">' +
-          '<p>«سرانجام پس از چند سال بحران فکری، تردیدها و دودلی‌هایم نسبت به دگم‌ها و اراده‌گرایی‌های گذشته و شیوه‌های مبارزه با رژیم شاه، شکلی نسبتاً منسجم و مشخص به خود گرفت. رفته‌رفته، سنجش گذشته برایم معنا و اهمیت پیدا کرد و در ذهنم به موضوعی ضروری تبدیل شد.</p>' +
-          '<p>در این حال و هوا، بار دیگر به فکر نوشتن دربارهٔ زندان افتادم. این بار بدون دغدغهٔ خاطر پذیرفته بودم که زندان زنان سیاسی، بخشی از تاریخ سیاسی جامعه ماست. اما دیگر درپی آن نبودم که به تحلیل و برداشت خودم اکتفا کنم. گرچه گفتنی کم نداشتم. در پی آن بودم که بدانم همبندان سابقم، پس از بیست سال چه خاطره، چه برداشت و چه تحلیلی از آن سال‌ها دارند.»</p>' +
-          '</blockquote>',
-        others: ['pari', 'dad-2', 'ramin', 'yadha']
+      "dad-1": {
+        title: "دادِ بی‌داد، جلد اول",
+        titleFr: "Dad Bidad, tome premier",
+        cover: "assets/images/book-dad-1.jpg",
+        coverAlt: "جلد کتاب داد بی‌داد جلد ۱",
+        coverAltFr: "Couverture du livre Dad Bidad, tome premier",
+        meta: [{ label: "نویسنده", value: "ویدا حاجبی تبریزی" }, { label: "انتشارات", value: "بازتاب نگار" }, { label: "دسته‌بندی", value: "تاریخ معاصر ایران، خاطرات، مجموعه داد بی‌داد" }, { label: "سال انتشار", value: "۱۳۸۳ هجری شمسی، ۲۰۰۴ میلادی" }],
+        metaFr: [{ label: "Auteure", value: "Vida Hajebi Tabrizi" }, { label: "Éditions", value: "Baztab Negar" }, { label: "Catégorie", value: "Histoire contemporaine de l'Iran, mémoires, série Dad Bidad" }, { label: "Année de publication", value: "2004" }],
+        pdf: "assets/book-dad-1.pdf",
+        content: "<h2 id=\"book-excerpt\" class=\"book-h2\">از مقدمه نویسنده</h2><blockquote class=\"book-excerpt\"><p>«سرانجام پس از چند سال بحران فکری، تردیدها و دودلی‌هایم نسبت به دگم‌ها و اراده‌گرایی‌های گذشته و شیوه‌های مبارزه با رژیم شاه، شکلی نسبتاً منسجم و مشخص به خود گرفت. رفته‌رفته، سنجش گذشته برایم معنا و اهمیت پیدا کرد و در ذهنم به موضوعی ضروری تبدیل شد.</p><p>در این حال و هوا، بار دیگر به فکر نوشتن دربارهٔ زندان افتادم. این بار بدون دغدغهٔ خاطر پذیرفته بودم که زندان زنان سیاسی، بخشی از تاریخ سیاسی جامعه ماست. اما دیگر درپی آن نبودم که به تحلیل و برداشت خودم اکتفا کنم. گرچه گفتنی کم نداشتم. در پی آن بودم که بدانم همبندان سابقم، پس از بیست سال چه خاطره، چه برداشت و چه تحلیلی از آن سال‌ها دارند.»</p></blockquote>",
+        contentFr: "<h2 id=\"book-excerpt\" class=\"book-h2\">De la préface de l'auteure</h2><blockquote class=\"book-excerpt\"><p>« Après plusieurs années de crise intérieure, mes doutes et mes hésitations à l'égard des dogmes, du volontarisme du passé et des modes de lutte contre le régime du chah finirent par prendre une forme relativement cohérente et précise. Peu à peu, l'examen du passé prit pour moi sens et importance, et devint dans mon esprit une nécessité.</p><p>Dans cet état d'esprit, je songeai de nouveau à écrire sur la prison. Cette fois, j'avais accepté sans réserve que la prison des femmes politiques fait partie de l'histoire politique de notre société. Mais je ne cherchais plus à m'en tenir à ma seule analyse — bien que j'eusse beaucoup à dire. Je cherchais à savoir quels souvenirs, quelles perceptions et quelles analyses mes anciennes compagnes de cellule gardaient de ces années, vingt ans plus tard. »</p></blockquote>",
+        others: ["pari", "dad-2", "ramin", "yadha"]
       },
-
-      'dad-2': {
-        title: 'دادِ بی‌داد، جلد دوم',
-        cover: 'assets/images/book-dad-2.jpg',
-        coverAlt: 'جلد کتاب داد بی‌داد جلد ۲',
-        meta: [
-          { label: 'به کوشش',       value: 'ویدا حاجبی تبریزی' },
-          { label: 'دسته‌بندی',     value: 'سیاسی زنان ۱۳۵۰–۱۳۸۷' },
-          { label: 'طرح روی جلد',   value: 'حسن قاضی، با الهام از طرح یک زندانی سیاسی (۱۳۵۷)' },
-          { label: 'صفحه‌آرایی',    value: 'رامین حاجبی' },
-          { label: 'انتشارات',      value: 'Forough Book' }
-        ],
-        pdf: 'assets/book-dad-2.pdf',
-        content: '<h2 id="book-excerpt" class="book-h2">از مقدمه</h2>' +
-          '<blockquote class="book-excerpt">' +
-          '<p>«با تهیه و تنظیم این کتاب، من نیز زندان را دوباره زیستم، با دلهره‌ها و نگرانی‌هایش. این را هم بهتر فهمیدم که آدمی در وضعیت‌های دشوار از چه ظرفیت‌های نهفته‌ای برای پایداری برخوردار است، بی‌آنکه در پی قهرمان شدن باشد یا اسطوره شدن.</p>' +
-          '<p>با این همه، تجربهٔ زندان را با بازگویی آن، نمی‌توان به تمامی به دیگری منتقل کرد. زمانی با مشاهدهٔ شقاوت‌های شکنجه‌گران ساواک، از خود می‌پرسیدم حد سبعیت و درندگی انسان تا کجاست؟ امروز با آشکار شدن آنچه بر سر هزاران هزار زندانی در زندان‌های جمهوری اسلامی طی ۲۵ سال گذشته آمده، می‌توان گفت که سقوط آدمی نهایتی ندارد. باشد که انتقال تجربهٔ بی‌دادها، در هر شکلی از بی‌داد، بتواند افق‌های گسترده‌تری به روی جامعهٔ ما که قرن‌ها زیر فشار استبداد سیاسی و فرهنگ ریشه‌دار سنتی‌ـ‌مذهبی زیسته، بگشاید.»</p>' +
-          '</blockquote>',
-        others: ['pari', 'dad-1', 'ramin', 'yadha']
+      "dad-2": {
+        title: "دادِ بی‌داد، جلد دوم",
+        titleFr: "Dad Bidad, tome second",
+        cover: "assets/images/book-dad-2.jpg",
+        coverAlt: "جلد کتاب داد بی‌داد جلد ۲",
+        coverAltFr: "Couverture du livre Dad Bidad, tome second",
+        meta: [{ label: "به کوشش", value: "ویدا حاجبی تبریزی" }, { label: "دسته‌بندی", value: "سیاسی زنان ۱۳۵۰–۱۳۸۷" }, { label: "طرح روی جلد", value: "حسن قاضی، با الهام از طرح یک زندانی سیاسی (۱۳۵۷)" }, { label: "صفحه‌آرایی", value: "رامین حاجبی" }, { label: "انتشارات", value: "Forough Book" }],
+        metaFr: [{ label: "Sous la direction de", value: "Vida Hajebi Tabrizi" }, { label: "Catégorie", value: "Femmes politiques 1971-2008" }, { label: "Couverture", value: "Hassan Ghazi, inspiré du dessin d'une prisonnière politique (1979)" }, { label: "Mise en page", value: "Ramin Hajebi" }, { label: "Éditions", value: "Forough Book" }],
+        pdf: "assets/book-dad-2.pdf",
+        content: "<h2 id=\"book-excerpt\" class=\"book-h2\">از مقدمه</h2><blockquote class=\"book-excerpt\"><p>«با تهیه و تنظیم این کتاب، من نیز زندان را دوباره زیستم، با دلهره‌ها و نگرانی‌هایش. این را هم بهتر فهمیدم که آدمی در وضعیت‌های دشوار از چه ظرفیت‌های نهفته‌ای برای پایداری برخوردار است، بی‌آنکه در پی قهرمان شدن باشد یا اسطوره شدن.</p><p>با این همه، تجربهٔ زندان را با بازگویی آن، نمی‌توان به تمامی به دیگری منتقل کرد. زمانی با مشاهدهٔ شقاوت‌های شکنجه‌گران ساواک، از خود می‌پرسیدم حد سبعیت و درندگی انسان تا کجاست؟ امروز با آشکار شدن آنچه بر سر هزاران هزار زندانی در زندان‌های جمهوری اسلامی طی ۲۵ سال گذشته آمده، می‌توان گفت که سقوط آدمی نهایتی ندارد. باشد که انتقال تجربهٔ بی‌دادها، در هر شکلی از بی‌داد، بتواند افق‌های گسترده‌تری به روی جامعهٔ ما که قرن‌ها زیر فشار استبداد سیاسی و فرهنگ ریشه‌دار سنتی‌ـ‌مذهبی زیسته، بگشاید.»</p></blockquote>",
+        contentFr: "<h2 id=\"book-excerpt\" class=\"book-h2\">De la préface</h2><blockquote class=\"book-excerpt\"><p>« En préparant et en composant ce livre, j'ai moi aussi revécu la prison, avec ses angoisses et ses inquiétudes. J'ai aussi mieux compris de quelles ressources cachées l'être humain dispose, dans les situations difficiles, pour tenir bon — sans chercher à devenir un héros ni une légende.</p><p>Pourtant, l'expérience de la prison ne peut être transmise tout entière par le récit qu'on en fait. Autrefois, devant la cruauté des tortionnaires de la SAVAK, je me demandais jusqu'où allaient la sauvagerie et la férocité de l'homme. Aujourd'hui, au vu de ce qui est advenu à des dizaines de milliers de prisonniers dans les prisons de la République islamique au cours des vingt-cinq dernières années, on peut dire que la déchéance de l'homme n'a pas de fin. Puisse la transmission de l'expérience des injustices, sous toutes leurs formes, ouvrir des horizons plus vastes à notre société, qui a vécu des siècles sous le poids du despotisme politique et d'une culture traditionnelle et religieuse profondément enracinée. »</p></blockquote>",
+        others: ["pari", "dad-1", "ramin", "yadha"]
       },
-
-      'ramin': {
-        title: 'قصه‌ی رامین',
-        cover: 'assets/images/book-ramin.jpg',
-        coverAlt: 'جلد کتاب قصه‌ی رامین',
-        meta: [
-          { label: 'گردآوری، ترجمه و تنظیم', value: 'ویدا حاجبی تبریزی' },
-          { label: 'طرح روی جلد',             value: 'آزاده نیلجیانی' },
-          { label: 'خوشنویسی',                value: 'یونس فقیهی' },
-          { label: 'صفحه‌آرایی',              value: 'سپیده شیرزاد، آزاده نیلجیانی' },
-          { label: 'چاپ و صحافی',             value: 'خاوران' },
-          { label: 'چاپ دوم',                 value: 'مهر ۱۳۹۵' }
-        ],
-        pdf: 'assets/book-ramin.pdf',
-        content: '<h2 id="book-excerpt" class="book-h2">از مقدمه</h2>' +
-          '<blockquote class="book-excerpt">' +
-          '<p>«سرانجام تحت تأثیر نگاه با فاصله و شکیبایی او به فکر روندهای سیاسی گذشته افتادم. تدوین کتاب داد بی‌داد / نخستین زندان سیاسی زنان را به هوشدارهای پسرم رامین مدیونم. اکنون یاری باصفا و آموزگاری بی‌ادعا و بی‌همتایی را از دست داده‌ام که برغم همهٔ جابه‌جایی‌ها و ماجراهای سختی که بر او تحمیل کردم و تحمیل شد، وجودش تحقق این آرزوی حکیمانه بود: از توان پر صفایی برخوردار بود تا آنچه نمی‌شود تغییر داد بپذیرد، و از شجاعتی تا آنچه می‌شود تغییر داد، تغییر دهد و به خِردی دست‌یافته بود تا این دو را از هم تشخیص دهد.»</p>' +
-          '</blockquote>',
-        others: ['pari', 'dad-1', 'dad-2', 'yadha']
+      "ramin": {
+        title: "قصه‌ی رامین",
+        titleFr: "L'histoire de Ramin",
+        cover: "assets/images/book-ramin.jpg",
+        coverAlt: "جلد کتاب قصه‌ی رامین",
+        coverAltFr: "Couverture du livre L'histoire de Ramin",
+        meta: [{ label: "گردآوری، ترجمه و تنظیم", value: "ویدا حاجبی تبریزی" }, { label: "طرح روی جلد", value: "آزاده نیلجیانی" }, { label: "خوشنویسی", value: "یونس فقیهی" }, { label: "صفحه‌آرایی", value: "سپیده شیرزاد، آزاده نیلجیانی" }, { label: "چاپ و صحافی", value: "خاوران" }, { label: "چاپ دوم", value: "مهر ۱۳۹۵" }],
+        metaFr: [{ label: "Recueil, traduction et édition", value: "Vida Hajebi Tabrizi" }, { label: "Couverture", value: "Azadeh Nilchiani" }, { label: "Calligraphie", value: "Younes Faghihi" }, { label: "Mise en page", value: "Sepideh Shirzad, Azadeh Nilchiani" }, { label: "Impression et reliure", value: "Khavaran" }, { label: "Deuxième édition", value: "Octobre 2016" }],
+        pdf: "assets/book-ramin.pdf",
+        content: "<h2 id=\"book-excerpt\" class=\"book-h2\">از مقدمه</h2><blockquote class=\"book-excerpt\"><p>«سرانجام تحت تأثیر نگاه با فاصله و شکیبایی او به فکر روندهای سیاسی گذشته افتادم. تدوین کتاب داد بی‌داد / نخستین زندان سیاسی زنان را به هوشدارهای پسرم رامین مدیونم. اکنون یاری باصفا و آموزگاری بی‌ادعا و بی‌همتایی را از دست داده‌ام که برغم همهٔ جابه‌جایی‌ها و ماجراهای سختی که بر او تحمیل کردم و تحمیل شد، وجودش تحقق این آرزوی حکیمانه بود: از توان پر صفایی برخوردار بود تا آنچه نمی‌شود تغییر داد بپذیرد، و از شجاعتی تا آنچه می‌شود تغییر داد، تغییر دهد و به خِردی دست‌یافته بود تا این دو را از هم تشخیص دهد.»</p></blockquote>",
+        contentFr: "<h2 id=\"book-excerpt\" class=\"book-h2\">De la préface</h2><blockquote class=\"book-excerpt\"><p>« C'est finalement sous l'influence de son regard distant et patient que j'en suis venue à réfléchir aux parcours politiques du passé. Je dois la rédaction de Dad Bidad / La première prison politique des femmes aux remarques attentives de mon fils Ramin. J'ai aujourd'hui perdu un ami plein de douceur et un maître sans prétention et sans égal qui, malgré tous les déplacements et toutes les épreuves que je lui ai imposés et qui lui furent imposés, incarnait ce vœu plein de sagesse : il avait la sérénité d'accepter ce qui ne peut être changé, le courage de changer ce qui peut l'être, et la sagesse de distinguer l'un de l'autre. »</p></blockquote>",
+        others: ["pari", "dad-1", "dad-2", "yadha"]
       },
-
-      'yadha': {
-        title: 'یادها — جلد اول',
-        cover: 'assets/images/book-yadha.jpg',
-        coverAlt: 'جلد کتاب یادها',
-        meta: [
-          { label: 'نویسنده',      value: 'ویدا حاجبی تبریزی' },
-          { label: 'طرح روی جلد', value: 'آزاده نیلجیانی' },
-          { label: 'خط',           value: 'منوچهر مقتدر' },
-          { label: 'صفحه‌آرایی',  value: 'رامین حاجبی' },
-          { label: 'صحافی و چاپ', value: 'باقر مرتضوی' },
-          { label: 'پخش',          value: 'Forough Book' }
-        ],
-        pdf: 'assets/book-yadha.pdf',
-        content: '<h2 id="book-excerpt" class="book-h2">بخشی از کتاب</h2>' +
-          '<blockquote class="book-excerpt">' +
-          '<p>«در آن لحظهٔ هولناک چهار–پنج ساله بودم. هنگامی که در کوچهٔ تنگ و خاکی محل زندگیمان، دروازه شمیران، آژان محله چادر دایهٔ دوست‌داشتنی و مهربانم، فاطمه سلطان، را از سرش کشید و بی‌اعتنا به التماس‌ها و گریه‌زاری‌اش چادرش را پاره کرد و ریخت توی جوی آب پر از آشغال کنار کوچه. وحشت‌زده و گریان که به خانه رسیدم، پدرم در آغوشم گرفت و گفت: «آژان خیلی کار بدی کرده اما همیشه یادت باشه که چادر چیز خوبی نیست و زن‌هارو بی‌دست‌وپا و ضعیف می‌کنه!»</p>' +
-          '<p>به عمق حرف پدرم تنها زمانی پی بردم که سرنوشت جامعه به گونه‌ای دیگر رقم خورد. آنچه رضا شاه، در پی انقلاب مشروطه، به زور از سر دایه‌ام برداشت، در پی انقلابی اسلامی می‌خواستند به زور بر سر من بگذارند.»</p>' +
-          '</blockquote>',
-        others: ['pari', 'dad-1', 'dad-2', 'ramin']
-      }
+      "yadha": {
+        title: "یادها — جلد اول",
+        titleFr: "Yadhâ (Souvenirs) — tome premier",
+        cover: "assets/images/book-yadha.jpg",
+        coverAlt: "جلد کتاب یادها",
+        coverAltFr: "Couverture du livre Yadhâ",
+        meta: [{ label: "نویسنده", value: "ویدا حاجبی تبریزی" }, { label: "طرح روی جلد", value: "آزاده نیلجیانی" }, { label: "خط", value: "منوچهر مقتدر" }, { label: "صفحه‌آرایی", value: "رامین حاجبی" }, { label: "صحافی و چاپ", value: "باقر مرتضوی" }, { label: "پخش", value: "Forough Book" }],
+        metaFr: [{ label: "Auteure", value: "Vida Hajebi Tabrizi" }, { label: "Couverture", value: "Azadeh Nilchiani" }, { label: "Calligraphie", value: "Manouchehr Moghtader" }, { label: "Mise en page", value: "Ramin Hajebi" }, { label: "Reliure et impression", value: "Bagher Mortazavi" }, { label: "Distribution", value: "Forough Book" }],
+        pdf: "assets/book-yadha.pdf",
+        content: "<h2 id=\"book-excerpt\" class=\"book-h2\">بخشی از کتاب</h2><blockquote class=\"book-excerpt\"><p>«در آن لحظهٔ هولناک چهار–پنج ساله بودم. هنگامی که در کوچهٔ تنگ و خاکی محل زندگیمان، دروازه شمیران، آژان محله چادر دایهٔ دوست‌داشتنی و مهربانم، فاطمه سلطان، را از سرش کشید و بی‌اعتنا به التماس‌ها و گریه‌زاری‌اش چادرش را پاره کرد و ریخت توی جوی آب پر از آشغال کنار کوچه. وحشت‌زده و گریان که به خانه رسیدم، پدرم در آغوشم گرفت و گفت: «آژان خیلی کار بدی کرده اما همیشه یادت باشه که چادر چیز خوبی نیست و زن‌هارو بی‌دست‌وپا و ضعیف می‌کنه!»</p><p>به عمق حرف پدرم تنها زمانی پی بردم که سرنوشت جامعه به گونه‌ای دیگر رقم خورد. آنچه رضا شاه، در پی انقلاب مشروطه، به زور از سر دایه‌ام برداشت، در پی انقلابی اسلامی می‌خواستند به زور بر سر من بگذارند.»</p></blockquote>",
+        contentFr: "<h2 id=\"book-excerpt\" class=\"book-h2\">Extrait du livre</h2><blockquote class=\"book-excerpt\"><p>« À cet instant terrifiant, j'avais quatre ou cinq ans. Dans la ruelle étroite et poussiéreuse où nous vivions, à Darvazeh Shemiran, l'agent du quartier arracha de la tête de ma chère et tendre nourrice, Fatemeh Soltan, son tchador et, indifférent à ses supplications et à ses pleurs, le déchira et le jeta dans le caniveau plein d'ordures au bord de la ruelle. Terrifiée et en larmes, quand je rentrai à la maison, mon père me prit dans ses bras et me dit : « L'agent a commis une très mauvaise action, mais souviens-toi toujours que le tchador n'est pas une bonne chose et qu'il rend les femmes démunies et faibles ! »</p><p>Je n'ai saisi la profondeur des paroles de mon père que lorsque le destin de la société prit un tout autre tour. Ce que Reza Chah, à la suite de la Révolution constitutionnelle, avait arraché de force de la tête de ma nourrice, on voulut, à la suite d'une révolution islamique, me l'imposer de force sur la tête. »</p></blockquote>",
+        others: ["pari", "dad-1", "dad-2", "ramin"]
+      },
     };
 
     var ALL_COVERS = {
-      'pari':  { src: 'assets/images/book-pari.jpg',  alt: 'پری در خاطره دوستانش' },
-      'dad-1': { src: 'assets/images/book-dad-1.jpg', alt: 'داد بی‌داد جلد ۱' },
-      'dad-2': { src: 'assets/images/book-dad-2.jpg', alt: 'داد بی‌داد جلد ۲' },
-      'ramin': { src: 'assets/images/book-ramin.jpg', alt: 'قصه‌ی رامین' },
-      'yadha': { src: 'assets/images/book-yadha.jpg', alt: 'یادها' }
+      "pari": { src: "assets/images/book-pari.jpg", alt: "پری در خاطره دوستانش", altFr: "Pari dans la mémoire de ses amis" },
+      "dad-1": { src: "assets/images/book-dad-1.jpg", alt: "داد بی‌داد جلد ۱", altFr: "Dad Bidad, tome premier" },
+      "dad-2": { src: "assets/images/book-dad-2.jpg", alt: "داد بی‌داد جلد ۲", altFr: "Dad Bidad, tome second" },
+      "ramin": { src: "assets/images/book-ramin.jpg", alt: "قصه‌ی رامین", altFr: "L'histoire de Ramin" },
+      "yadha": { src: "assets/images/book-yadha.jpg", alt: "یادها", altFr: "Yadhâ" },
     };
-
-    function getParam(name) {
-      return new URLSearchParams(window.location.search).get(name);
-    }
 
     function buildMeta(items) {
       return items.map(function(item) {
@@ -210,49 +177,69 @@
       }).join('');
     }
 
-    function buildOtherBooks(ids) {
+    function buildOtherBooks(ids, isFr) {
       return ids.map(function(id) {
         var c = ALL_COVERS[id];
         if (!c) return '';
-        return '<article class="book-card"><a href="book-' + id + '.html"><img src="' + c.src + '" alt="' + c.alt + '" /></a></article>';
+        var alt = isFr ? c.altFr : c.alt;
+        return '<article class="book-card"><a href="book-' + id + '.html"><img src="' + c.src + '" alt="' + alt + '" /></a></article>';
       }).join('');
     }
 
     function renderBook() {
       var id = 'ramin';
       var book = BOOKS[id] || BOOKS['dad-1'];
+      var isFr = document.documentElement.getAttribute('data-lang') === 'fr';
 
-      document.title = book.title + ' — ویدا حاجبی';
+      var title    = isFr ? book.titleFr    : book.title;
+      var coverAlt = isFr ? book.coverAltFr : book.coverAlt;
+      var meta     = isFr ? book.metaFr     : book.meta;
+      var content  = isFr ? book.contentFr  : book.content;
+      var dl       = isFr ? 'Télécharger le livre' : 'دانلود کتاب';
+      var other    = isFr ? 'Autres livres'        : 'دیگر کتاب‌ها';
+
+      document.title = title + (isFr ? ' — Vida Hajebi' : ' — ویدا حاجبی');
 
       var page = document.getElementById('bookPage');
       page.innerHTML =
         '<section class="book-hero section">' +
           '<div class="container book-hero-grid">' +
             '<figure class="book-hero-cover">' +
-              '<img src="' + book.cover + '" alt="' + book.coverAlt + '" />' +
+              '<img src="' + book.cover + '" alt="' + coverAlt + '" />' +
             '</figure>' +
             '<div class="book-hero-text">' +
-              '<h1 class="book-title">' + book.title + '</h1>' +
-              '<dl class="book-meta">' + buildMeta(book.meta) + '</dl>' +
+              '<h1 class="book-title">' + title + '</h1>' +
+              '<dl class="book-meta">' + buildMeta(meta) + '</dl>' +
               '<div class="book-actions">' +
-                (book.pdf ? '<a href="' + book.pdf + '" target="_blank" rel="noopener" class="btn-buy">دانلود کتاب</a>' : '') +
+                (book.pdf ? '<a href="' + book.pdf + '" target="_blank" rel="noopener" class="btn-buy">' + dl + '</a>' : '') +
               '</div>' +
             '</div>' +
           '</div>' +
         '</section>' +
         '<section class="book-content section">' +
-          '<div class="container book-content-inner">' + book.content + '</div>' +
+          '<div class="container book-content-inner">' + content + '</div>' +
         '</section>' +
         '<section class="section other-books">' +
           '<div class="container">' +
-            '<h2 class="section-title">دیگر کتاب‌ها</h2>' +
-            '<div class="books-grid">' + buildOtherBooks(book.others) + '</div>' +
+            '<h2 class="section-title">' + other + '</h2>' +
+            '<div class="books-grid">' + buildOtherBooks(book.others, isFr) + '</div>' +
           '</div>' +
         '</section>';
     }
 
     renderBook();
+    new MutationObserver(renderBook).observe(
+      document.documentElement, { attributes: true, attributeFilter: ['data-lang'] }
+    );
   })();
   </script>
+
+  <!-- Language toggle button -->
+  <button class="btn-lang" id="langToggle" aria-label="Changer la langue / تغییر زبان">
+    <span class="btn-lang-flag lang-fa">🇫🇷</span>
+    <span class="btn-lang-flag lang-fr">🇮🇷</span>
+    <span class="lang-fa">FR</span>
+    <span class="lang-fr" dir="ltr">FA</span>
+  </button>
 </body>
 </html>
