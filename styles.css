@@ -1366,6 +1366,11 @@ body.menu-open { overflow: hidden; }
 /* Section titles + body text align left in LTR */
 [dir="ltr"] .section-title { text-align: left; }
 [dir="ltr"] .section-paragraph { text-align: left; }
+
+/* Interviews & videos: left-align titles, meta and body in LTR */
+[dir="ltr"] .interview summary { text-align: left; }
+[dir="ltr"] .iv-title { text-align: left; }
+[dir="ltr"] .iv-body { text-align: left; }
 [dir="ltr"] .bio-body,
 [dir="ltr"] .bio-body-inner p {
   text-align: left;
