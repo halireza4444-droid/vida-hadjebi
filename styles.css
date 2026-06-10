@@ -1338,6 +1338,14 @@ body.menu-open { overflow: hidden; }
 /* Flip arrow icons to point right in LTR */
 [dir="ltr"] .btn-icon { transform: scaleX(-1); }
 
+/* Buttons in French: Inter Medium 16px per Figma */
+[dir="ltr"] .btn,
+[dir="ltr"] .btn .lang-fr {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
 /* Hero: image LEFT, text RIGHT, left-aligned per Figma (Inter 16/28, weight 500) */
 [dir="ltr"] .hero-text { align-items: flex-start; text-align: left; }
 [dir="ltr"] .hero-bio {
