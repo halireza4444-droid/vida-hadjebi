@@ -178,8 +178,11 @@ body {
   height: auto;
   display: block;
 }
-/* Latin wordmark logo (French) — wider aspect ratio than the Nastaliq mark */
-.nav-logo .nav-logo-img.lang-fr { width: 150px; }
+/* Logo language switch — needs higher specificity than `.nav-logo img { display:block }` */
+.nav-logo .nav-logo-img.lang-fr { display: none; width: 150px; }
+.nav-logo .nav-logo-img.lang-fa { display: block; }
+[data-lang="fr"] .nav-logo .nav-logo-img.lang-fa { display: none; }
+[data-lang="fr"] .nav-logo .nav-logo-img.lang-fr { display: block; }
 
 .nav-items {
   display: flex;
