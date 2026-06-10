@@ -1323,18 +1323,45 @@ body.menu-open { overflow: hidden; }
 [data-lang="fr"] .lang-fr { display: block; }
 
 /* ── LTR (French) overrides ──────────────────────────────── */
+/* French uses Inter (Latin font) per Figma spec */
+[data-lang="fr"] .lang-fr,
+[dir="ltr"] .hero-bio.lang-fr,
+[dir="ltr"] .section-paragraph.lang-fr,
+[dir="ltr"] .bio-body .lang-fr,
+[dir="ltr"] .nav-items .lang-fr,
+[dir="ltr"] .section-title .lang-fr,
+[dir="ltr"] .iv-title .lang-fr,
+[dir="ltr"] .btn .lang-fr {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
 /* Flip arrow icons to point right in LTR */
 [dir="ltr"] .btn-icon { transform: scaleX(-1); }
 
-/* Ensure hero text aligns left in LTR */
+/* Hero: image LEFT, text RIGHT, left-aligned per Figma (Inter 16/28, weight 500) */
 [dir="ltr"] .hero-text { align-items: flex-start; text-align: left; }
-[dir="ltr"] .hero-bio { text-align: left; }
+[dir="ltr"] .hero-bio {
+  text-align: left;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #000;
+}
 
-/* Ensure section titles align left in LTR */
+/* Section titles + body text align left in LTR */
 [dir="ltr"] .section-title { text-align: left; }
 [dir="ltr"] .section-paragraph { text-align: left; }
-[dir="ltr"] .bio-body { text-align: left; }
-[dir="ltr"] .bio-quote { border-inline-start: 4px solid var(--accent); border-inline-end: none; }
+[dir="ltr"] .bio-body,
+[dir="ltr"] .bio-body-inner p {
+  text-align: left;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+[dir="ltr"] .bio-quote {
+  border-inline-start: 4px solid var(--accent);
+  border-inline-end: none;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
 
 .btn-lang {
   position: fixed;
