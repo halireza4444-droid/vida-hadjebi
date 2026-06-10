@@ -233,6 +233,8 @@ if (videoModal && videoPlayer) {
 
 const applyLang = (lang) => {
   document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.setAttribute('dir', lang === 'fr' ? 'ltr' : 'rtl');
+  document.documentElement.setAttribute('lang', lang === 'fr' ? 'fr' : 'fa');
   localStorage.setItem('vida-lang', lang);
 };
 
