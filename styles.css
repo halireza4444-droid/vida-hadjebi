@@ -1335,6 +1335,9 @@ body.menu-open { overflow: hidden; }
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
+/* Mirror pill padding for LTR: more on the text (left) side, less on the arrow (right) side */
+[dir="ltr"] .btn-pill { padding: 8px 16px 8px 24px; }
+
 /* Flip arrow icons to point right in LTR */
 [dir="ltr"] .btn-icon { transform: scaleX(-1); }
 /* Keep the flip on hover (base hover rule resets it) and nudge to the right.
