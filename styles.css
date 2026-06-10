@@ -389,6 +389,10 @@ body.menu-open { overflow: hidden; }
   gap: 64px;
 }
 
+/* Image always on LEFT, text always on RIGHT */
+[dir="rtl"] .hero-portrait { order: 2; }
+[dir="rtl"] .hero-text     { order: 1; }
+
 .hero-portrait {
   margin: 0;
   flex: 0 0 auto;
@@ -968,7 +972,8 @@ body.menu-open { overflow: hidden; }
   .hero { padding-top: 76px; padding-bottom: 56px; }
 
   .hero-grid { flex-direction: column; gap: 28px; align-items: stretch; }
-  .hero-portrait { width: 100%; max-width: 360px; margin-inline: auto; order: 0; }
+  .hero-portrait { width: 100%; max-width: 360px; margin-inline: auto; order: 0 !important; }
+  .hero-text { order: 0 !important; }
   .hero-text { max-width: none; align-items: stretch; gap: 24px; }
   .hero-text .btn { align-self: flex-start; }    /* button on visual LEFT in RTL */
 
