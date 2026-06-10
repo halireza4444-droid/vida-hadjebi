@@ -230,12 +230,7 @@ if (videoModal && videoPlayer) {
 }
 
 // ── Language switching ────────────────────────────────────────────────────────
-// French is gated to local/preview only for now — live visitors always see Persian.
-// Enable French when on localhost, or when the URL contains ?fr (preview link).
-
-const FR_ENABLED =
-  ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname) ||
-  new URLSearchParams(location.search).has('fr');
+// French is live: auto-detect France, manual toggle, saved preference.
 
 const applyLang = (lang) => {
   document.documentElement.setAttribute('data-lang', lang);
@@ -247,13 +242,6 @@ const applyLang = (lang) => {
 const langToggleBtn = document.getElementById('langToggle');
 
 const initLang = async () => {
-  // French disabled in production → force Persian, hide the toggle button.
-  if (!FR_ENABLED) {
-    applyLang('fa');
-    langToggleBtn?.style.setProperty('display', 'none');
-    return;
-  }
-
   // 0. Explicit ?fr in the URL → show French directly (preview links)
   if (new URLSearchParams(location.search).has('fr')) { applyLang('fr'); return; }
 
@@ -274,13 +262,11 @@ const initLang = async () => {
 
 initLang();
 
-// Toggle button (only active when French is enabled)
-if (FR_ENABLED) {
-  langToggleBtn?.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-lang') || 'fa';
-    applyLang(current === 'fa' ? 'fr' : 'fa');
-  });
-}
+// Toggle button
+langToggleBtn?.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-lang') || 'fa';
+  applyLang(current === 'fa' ? 'fr' : 'fa');
+});
 
 // ── Google Analytics event tracking ──────────────────────────────────────────
 
