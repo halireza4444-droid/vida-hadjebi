@@ -1046,6 +1046,8 @@ body.menu-open { overflow: hidden; }
 
   /* Books: 2 columns on mobile (Figma Group 4 layout) */
   .books-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  /* "Other books" also 2 columns → 4 covers in 2 rows on mobile */
+  .other-books .books-grid { grid-template-columns: repeat(2, 1fr); }
   .book-card img { border-radius: 8px; }
 
   /* Translations: also 2 columns on mobile */
