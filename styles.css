@@ -1371,6 +1371,15 @@ body.menu-open { overflow: hidden; }
 [dir="ltr"] .section-title { text-align: left; }
 [dir="ltr"] .section-paragraph { text-align: left; }
 
+/* Biography hero (French): hide Persian title, center the portrait */
+[dir="ltr"] .bio-title-block { display: none; }
+[dir="ltr"] .bio-hero { justify-content: center; }
+[dir="ltr"] .bio-portrait-hero {
+  flex: 0 0 auto;
+  width: min(640px, 90%);
+  margin: 0 auto;
+}
+
 /* Interviews & videos: left-align titles, meta and body in LTR */
 [dir="ltr"] .interview summary { text-align: left; }
 [dir="ltr"] .iv-title { text-align: left; }
