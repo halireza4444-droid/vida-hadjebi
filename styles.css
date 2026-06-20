@@ -1451,6 +1451,9 @@ body.menu-open { overflow: hidden; }
 }
 .btn-lang .btn-lang-flag { font-size: 17px; line-height: 1; }
 .btn-lang .btn-lang-flag .flag-img { width: 22px; height: auto; display: block; }
+/* Label fonts: French in Inter, Persian "فارسی" in the site's Persian font */
+.btn-lang .lang-fa { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+[data-lang="fr"] .btn-lang .lang-fr { font-family: var(--font-body); }
 /* Only the active language's flag is shown, both aligned identically */
 [data-lang="fa"] .btn-lang .btn-lang-flag.lang-fr,
 [data-lang="fr"] .btn-lang .btn-lang-flag.lang-fa { display: none; }
