@@ -1,0 +1,11 @@
+<svg width="28" height="20" viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drapeau de la France">
+  <defs>
+    <clipPath id="frRound"><rect width="28" height="20" rx="3"/></clipPath>
+  </defs>
+  <g clip-path="url(#frRound)">
+    <rect width="28" height="20" fill="#ffffff"/>
+    <rect width="9.333" height="20" x="0"      fill="#002395"/>
+    <rect width="9.333" height="20" x="18.667" fill="#ed2939"/>
+  </g>
+  <rect width="28" height="20" rx="3" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="1"/>
+</svg>
