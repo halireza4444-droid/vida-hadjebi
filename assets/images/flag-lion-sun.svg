@@ -1,0 +1,52 @@
+<svg width="28" height="20" viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="پرچم شیر و خورشید">
+  <defs>
+    <clipPath id="lsRound"><rect width="28" height="20" rx="3"/></clipPath>
+  </defs>
+  <g clip-path="url(#lsRound)">
+    <!-- Tricolour bands -->
+    <rect width="28" height="20" fill="#ffffff"/>
+    <rect width="28" height="6.7" y="0"    fill="#239f40"/>
+    <rect width="28" height="6.7" y="13.3" fill="#da0000"/>
+
+    <!-- Sun with rays -->
+    <g fill="#9c6d1e" transform="translate(14,10)">
+      <g id="ray"><path d="M0,-5 L0.5,-3.5 L-0.5,-3.5 Z"/></g>
+      <use href="#ray" transform="rotate(30)"/>
+      <use href="#ray" transform="rotate(60)"/>
+      <use href="#ray" transform="rotate(90)"/>
+      <use href="#ray" transform="rotate(120)"/>
+      <use href="#ray" transform="rotate(150)"/>
+      <use href="#ray" transform="rotate(180)"/>
+      <use href="#ray" transform="rotate(210)"/>
+      <use href="#ray" transform="rotate(240)"/>
+      <use href="#ray" transform="rotate(270)"/>
+      <use href="#ray" transform="rotate(300)"/>
+      <use href="#ray" transform="rotate(330)"/>
+    </g>
+    <circle cx="14" cy="10" r="3.4" fill="#c28e33"/>
+
+    <!-- Lion & sword in profile (facing right), composed from simple shapes -->
+    <g fill="#6f4d14">
+      <!-- curved scimitar above the back -->
+      <path d="M15.4,8.6 q1.4,-0.5 2.2,-1.9 q-0.3,1.5 -1.5,2.4 z"/>
+      <rect x="14.9" y="8.4" width="1.4" height="0.55" rx="0.27" transform="rotate(-25 15.6 8.7)"/>
+      <!-- body -->
+      <ellipse cx="13.4" cy="10.7" rx="2.0" ry="1.15"/>
+      <!-- haunch -->
+      <circle cx="12.0" cy="10.6" r="1.25"/>
+      <!-- chest/head -->
+      <circle cx="15.0" cy="10.1" r="1.05"/>
+      <!-- muzzle -->
+      <path d="M15.8,9.7 q0.9,-0.1 1.2,0.45 q-0.5,0.35 -1.15,0.2 z"/>
+      <!-- front legs -->
+      <rect x="14.7" y="11.2" width="0.5" height="1.5" rx="0.25"/>
+      <rect x="15.4" y="11.3" width="0.5" height="1.4" rx="0.25"/>
+      <!-- back legs -->
+      <rect x="11.5" y="11.3" width="0.5" height="1.4" rx="0.25"/>
+      <rect x="12.4" y="11.4" width="0.5" height="1.3" rx="0.25"/>
+      <!-- tail curving up -->
+      <path d="M10.8,10.3 q-1.3,-0.4 -1.5,-1.8 q0.0,1.1 0.9,1.7 q0.35,0.25 0.6,0.5 z"/>
+    </g>
+  </g>
+  <rect width="28" height="20" rx="3" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="1"/>
+</svg>
