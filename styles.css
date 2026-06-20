@@ -1330,6 +1330,9 @@ body.menu-open { overflow: hidden; }
 [data-lang="fr"] .lang-fr { display: block; }
 
 /* ── LTR (French) overrides ──────────────────────────────── */
+/* Taller header in French (+16px → +8px top & bottom) */
+[dir="ltr"] .main-nav { padding-top: 24px; padding-bottom: 24px; }
+
 /* French uses Inter (Latin font) per Figma spec */
 [data-lang="fr"] .lang-fr,
 [dir="ltr"] .hero-bio.lang-fr,
