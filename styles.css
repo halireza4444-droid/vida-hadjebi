@@ -1446,5 +1446,9 @@ body.menu-open { overflow: hidden; }
   transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(0,0,0,0.13);
 }
-.btn-lang .btn-lang-flag { font-size: 17px; line-height: 1; display: inline-flex; align-items: center; }
+.btn-lang .btn-lang-flag { font-size: 17px; line-height: 1; }
 .btn-lang .btn-lang-flag .flag-img { width: 22px; height: auto; display: block; border-radius: 2px; }
+/* Only the active language's flag is shown (override generic display rules) */
+[data-lang="fa"] .btn-lang .btn-lang-flag.lang-fr { display: none; }
+[data-lang="fr"] .btn-lang .btn-lang-flag.lang-fa { display: none; }
+[data-lang="fr"] .btn-lang .btn-lang-flag.lang-fr { display: inline-flex; align-items: center; }
